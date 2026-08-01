@@ -1,0 +1,115 @@
+/* Adaptive glowing presentation pointer, based on the reference presentation. */
+:root {
+  --pointer-rgb: 255, 112, 67;
+  --pointer-core-size: 10px;
+  --pointer-core-size-hover: 14px;
+  --pointer-core-size-pressed: 8px;
+  --pointer-core-size-text: 8px;
+  --pointer-glow-size: 68px;
+  --pointer-glow-size-pressed: 54px;
+  --pointer-glow-size-text: 40px;
+}
+
+.presentation-pointer,
+.presentation-pointer-glow {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.presentation-pointer-ready,
+  html.presentation-pointer-ready body,
+  html.presentation-pointer-ready body * {
+    cursor: none !important;
+  }
+
+  .presentation-pointer,
+  .presentation-pointer-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    pointer-events: none;
+    opacity: 0;
+    border-radius: 50%;
+    will-change: transform, opacity, width, height, filter;
+    transition: opacity 130ms ease, width 130ms ease, height 130ms ease, filter 150ms ease;
+  }
+
+  .presentation-pointer {
+    z-index: 2147483647;
+    width: var(--pointer-core-size);
+    height: var(--pointer-core-size);
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,.98) 0%,
+      rgba(255,255,255,.92) 14%,
+      rgba(var(--pointer-rgb),.86) 40%,
+      rgba(var(--pointer-rgb),.48) 62%,
+      rgba(var(--pointer-rgb),.12) 82%,
+      rgba(var(--pointer-rgb),0) 100%
+    );
+    filter:
+      drop-shadow(0 0 2px rgba(var(--pointer-rgb),.82))
+      drop-shadow(0 0 6px rgba(var(--pointer-rgb),.42))
+      drop-shadow(0 0 10px rgba(var(--pointer-rgb),.14));
+  }
+
+  .presentation-pointer-glow {
+    z-index: 2147483646;
+    width: var(--pointer-glow-size);
+    height: var(--pointer-glow-size);
+    background: radial-gradient(
+      circle,
+      rgba(var(--pointer-rgb),.065) 0%,
+      rgba(var(--pointer-rgb),.036) 24%,
+      rgba(var(--pointer-rgb),.014) 52%,
+      rgba(var(--pointer-rgb),0) 82%
+    );
+    filter: blur(10px);
+    mix-blend-mode: screen;
+  }
+
+  .presentation-pointer.is-visible,
+  .presentation-pointer-glow.is-visible { opacity: 1; }
+  .presentation-pointer-glow.is-visible { opacity: .54; }
+
+  .presentation-pointer.is-interactive {
+    width: var(--pointer-core-size-hover);
+    height: var(--pointer-core-size-hover);
+    filter:
+      drop-shadow(0 0 3px rgba(var(--pointer-rgb),.95))
+      drop-shadow(0 0 8px rgba(var(--pointer-rgb),.50))
+      drop-shadow(0 0 13px rgba(var(--pointer-rgb),.18));
+  }
+
+  .presentation-pointer.is-pressed {
+    width: var(--pointer-core-size-pressed);
+    height: var(--pointer-core-size-pressed);
+  }
+
+  .presentation-pointer-glow.is-pressed {
+    width: var(--pointer-glow-size-pressed);
+    height: var(--pointer-glow-size-pressed);
+    opacity: .64;
+  }
+
+  .presentation-pointer.is-over-text {
+    width: var(--pointer-core-size-text);
+    height: var(--pointer-core-size-text);
+    filter:
+      drop-shadow(0 0 2px rgba(var(--pointer-rgb),.58))
+      drop-shadow(0 0 4px rgba(var(--pointer-rgb),.24));
+  }
+
+  .presentation-pointer-glow.is-over-text {
+    width: var(--pointer-glow-size-text);
+    height: var(--pointer-glow-size-text);
+    opacity: .22 !important;
+    filter: blur(9px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presentation-pointer,
+  .presentation-pointer-glow { transition: opacity 100ms linear !important; }
+}

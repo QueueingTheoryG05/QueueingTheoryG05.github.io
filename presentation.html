@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#07111c" name="theme-color"/>
+<meta content="Queueing Theory presentation based on Optimizing Matching Time Intervals for Ride-Hailing Services Using Reinforcement Learning." name="description"/>
+<title>Ride-Hailing Matching Intervals | Queueing Theory</title>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="reference-base.css" rel="stylesheet"/>
+<link href="reference-mobile.css" rel="stylesheet"/>
+<link href="queue.css" rel="stylesheet"/>
+<link href="presentation-cursor.css" rel="stylesheet"/>
+<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true,
+        packages: {'[+]': ['ams']}
+      },
+      svg: { fontCache: 'global' },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+    };
+  </script>
+<script defer="" src="vendor/mathjax/tex-svg.js"></script>
+</head>
+<body data-chapter="opening">
+<div class="presentation-shell">
+<header aria-label="Presentation header" class="top-frame">
+<a aria-label="Go to title slide" class="university-lockup" data-go="0" href="#slide-1">
+<span class="logo-slot"><img alt="Queueing Theory mark" src="logo.svg"/></span>
+<span class="lockup-copy">
+<strong>Queueing Theory</strong>
+<small>Academic research presentation</small>
+</span>
+</a>
+<div aria-live="polite" class="chapter-status">
+<span id="chapter-index">Opening</span>
+<strong id="chapter-title">Matching Intervals in Ride-Hailing</strong>
+</div>
+<a class="paper-link" href="paper.pdf" rel="noopener" target="_blank">Paper <span aria-hidden="true">↗</span></a>
+<div aria-hidden="true" class="top-progress"><span id="top-progress-bar"></span></div>
+</header>
+<main aria-label="Slide presentation" class="slide-stage" id="presentation">
+<section aria-hidden="false" class="slide is-active theme-opening" data-chapter="Opening" data-title="Matching Intervals in Ride-Hailing" id="slide-1">
+<div class="hero-slide hero-slide-centered">
+<div class="hero-copy">
+<p class="eyebrow"><span>Transportation Research Part C · 2021</span></p>
+<h1 class="display-title">Optimizing Matching Time Intervals for<br/><em>Ride-Hailing Services</em></h1>
+<p class="lead hero-subtitle">A queueing-theory interpretation of delayed matching controlled by reinforcement learning</p>
+<div class="paper-authors">Guoyang Qin · Qi Luo · Yafeng Yin · Jian Sun · Jieping Ye</div>
+<div class="presenter-group">
+<div class="presenter-block">
+<p>Presented by</p>
+<div class="presenter-names"><strong>Ghazal Zolfi Moselo</strong><i aria-hidden="true">·</i><strong>MohammadMahdi Montazeri Hedesh</strong></div>
+</div>
+<div class="title-meta-row">
+<div><span>Course</span><strong>Queueing Theory</strong></div>
+<div><span>Course Instructor</span><strong>Maryam Radman</strong></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-opening" data-chapter="Opening" data-title="Presentation Roadmap" id="slide-2">
+<div class="slide-heading">
+<p class="eyebrow type-eyebrow">Presentation roadmap</p>
+<h2 class="type-slide-title">From a Queueing Trade-Off to a Learned Matching Policy</h2>
+</div>
+<div class="slide-content">
+<div class="roadmap-grid six-roadmap">
+<article data-go="2" role="button" tabindex="0"><span class="type-card-label">01</span><h3 class="type-card-title">Operational Problem</h3><p class="type-body-copy">Instantaneous versus delayed passenger-driver matching.</p></article>
+<article data-go="5" role="button" tabindex="0"><span class="type-card-label">02</span><h3 class="type-card-title">Queueing Model</h3><p class="type-body-copy">Double-ended queues, state transitions, patience, and waiting costs.</p></article>
+<article data-go="11" role="button" tabindex="0"><span class="type-card-label">03</span><h3 class="type-card-title">Simulator</h3><p class="type-body-copy">Spatial grids, Hold/Match decisions, and bipartite assignment.</p></article>
+<article data-go="14" role="button" tabindex="0"><span class="type-card-label">04</span><h3 class="type-card-title">RL Control</h3><p class="type-body-copy">POMDP, Actor-Critic, ACER, network flow, and reward design.</p></article>
+<article data-go="22" role="button" tabindex="0"><span class="type-card-label">05</span><h3 class="type-card-title">Evidence</h3><p class="type-body-copy">Shanghai data, experiments, training curves, and wait-time results.</p></article>
+<article data-go="27" role="button" tabindex="0"><span class="type-card-label">06</span><h3 class="type-card-title">Interpretation</h3><p class="type-body-copy">Generalization, learned grid policy, limitations, and conclusions.</p></article>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-problem" data-chapter="Problem" data-title="Instantaneous or Delayed Matching?" id="slide-3">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Practical decision</p>
+<h2 class="type-slide-title">Match Now or Wait for Better Alternatives?</h2>
+</div>
+<div class="slide-content split-figure-layout">
+<div class="figure-card large-figure"><img alt="Instantaneous versus delayed matching illustration from the paper" src="assets/fig1_instant_delayed.png"/></div>
+<div class="stacked-insights">
+<article><span class="type-card-label">Match now</span><h3 class="type-card-title">Low matching delay</h3><p class="type-body-copy">Passengers are assigned immediately, but the available driver may be far away.</p></article>
+<article class="accent-card"><span class="type-card-label">Delay briefly</span><h3 class="type-card-title">Thicker matching pool</h3><p class="type-body-copy">More passenger-driver combinations can reduce pickup distance and pickup waiting time.</p></article>
+<div class="decision-banner type-banner">The platform controls <strong class="type-banner">when</strong> to release buffered participants into the assignment problem.</div>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 1.</p>
+</section>
+<section aria-hidden="true" class="slide theme-problem" data-chapter="Problem" data-title="Objective and Contributions" id="slide-4">
+<div class="slide-heading">
+<p class="eyebrow type-eyebrow">Research objective</p>
+<h2 class="type-slide-title">Select the Matching Interval to Minimize Passenger Wait</h2>
+</div>
+<div class="slide-content">
+<div class="objective-layout queue-objective-layout">
+<div class="objective-box">
+<small class="type-card-label">Control variable</small>
+<strong class="type-card-title">Hold or Match</strong>
+<p class="type-body-copy">The decision is taken repeatedly and can differ across spatial grids.</p>
+</div>
+<div class="contribution-grid contribution-three">
+<article><span class="type-card-label">01</span><h3 class="type-card-title">Queue-aware reward</h3><p class="type-body-copy">Decomposes delayed waiting costs into informative step-wise signals.</p></article>
+<article><span class="type-card-label">02</span><h3 class="type-card-title">Spatial control</h3><p class="type-body-copy">Balances representation detail against the action-space burden of asynchronous matching.</p></article>
+<article><span class="type-card-label">03</span><h3 class="type-card-title">Operational insight</h3><p class="type-body-copy">Identifies when controlled delay is useful and when instantaneous matching dominates.</p></article>
+</div>
+</div>
+<div class="one-line-claim type-banner"><span class="type-card-label">Central emphasis</span><strong class="type-banner">Queue dynamics determine the trade-off; reinforcement learning supplies the adaptive controller.</strong></div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-problem" data-chapter="Problem" data-title="Literature and Research Gap" id="slide-5">
+<div class="slide-heading">
+<p class="eyebrow type-eyebrow">Literature review and gap</p>
+<h2 class="type-slide-title">Analytical Structure Meets Data-Driven Control</h2>
+</div>
+<div class="slide-content literature-layout">
+<div class="method-columns">
+<article><small class="type-card-label">Queueing and analytical models</small><h3 class="type-card-title">Known dynamics and stylized assumptions</h3><p class="type-body-copy">Provide interpretable optimality results under stationary arrivals, parametric behavior, or simplified abandonment rules.</p></article>
+<article><small class="type-card-label">MDP and optimization models</small><h3 class="type-card-title">Sequential control with explicit state transitions</h3><p class="type-body-copy">Capture intertemporal effects, but exact dynamic programs become intractable in large spatial systems.</p></article>
+<article><small class="type-card-label">Reinforcement learning</small><h3 class="type-card-title">Nonparametric adaptive control</h3><p class="type-body-copy">Learns from sampled transitions, yet must cope with high-dimensional state, delayed rewards, and correlated experience.</p></article>
+</div>
+<div class="gap-banner">
+<div><span class="type-card-label">Reality</span><strong class="type-banner">Ride-hailing demand and supply are spatial, non-stationary, and affected by previous matching decisions.</strong></div>
+<div><span class="type-card-label">Research gap</span><strong class="type-banner">A practical policy must learn adaptive matching delays without assuming known transition dynamics.</strong></div>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-model" data-chapter="Queueing Model" data-title="System as a Queue" id="slide-6">
+<div class="slide-heading">
+<p class="eyebrow type-eyebrow">Queueing characterization</p>
+<h2 class="type-slide-title">A Dynamic Spatial Double-Ended Multi-Server Queue</h2>
+</div>
+<div class="slide-content">
+<div class="queue-system-flow">
+<article class="arrival-node"><span class="type-card-label">Passenger arrivals</span><strong class="type-data-value">\(\lambda_P\)</strong><p class="type-body-copy">Trip requests join a waiting buffer.</p></article>
+<i>→</i>
+<article class="buffer-node"><span class="type-card-label">Two-sided buffer</span><strong class="type-data-value">\(N_P,\,N_D\)</strong><p class="type-body-copy">Unmatched passengers and idle drivers accumulate and carry over.</p></article>
+<i>→</i>
+<article class="matching-node accent-card"><span class="type-card-label">Batch matching</span><strong class="type-data-value">Hold / Match</strong><p class="type-body-copy">Each grid either retains the queue or releases it to global assignment.</p></article>
+<i>→</i>
+<article class="service-node"><span class="type-card-label">Vehicle servers</span><strong class="type-data-value">\(\lambda_D\)</strong><p class="type-body-copy">Matched drivers become occupied; unmatched drivers remain idle.</p></article>
+</div>
+<div class="queue-characteristics">
+<span class="type-card-label">Double-ended queue</span><span class="type-card-label">Dynamic server availability</span><span class="type-card-label">Spatial dependence</span><span class="type-card-label">Carryover state</span><span class="type-card-label">Balking and reneging</span><span class="type-card-label">Batch service epochs</span>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-model" data-chapter="Queueing Model" data-title="Analytical Assumptions" id="slide-7">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Deque approximation</p>
+<h2 class="type-slide-title">Assumptions Used to Expose the Matching-Delay Trade-Off</h2>
+</div>
+<div class="slide-content">
+<div class="assumption-grid">
+<article><b>01</b><h3 class="type-card-title">Independent Poisson arrivals</h3><p class="type-body-copy">Passengers and idle drivers arrive with stationary rates \(\lambda_P\) and \(\lambda_D\).</p></article>
+<article><b>02</b><h3 class="type-card-title">Uniform spatial locations</h3><p class="type-body-copy">Arrivals are uniformly distributed in a square area of size \(d\times d\).</p></article>
+<article><b>03</b><h3 class="type-card-title">Periodic matching</h3><p class="type-body-copy">Bipartite matching is executed at \(t\in\{\Delta t,2\Delta t,3\Delta t,\ldots\}\).</p></article>
+<article><b>04</b><h3 class="type-card-title">Carryover of unmatched participants</h3><p class="type-body-copy">Unmatched passengers and drivers return to the buffer for later intervals.</p></article>
+<article><b>05</b><h3 class="type-card-title">Patience threshold</h3><p class="type-body-copy">Participants may balk or renege when expected waiting exceeds \(t_{\max}\).</p></article>
+<article><b>06</b><h3 class="type-card-title">Pickup-time estimate</h3><p class="type-body-copy">Pickup time equals Manhattan distance divided by average speed \(v\).</p></article>
+</div>
+<div class="note-strip type-banner"><strong class="type-banner">Stationary arrivals:</strong> optimize a fixed \(\Delta t\). <strong class="type-banner">Non-stationary arrivals:</strong> learn an adaptive policy.</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-model" data-chapter="Queueing Model" data-title="Hold and Match Transitions" id="slide-8">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Queue-state evolution</p>
+<h2 class="type-slide-title">Hold and Match Decisions Update Both Queues</h2>
+</div>
+<div class="slide-content transition-layout">
+<div class="transition-claim type-banner">\[
+          \text{New queue population}
+          =\text{Previous queue population}
+          +\text{New arrivals}
+          -\text{Successful matches}.
+        \]</div>
+<div class="transition-columns">
+<article>
+<span class="action-label hold-label type-card-label">Hold: \(i\in S_0\)</span>
+            \[
+            \begin{aligned}
+            N_P(i,t)&amp;=N_P(i,t-1)+n_P(i,t-1:t),\\
+            N_D(i,t)&amp;=N_D(i,t-1)+n_D(i,t-1:t).
+            \end{aligned}
+            \]
+            <p class="type-body-copy">No pair is removed; both sides remain available for a later matching epoch.</p>
+</article>
+<article class="accent-card">
+<span class="action-label match-label type-card-label">Match: \(i\in S_1\)</span>
+            \[
+            \begin{aligned}
+            N_M(i,t)&amp;=\min\{N_P(i,t^-),N_D(i,t^-)\},\\
+            N_P(i,t)&amp;=N_P(i,t^-)-N_M(i,t),\\
+            N_D(i,t)&amp;=N_D(i,t^-)-N_M(i,t).
+            \end{aligned}
+            \]
+            <p class="type-body-copy">New arrivals are added first; successful matches then leave both queues.</p>
+</article>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-model" data-chapter="Queueing Model" data-title="Queueing-Theory Foundations" id="slide-9">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Connection to course material</p>
+<h2 class="type-slide-title">Queueing-Theory Foundations of the Model</h2>
+</div>
+<div class="slide-content">
+<div class="foundation-grid">
+<article><b class="type-card-title">Poisson arrivals</b><span class="type-body-copy">Independent arrival streams \(\lambda_P\) and \(\lambda_D\).</span></article>
+<article><b class="type-card-title">Double-ended queue</b><span class="type-body-copy">Demand and supply wait until compatible pairs are formed.</span></article>
+<article><b class="type-card-title">Dynamic multi-server capacity</b><span class="type-body-copy">Idle drivers act as servers whose availability evolves over time.</span></article>
+<article><b class="type-card-title">Batch or delayed service</b><span class="type-body-copy">Service is triggered at selected matching epochs rather than continuously.</span></article>
+<article><b class="type-card-title">Queue-state transitions</b><span class="type-body-copy">Arrivals, carryover, and matches determine the next state.</span></article>
+<article><b class="type-card-title">Two waiting components</b><span class="type-body-copy">Matching wait plus pickup wait define passenger delay.</span></article>
+<article><b class="type-card-title">Balking and reneging</b><span class="type-body-copy">Finite patience can remove customers before service.</span></article>
+<article><b class="type-card-title">Utilization and balance</b><span class="type-body-copy">The supply-demand ratio shapes congestion and the value of delay.</span></article>
+<article><b class="type-card-title">Stationarity</b><span class="type-body-copy">Fixed \(\Delta t\) is meaningful under stationary conditions; adaptive control is needed otherwise.</span></article>
+<article><b class="type-card-title">MDP and POMDP extension</b><span class="type-body-copy">Queue state becomes a controlled Markov state, then a partially observed state after aggregation.</span></article>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-model" data-chapter="Queueing Model" data-title="Central Waiting-Time Trade-Off" id="slide-10">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Central analytical result</p>
+<h2 class="type-slide-title">Delay Raises Matching Wait, but Can Lower Pickup Wait</h2>
+</div>
+<div class="slide-content tradeoff-layout">
+<div class="tradeoff-formulas">
+<div class="formula-card red-formula">\[\Delta t\uparrow\quad\Rightarrow\quad W_{\mathrm{matching}}\uparrow\]</div>
+<div class="formula-card green-formula">\[\Delta t\uparrow\quad\Rightarrow\quad W_{\mathrm{pickup}}\downarrow\]</div>
+<div class="formula-card total-formula">\[W_{\mathrm{total}}=W_{\mathrm{matching}}+W_{\mathrm{pickup}}\]</div>
+<p class="type-body-copy">The opposing slopes create a U-shaped total-wait curve and an optimal matching interval.</p>
+</div>
+<div class="figure-card"><img alt="Matching, pickup, and total waiting time curves" src="assets/fig2_tradeoff.png"/></div>
+</div>
+<p class="source-note type-caption">Paper Fig. 2.</p>
+</section>
+<section aria-hidden="true" class="slide theme-model" data-chapter="Queueing Model" data-title="Where Is Delay Valuable?" id="slide-11">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Stationary policy surface</p>
+<h2 class="type-slide-title">Longer Delays Are Most Valuable Near Supply-Demand Balance</h2>
+</div>
+<div class="slide-content split-figure-layout contours-layout">
+<div class="figure-card large-figure"><img alt="Contour plots of minimum total wait and optimal interval" src="assets/fig3_contours.png"/></div>
+<div class="stacked-insights">
+<article><span class="type-card-label">Balanced market</span><h3 class="type-card-title">\(\lambda_P\approx\lambda_D\)</h3><p class="type-body-copy">The optimal \(\Delta t\) becomes longer because a thicker pool can improve pair quality.</p></article>
+<article><span class="type-card-label">Severe imbalance</span><h3 class="type-card-title">\(|\lambda_P-\lambda_D|\) is large</h3><p class="type-body-copy">Additional delay adds waiting without producing enough useful alternatives.</p></article>
+<div class="decision-banner type-banner">Core policy intuition: <strong class="type-banner">delay selectively, not universally.</strong></div>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 3.</p>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="Simulator" data-title="Queueing-Based Simulator" id="slide-12">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Learning environment</p>
+<h2 class="type-slide-title">The Simulator Links Queue Dynamics to Reinforcement Learning</h2>
+</div>
+<div class="slide-content split-figure-layout dark-layout">
+<div class="figure-card light-figure large-figure"><img alt="Online ride-hailing simulator workflow" src="assets/fig4_simulator.png"/></div>
+<div class="stacked-insights dark-insights">
+<article><span class="type-card-label">1. Buffer</span><h3 class="type-card-title">Collect passenger requests</h3><p class="type-body-copy">New and unmatched requests remain queued.</p></article>
+<article><span class="type-card-label">2. Action</span><h3 class="type-card-title">Retain or release</h3><p class="type-body-copy">Hold preserves the batch; Match sends participants to assignment.</p></article>
+<article><span class="type-card-label">3. Assignment</span><h3 class="type-card-title">Minimize pickup time</h3><p class="type-body-copy">Matched requests enter vehicle servers; unmatched requests circulate back.</p></article>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 4.</p>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="Simulator" data-title="Spatial Grid Actions" id="slide-13">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Spatially dependent control</p>
+<h2 class="type-slide-title">Each Grid Chooses Hold or Match</h2>
+</div>
+<div class="slide-content grid-action-layout">
+<div class="figure-card light-figure"><img alt="Grid-based actions and subareas" src="assets/fig5_grid_actions.png"/></div>
+<div class="action-matrix-card">
+<span class="type-card-label">Example action matrix</span>
+<div aria-label="Example Hold Match matrix" class="binary-grid">
+<b class="type-binary-digit">0</b><b class="one type-binary-digit">1</b><b class="type-binary-digit">0</b><b class="type-binary-digit">0</b><b class="one type-binary-digit">1</b><b class="one type-binary-digit">1</b>
+<b class="one type-binary-digit">1</b><b class="type-binary-digit">0</b><b class="one type-binary-digit">1</b><b class="one type-binary-digit">1</b><b class="type-binary-digit">0</b><b class="type-binary-digit">0</b>
+<b class="one type-binary-digit">1</b><b class="type-binary-digit">0</b><b class="one type-binary-digit">1</b><b class="one type-binary-digit">1</b><b class="type-binary-digit">0</b><b class="type-binary-digit">0</b>
+</div>
+<div class="legend-row"><span class="type-card-label"><i class="hold-dot"></i>Hold \((0)\)</span><span class="type-card-label"><i class="match-dot"></i>Match \((1)\)</span></div>
+<p class="type-body-copy">All grids with action \(1\) form subarea \(S_1\) and participate in a global match. Grids with action \(0\) remain in \(S_0\).</p>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 5.</p>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="Simulator" data-title="Second-Stage Assignment" id="slide-14">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Global matching stage</p>
+<h2 class="type-slide-title">Timing First, Minimum-Cost Assignment Second</h2>
+</div>
+<div class="slide-content assignment-layout">
+<div class="objective-box light-math-box">
+<small class="type-card-label">Linear sum assignment problem</small>
+          \[
+          \begin{aligned}
+          \min_{x_{ij}}\quad &amp;\sum_{i=1}^{n}\sum_{j=1}^{n}T_{ij}x_{ij}\\
+          \text{s.t.}\quad &amp;\sum_{j=1}^{n}x_{ij}=1,\qquad
+          \sum_{i=1}^{n}x_{ij}=1,\\
+          &amp;x_{ij}\in\{0,1\}.
+          \end{aligned}
+          \]
+        </div>
+<div class="assignment-cards">
+<article><b class="type-card-title">Edge cost</b><p class="type-body-copy">\(T_{ij}\) is the pickup time from driver \(i\) to passenger \(j\), estimated from Manhattan distance and speed \(v\).</p></article>
+<article><b class="type-card-title">Unequal queue lengths</b><p class="type-body-copy">The cost matrix is padded to \(n=\max(N_D,N_P)\) using a large value \(M\).</p></article>
+<article><b class="type-card-title">Carryover</b><p class="type-body-copy">Unmatched passengers and drivers return to the buffer and influence the next state.</p></article>
+<article><b class="type-card-title">Two-stage logic</b><p class="type-body-copy">RL decides <em>when and where</em>; optimization decides <em>who matches with whom</em>.</p></article>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="RL Control" data-title="MDP and POMDP" id="slide-15">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Sequential decision model</p>
+<h2 class="type-slide-title">State Aggregation Turns the MDP into a POMDP</h2>
+</div>
+<div class="slide-content mdp-layout">
+<div aria-label="MDP loop" class="mdp-loop">
+<div><span class="type-card-label">Observation</span><strong class="type-data-value">\(O(t)\)</strong></div><i>→</i>
+<div><span class="type-card-label">Action</span><strong class="type-data-value">\(A(t)\)</strong></div><i>→</i>
+<div><span class="type-card-label">Transition</span><strong class="type-data-value">\(p(s'\mid s,a)\)</strong></div><i>→</i>
+<div><span class="type-card-label">Reward</span><strong class="type-data-value">\(R(t)\)</strong></div><i>↺</i>
+</div>
+<div class="observation-card">
+<span class="type-card-label">Grid observation</span>
+          \[
+          O_i(t)=\left(N_P(i,t),N_D(i,t),\lambda_P(i,t),\lambda_D(i,t)\right).
+          \]
+          <p class="type-body-copy">The complete state would also contain exact request details, driver locations, timestamps, and future demand information.</p>
+</div>
+<div class="partial-observation-banner type-banner"><strong class="type-banner">POMDP:</strong> the aggregated observation is compact enough to learn from, but it does not contain the complete system state.</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="RL Control" data-title="Policy Gradient Family" id="slide-16">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Learning mechanisms</p>
+<h2 class="type-slide-title">Policy Gradient Methods Learn the Hold/Match Policy Directly</h2>
+</div>
+<div class="slide-content">
+<div class="rl-method-grid">
+<article><span class="type-card-label">Policy Gradient</span><h3 class="type-card-title">Optimize a parameterized policy</h3><p class="type-body-copy">Adjust \(\pi_\theta(a\mid s)\) in the direction of higher expected return.</p></article>
+<article><span class="type-card-label">REINFORCE</span><h3 class="type-card-title">Monte Carlo return</h3><p class="type-body-copy">Uses sampled future return \(G(t)\) to update the policy, with high variance.</p></article>
+<article><span class="type-card-label">Actor-Critic</span><h3 class="type-card-title">Policy plus value estimate</h3><p class="type-body-copy">The Actor selects actions; the Critic estimates long-run value and enables bootstrapping.</p></article>
+<article class="accent-card"><span class="type-card-label">ACER</span><h3 class="type-card-title">Actor-Critic with experience replay</h3><p class="type-body-copy">Reuses experience to improve sample efficiency and stabilize training.</p></article>
+</div>
+<div class="formula-strip">\[G(t)\leftarrow R(t)+\gamma V_w(O(t+1))\]</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="RL Control" data-title="Conceptual Neural Architecture" id="slide-17">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Conceptual architecture</p>
+<h2 class="type-slide-title">Actor-Critic Maps Observations to Grid Actions</h2>
+</div>
+<div class="slide-content architecture-layout">
+<div aria-label="Conceptual actor critic neural network" class="conceptual-diagram" role="img">
+<div class="arch-block input-block"><span class="type-card-label">Input</span><strong class="type-data-value">Grid observation vector</strong><small class="type-body-copy">\(N_P,N_D,\lambda_P,\lambda_D\) for all grids</small></div>
+<i>→</i>
+<div class="arch-block hidden-block"><span class="type-card-label">Conceptual hidden layers</span><div class="nodes"><b></b><b></b><b></b><b></b><b></b><b></b></div><small class="type-body-copy">Fully connected representation</small></div>
+<i>→</i>
+<div class="dual-output">
+<div class="arch-block actor-block"><span class="type-card-label">Actor</span><strong class="type-data-value">\(\pi_\theta(a\mid O)\)</strong><small class="type-body-copy">Probabilities over action-scheme IDs</small></div>
+<div class="arch-block critic-block"><span class="type-card-label">Critic</span><strong class="type-data-value">\(V_w(O)\)</strong><small class="type-body-copy">Estimated long-term state value</small></div>
+</div>
+<i>→</i>
+<div class="arch-block mapping-block"><span class="type-card-label">Mapping</span><strong class="type-data-value">Action ID → binary grid matrix</strong><div class="mini-action-grid"><b class="type-binary-digit">0</b><b class="one type-binary-digit">1</b><b class="type-binary-digit">0</b><b class="one type-binary-digit">1</b><b class="one type-binary-digit">1</b><b class="type-binary-digit">0</b></div></div>
+</div>
+<div class="architecture-warning type-banner"><strong class="type-banner">Conceptual Architecture:</strong> the paper does not report exact layer sizes, neuron counts, or activation functions; none are invented here.</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="RL Control" data-title="Three Practical Adaptations" id="slide-18">
+<div class="slide-heading">
+<p class="eyebrow type-eyebrow">Implementation adaptations</p>
+<h2 class="type-slide-title">Three Adaptations Enable Spatial Delayed Matching</h2>
+</div>
+<div class="slide-content">
+<div class="adaptation-grid">
+<article><span class="type-card-label">01</span><h3 class="type-card-title">Action-scheme mapping</h3><p class="type-body-copy">A one-dimensional action ID is mapped to a multi-binary Hold/Match matrix with up to \(2^{|S|}\) schemes.</p></article>
+<article><span class="type-card-label">02</span><h3 class="type-card-title">Experience replay</h3><p class="type-body-copy">Previously sampled transitions are reused, increasing sample efficiency and reducing step-wise correlation.</p></article>
+<article><span class="type-card-label">03</span><h3 class="type-card-title">Partial-episode bootstrapping</h3><p class="type-body-copy">Episode time limits are not treated as true terminal states, preventing biased value updates.</p></article>
+</div>
+<div class="one-line-claim dark-claim type-banner"><span class="type-card-label">Why ACER?</span><strong class="type-banner">Rare, correlated, high-dimensional experiences should not be discarded after one update.</strong></div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="RL Control" data-title="Sparse Rewards" id="slide-19">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Reward-design challenge</p>
+<h2 class="type-slide-title">A Naive Reward Arrives Only When Matching Occurs</h2>
+</div>
+<div class="slide-content split-figure-layout dark-layout">
+<div class="figure-card light-figure large-figure"><img alt="Step-wise pickup-wait decomposition" src="assets/fig6_reward_decomp.png"/></div>
+<div class="stacked-insights dark-insights">
+<article><span class="type-card-label">Problem</span><h3 class="type-card-title">Holding appears artificially attractive</h3><p class="type-body-copy">When the action is Hold, the immediate reward can remain zero while matching produces a negative waiting cost.</p></article>
+<article><span class="type-card-label">Consequence</span><h3 class="type-card-title">Weak credit assignment</h3><p class="type-body-copy">The agent struggles to connect a long sequence of Hold actions to a distant eventual cost.</p></article>
+<article class="accent-card"><span class="type-card-label">Remedy</span><h3 class="type-card-title">Step-wise decomposition</h3><p class="type-body-copy">Spread matching and pickup waiting penalties across the passenger's queueing lifetime.</p></article>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 6.</p>
+</section>
+<section aria-hidden="true" class="slide theme-method" data-chapter="RL Control" data-title="Reward Decomposition" id="slide-20">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Queue-aware objective</p>
+<h2 class="type-slide-title">The Reward Separates Matching-Wait and Pickup-Wait Costs</h2>
+</div>
+<div class="slide-content reward-layout">
+<div class="reward-equations">
+<article><span class="type-card-label">Matching-wait reward</span>\[R_m(t)=-\sum_{i\in S}\left[N_P(i,t-1)+\tau_m\bigl(n_P(i,t-1:t)\bigr)\right]\]</article>
+<article><span class="type-card-label">Pickup-wait reward</span>\[R_p(t)=R_p(S_0,t)+R_p(S_1,t)\]</article>
+<article class="accent-card"><span class="type-card-label">Weighted total reward</span>\[R_w(t)=c_mR_m(t)+c_pR_p(t)\]</article>
+</div>
+<div class="reward-interpretation">
+<h3 class="type-card-title">Operational meaning</h3>
+<p class="type-body-copy">\(R_m\) penalizes every extra step spent waiting for a match. \(R_p\) credits or penalizes the change in expected pickup cost caused by holding or matching.</p>
+<div class="weight-card"><span class="type-card-label">Experiment weights</span><strong>\(c_m=4,\qquad c_p=1\)</strong><small class="type-body-copy">Matching uncertainty is treated as more costly than post-match pickup waiting.</small></div>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-evidence" data-chapter="Evidence" data-title="Shanghai Dataset" id="slide-21">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Real-world data</p>
+<h2 class="type-slide-title">Shanghai Data Reveals Uneven Supply and Demand</h2>
+</div>
+<div class="slide-content split-figure-layout">
+<div class="figure-card large-figure"><img alt="Shanghai downtown grid and temporal distributions" src="assets/fig8_shanghai.png"/></div>
+<div class="dataset-facts">
+<article><span class="type-card-label">Period</span><strong class="type-data-value">March 2011</strong><p class="type-body-copy">One week of trip, trajectory, and operational-status records.</p></article>
+<article><span class="type-card-label">Fleet</span><strong class="type-data-value">Nearly 9,000 taxis</strong><p class="type-body-copy">Taxi ID, time, location, speed, bearing, and occupied/idle status.</p></article>
+<article><span class="type-card-label">Study area</span><strong class="type-data-value">Downtown Shanghai</strong><p class="type-body-copy">The area inside the Outer Ring Road captures more than \(80\%\) of trips.</p></article>
+<article><span class="type-card-label">Spatial partitions</span><strong class="type-data-value">\(1\times1,\ 1\times2,\ 3\times2\)</strong><p class="type-body-copy">Six-grid control balances spatial detail and action dimensionality.</p></article>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 8.</p>
+</section>
+<section aria-hidden="true" class="slide theme-evidence" data-chapter="Evidence" data-title="Experimental Setup" id="slide-22">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Training protocol</p>
+<h2 class="type-slide-title">Episodes Recreate the Morning Peak After a Controlled Warm-Up</h2>
+</div>
+<div class="slide-content experiment-layout">
+<div class="figure-card"><img alt="Experimental setup and model training" src="assets/fig9_experiment_setup.png"/></div>
+<div class="experiment-parameters">
+<article><b class="type-card-title">Start</b><span class="type-body-copy">Simulation begins at 08:00.</span></article>
+<article><b class="type-card-title">Warm-up</b><span class="type-body-copy">10 minutes of instantaneous matching.</span></article>
+<article><b class="type-card-title">Episode</b><span class="type-body-copy">10 minutes of learned interaction.</span></article>
+<article><b class="type-card-title">Training</b><span class="type-body-copy">1,000,000 environment steps.</span></article>
+<article><b class="type-card-title">Costs</b><span class="type-body-copy">\(c_m=4\), \(c_p=1\).</span></article>
+<article><b class="type-card-title">Pickup speed</b><span class="type-body-copy">\(v=20\,\mathrm{km/h}\).</span></article>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 9.</p>
+</section>
+<section aria-hidden="true" class="slide theme-evidence" data-chapter="Evidence" data-title="Trade-Off in Real Data" id="slide-23">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Empirical queue behavior</p>
+<h2 class="type-slide-title">The U-Shape Appears Only in a Moderate Supply-Demand Regime</h2>
+</div>
+<div class="slide-content split-figure-layout">
+<div class="figure-card large-figure"><img alt="Real-world waiting cost trade-off under driver occupancy levels" src="assets/fig10_real_tradeoff.png"/></div>
+<div class="stacked-insights">
+<article><span class="type-card-label">Moderate occupancy</span><h3 class="type-card-title">\(70\%\)</h3><p class="type-body-copy">Total wait cost is U-shaped: pickup savings initially exceed the added matching delay.</p></article>
+<article><span class="type-card-label">High or low occupancy</span><h3 class="type-card-title">\(\ge 80\%\) or \(\le 50\%\)</h3><p class="type-body-copy">Total wait generally rises with the interval; instantaneous matching is preferred.</p></article>
+<div class="decision-banner type-banner">The slope of <strong class="type-banner">pickup wait</strong>, not matching wait, determines whether the U-shape emerges.</div>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 10.</p>
+</section>
+<section aria-hidden="true" class="slide theme-evidence" data-chapter="Evidence" data-title="Training Performance" id="slide-24">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Algorithm comparison</p>
+<h2 class="type-slide-title">ACER \(3\times2\) Reaches the Fixed-Interval Benchmark</h2>
+</div>
+<div class="slide-content split-figure-layout">
+<div class="figure-card large-figure"><img alt="Training curves for fixed interval, ACER and Actor-Critic" src="assets/fig11_training.png"/></div>
+<div class="stacked-insights">
+<article><span class="type-card-label">Fixed baseline</span><h3 class="type-card-title">About \(40\) seconds</h3><p class="type-body-copy">The best historical fixed interval yields a total wait cost near \(371.20\) hours.</p></article>
+<article><span class="type-card-label">ACER</span><h3 class="type-card-title">Stable with \(3\times2\)</h3><p class="type-body-copy">Converged performance is comparable to the fixed baseline.</p></article>
+<article><span class="type-card-label">Actor-Critic</span><h3 class="type-card-title">Higher variance</h3><p class="type-body-copy">Only the \(1\times2\) case converges, at roughly \(380\) hours.</p></article>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 11.</p>
+</section>
+<section aria-hidden="true" class="slide theme-evidence" data-chapter="Evidence" data-title="Wait-Time Results" id="slide-25">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Performance table</p>
+<h2 class="type-slide-title">ACER Cuts Pickup Wait Enough to Offset Its Longer Matching Delay</h2>
+</div>
+<div class="slide-content result-layout">
+<div class="result-table-wrap">
+<table class="result-table">
+<thead><tr><th>Strategy</th><th>Matching wait</th><th>Pickup wait</th><th>Total wait</th></tr></thead>
+<tbody>
+<tr><td>Instantaneous</td><td>\(3.01\,\mathrm{s}\)</td><td>\(675.71\,\mathrm{s}\)</td><td>\(678.72\,\mathrm{s}\)</td></tr>
+<tr><td>Optimal fixed interval</td><td>\(21.20\,\mathrm{s}\)</td><td>\(525.69\,\mathrm{s}\)</td><td>\(546.89\,\mathrm{s}\)</td></tr>
+<tr class="highlight-row"><td>ACER \((3\times2)\)</td><td>\(26.95\,\mathrm{s}\)</td><td>\(513.22\,\mathrm{s}\)</td><td>\(540.17\,\mathrm{s}\)</td></tr>
+</tbody>
+</table>
+<div class="result-delta-grid">
+<article><span>Matching wait</span><strong>+23.94 s</strong><p class="type-body-copy">ACER waits longer before assignment.</p></article>
+<article><span>Pickup wait</span><strong>−162.49 s</strong><p class="type-body-copy">A thicker pool produces much closer matches.</p></article>
+<article class="accent-card"><span>Net total wait</span><strong>−138.55 s</strong><p class="type-body-copy">The pickup saving dominates the matching delay.</p></article>
+</div>
+</div>
+<div class="big-result-card">
+<span class="type-card-label">Reduction versus instantaneous matching</span>
+<strong>\(20.41\%\)</strong>
+<p class="type-body-copy">ACER achieves the lowest reported mean total wait in Table 1 and performs on par with the historically optimized fixed baseline.</p>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-evidence" data-chapter="Evidence" data-title="Generalization" id="slide-26">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Across times and days</p>
+<h2 class="type-slide-title">The Learned Policy Generalizes Across Similar Regimes</h2>
+</div>
+<div class="slide-content split-figure-layout">
+<div class="figure-card large-figure"><img alt="Generalization experiment bar charts" src="assets/fig12_generalization.png"/></div>
+<div class="stacked-insights">
+<article><span class="type-card-label">Good transfer</span><h3 class="type-card-title">Weekday 08:00 and weekend 14:00</h3><p class="type-body-copy">ACER stays close to the fixed baseline in total waiting cost.</p></article>
+<article><span class="type-card-label">Weak transfer</span><h3 class="type-card-title">Other high-supply periods</h3><p class="type-body-copy">The learned delayed policy is less suitable because near-instantaneous matching is already preferable.</p></article>
+<div class="decision-banner type-banner">Proposed extension: a <strong class="type-banner">meta-model</strong> switches between instantaneous and delayed policies.</div>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 12.</p>
+</section>
+<section aria-hidden="true" class="slide theme-assessment" data-chapter="Interpretation" data-title="Learned Policy Across Six Grids" id="slide-27">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Episodic policy interpretation</p>
+<h2 class="type-slide-title">Balanced Active Queues Trigger Delayed Matching</h2>
+</div>
+<div class="slide-content policy-interpretation-layout">
+<figure class="policy-overview-figure figure-card">
+<img alt="Complete episodic learned-policy figure; preview shows grids A1 and B1" class="policy-overview-image" src="assets/fig13_policy.png"/>
+<figcaption class="type-caption">Preview: grids A1 and B1 · Click to open the complete six-grid figure</figcaption>
+</figure>
+<div class="policy-rules">
+<article><span class="type-card-label">Instantaneous matching</span><p class="type-body-copy">Selected when \(N_D\gg N_P\) or \(N_P\gg N_D\), especially when arrival rates are low or stable.</p></article>
+<article class="accent-card"><span class="type-card-label">Controlled delayed matching</span><p class="type-body-copy">Selected when \(N_D\approx N_P\) and \(\lambda_P,\lambda_D\) are sufficiently high to create valuable alternatives.</p></article>
+<article><span class="type-card-label">Spatial heterogeneity</span><p class="type-body-copy">Different grids follow different time-varying probabilities because queue populations and arrival rates evolve differently.</p></article>
+<div class="policy-lookup type-banner">The learned network can be interpreted as a practical lookup rule based on queue balance and activity level.</div>
+</div>
+</div>
+<p class="source-note type-caption">Paper Fig. 13.</p>
+</section>
+<section aria-hidden="true" class="slide theme-assessment" data-chapter="Assessment" data-title="Limitations" id="slide-28">
+<div class="slide-heading compact-heading">
+<p class="eyebrow type-eyebrow">Model limitations</p>
+<h2 class="type-slide-title">The Simulator Simplifies Patience, Mobility, and Service</h2>
+</div>
+<div class="slide-content">
+<div class="limitation-grid">
+<article><span class="type-card-title">Passenger patience</span><p class="type-body-copy">A fixed patience threshold is used rather than heterogeneous behavior.</p></article>
+<article><span class="type-card-title">Driver movement</span><p class="type-body-copy">Idle drivers remain in their current grids instead of repositioning.</p></article>
+<article><span class="type-card-title">Driver participation</span><p class="type-body-copy">Drivers are assumed to remain active and do not leave the system.</p></article>
+<article><span class="type-card-title">Single rides</span><p class="type-body-copy">The model excludes ride-pooling and the associated matching-queue structure.</p></article>
+<article><span class="type-card-title">Offline training</span><p class="type-body-copy">The policy learns in a simulator rather than through live platform interaction.</p></article>
+<article><span class="type-card-title">Architecture reporting</span><p class="type-body-copy">Exact network layer sizes and activations are not specified in the paper.</p></article>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-assessment" data-chapter="Assessment" data-title="Future Work" id="slide-29">
+<div class="slide-heading">
+<p class="eyebrow type-eyebrow">Future directions</p>
+<h2 class="type-slide-title">From Learned Policy to Online Queue Control</h2>
+</div>
+<div class="slide-content">
+<div class="future-flow">
+<article><span class="type-card-label">01</span><h3 class="type-card-title">Analytical threshold</h3><p class="type-body-copy">Quantify when the supply-demand state justifies delayed matching.</p></article><i>→</i>
+<article><span class="type-card-label">02</span><h3 class="type-card-title">Meta-policy</h3><p class="type-body-copy">Switch between instantaneous and delayed matching using occupancy and passenger utility.</p></article><i>→</i>
+<article><span class="type-card-label">03</span><h3 class="type-card-title">Richer simulator</h3><p class="type-body-copy">Model driver repositioning, departures, heterogeneous patience, and ride-pooling.</p></article><i>→</i>
+<article><span class="type-card-label">04</span><h3 class="type-card-title">Online RL</h3><p class="type-body-copy">Learn from real-time dynamics while managing stochasticity, instability, and weak convergence guarantees.</p></article>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-closing" data-chapter="Closing" data-title="Conclusion" id="slide-30">
+<div class="closing-layout"><p class="eyebrow type-eyebrow"><span class="type-eyebrow">Conclusion</span></p><h2 class="type-slide-title">Delay Helps Only When Queueing Gains Exceed Added Wait</h2><div class="closing-grid">
+<article><strong class="type-card-title">Queueing insight</strong><p class="type-body-copy">Balanced and active supply-demand states create the strongest opportunity for delayed matching.</p></article>
+<article><strong class="type-card-title">Control insight</strong><p class="type-body-copy">RL adapts the matching epoch across space and time while assignment optimization handles pair selection.</p></article>
+<article><strong class="type-card-title">Evidence</strong><p class="type-body-copy">ACER with \(3\times2\) grids reduces mean total wait by \(20.41\%\) versus instantaneous matching.</p></article>
+</div>
+<div class="closing-synthesis">
+<div class="final-equation">
+    \[
+      \boxed{\text{Best policy}=\text{queue-aware timing}+\text{minimum-cost assignment}}
+    \]
+  </div>
+<div class="closing-policy-rule type-banner">
+<span class="type-card-label">Operational rule</span>
+<div class="closing-rule-grid">
+<article><strong class="type-card-title">Severe imbalance</strong><p class="type-body-copy">Match immediately</p></article>
+<article><strong class="type-card-title">Balanced, active queues</strong><p class="type-body-copy">Use controlled delay</p></article>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-hidden="true" class="slide theme-closing" data-chapter="Closing" data-title="Questions" id="slide-31">
+<div class="closing-slide">
+<div class="closing-mark">
+<span class="logo-slot logo-slot-large"><img alt="Queueing Theory mark" src="logo.svg"/></span>
+</div>
+<p class="eyebrow">Queueing Theory · Ride-Hailing Matching</p>
+<h2 class="display-title">Questions <em>&amp; Discussion</em></h2>
+<div class="closing-names"><strong>Ghazal Zolfi Moselo</strong><span>·</span><strong>MohammadMahdi Montazeri Hedesh</strong></div>
+<a class="doi-card" href="paper.pdf" rel="noopener" target="_blank">DOI 10.1016/j.trc.2021.103239 <span>Open paper ↗</span></a>
+</div>
+</section>
+</main>
+<aside aria-hidden="true" aria-label="Slide overview" class="slide-map" id="slide-map">
+<div class="slide-map-card">
+<div class="map-head">
+<div><small>Presentation overview</small><strong>Jump to a slide</strong></div>
+<button aria-label="Close slide overview" id="close-map" type="button">×</button>
+</div>
+<div class="map-list" id="map-list"></div>
+</div>
+</aside>
+<footer aria-label="Presentation controls" class="bottom-frame">
+<div class="presenter-line"><span>Presented by</span><strong>Ghazal Zolfi Moselo</strong><i>·</i><strong>MohammadMahdi Montazeri Hedesh</strong></div>
+<div class="slide-counter"><strong id="current-slide">01</strong><span>/</span><span id="total-slides">31</span></div>
+<div class="navigation-controls navigation-controls-compact">
+<button id="overview-button" title="Slide overview (O)" type="button"><span>O</span> Overview</button>
+<button id="fullscreen-button" title="Fullscreen (F)" type="button"><span>F</span> Fullscreen</button>
+</div>
+<div aria-hidden="true" class="bottom-progress"><span id="bottom-progress-bar"></span></div>
+</footer>
+</div>
+<script src="script.js"></script>
+<script src="morph-hover.js"></script>
+<script src="presentation-cursor.js"></script>
+</body>
+</html>
