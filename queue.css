@@ -7272,3 +7272,6071 @@ html body #presentation .theme-method .figure-card {
   border: 1px solid rgba(219,140,61,.22) !important;
   box-shadow: 0 9px 22px rgba(15,23,42,.05) !important;
 }
+
+
+/* ===== Replacement slide styles from uploaded queue.css ===== */
+/*
+  Queueing Theory presentation
+  Final local-first layer. It intentionally sits after the reference site's
+  styles so the visual language remains familiar while every type element uses
+  Times New Roman and the new queueing layouts fit consistently.
+*/
+
+:root {
+  --bg: #07111c;
+  --surface: #f4f0e8;
+  --ink: #10202c;
+  --muted: #63717b;
+  --line: rgba(16, 32, 44, 0.14);
+  --accent: #ff7043;
+  --accent-2: #f5b942;
+  --blue: #2e72a8;
+  --deep-blue: #0c263a;
+  --green: #2d806d;
+  --red: #b74d43;
+  --frame-h: 76px;
+  --footer-h: 58px;
+  --radius: 22px;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+  --sans: "Times New Roman", Times, serif;
+  --serif: "Times New Roman", Times, serif;
+}
+
+html,
+body,
+button,
+a,
+input,
+table,
+textarea,
+select,
+kbd,
+.slide,
+.slide *:not(mjx-container):not(mjx-container *) {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+html,
+body {
+  background: var(--bg);
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+/* Fixed presentation frame */
+.top-frame {
+  grid-template-columns: minmax(245px, 1fr) minmax(300px, 1.2fr) minmax(120px, 1fr);
+}
+
+.bottom-frame {
+  grid-template-columns: minmax(300px, 1fr) auto minmax(460px, 1fr);
+}
+
+.lockup-copy strong,
+.chapter-status span,
+.eyebrow,
+.presenter-block p,
+.title-meta-row span,
+.paper-authors,
+.source-note,
+.action-label,
+.result-table th,
+.dataset-facts span,
+.experiment-parameters span,
+.big-result-card > span,
+.architecture-warning,
+.note-strip,
+.policy-lookup,
+.decision-banner,
+.partial-observation-banner,
+.one-line-claim span,
+.objective-box small,
+.action-matrix-card > span,
+.observation-card > span,
+.future-flow article > span,
+.contribution-grid article > span,
+.roadmap-grid article > span,
+.stacked-insights article > span,
+.policy-rules article > span,
+.limitation-grid article > span,
+.queue-characteristics span {
+  letter-spacing: 0.055em;
+}
+
+.chapter-status strong {
+  font-weight: 600;
+}
+
+.slide {
+  padding: clamp(24px, 3vh, 38px) clamp(42px, 5vw, 82px) clamp(28px, 3.2vh, 44px);
+}
+
+.slide-heading {
+  max-width: 1180px;
+  margin-bottom: clamp(18px, 2.5vh, 30px);
+}
+
+.compact-heading {
+  margin-bottom: clamp(12px, 1.7vh, 20px);
+}
+
+.slide-heading h2,
+.closing-layout h2 {
+  max-width: 1200px;
+  margin: 0;
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: clamp(31px, 3.6vw, 57px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  margin-bottom: 9px;
+  font-size: clamp(10px, 0.72vw, 12px);
+  font-weight: 700;
+}
+
+.slide-content {
+  width: 100%;
+  min-height: 0;
+}
+
+h3 {
+  font-size: clamp(17px, 1.22vw, 21px);
+  font-weight: 700;
+}
+
+p,
+li,
+td,
+th {
+  font-size: clamp(13px, 0.96vw, 16px);
+  line-height: 1.42;
+}
+
+mjx-container {
+  max-width: 100%;
+}
+
+mjx-container[display="true"] {
+  margin: 0.35em 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+
+.source-note {
+  right: clamp(42px, 5vw, 82px);
+  bottom: 12px;
+  font-size: 10px;
+}
+
+/* Opening */
+.hero-slide-centered {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.hero-slide-centered .hero-copy {
+  width: min(1160px, 96%);
+  max-width: none;
+  margin: 0 auto;
+}
+
+.display-title {
+  margin: 0 auto clamp(13px, 2vh, 22px);
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: clamp(47px, 5.9vw, 91px);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.display-title em {
+  color: var(--accent);
+  font-weight: 700;
+  font-style: italic;
+}
+
+.hero-subtitle {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #455864;
+  font-size: clamp(16px, 1.35vw, 22px);
+}
+
+.paper-authors {
+  margin-top: 13px;
+  color: #52636d;
+  font-size: clamp(11px, 0.9vw, 14px);
+  font-weight: 600;
+}
+
+.presenter-group {
+  margin-top: clamp(19px, 2.6vh, 30px);
+  width: min(700px, 100%);
+  gap: 10px;
+}
+
+.presenter-block {
+  padding: 12px 22px;
+  border-top-width: 3px;
+}
+
+.presenter-names strong {
+  font-size: clamp(14px, 1vw, 17px);
+}
+
+.title-meta-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.title-meta-row > div {
+  min-height: 60px;
+  padding: 11px 14px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  border: 1px solid rgba(16, 32, 44, 0.12);
+  border-radius: 12px;
+  background: rgba(255,255,255,.42);
+}
+
+.title-meta-row span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.title-meta-row strong {
+  font-size: 15px;
+}
+
+/* Shared cards and figures */
+.figure-card {
+  min-width: 0;
+  height: 100%;
+  padding: clamp(11px, 1.2vw, 18px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(16,32,44,.12);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.68);
+  box-shadow: 0 18px 42px rgba(16,32,44,.12);
+}
+
+.figure-card img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.light-figure {
+  background: #fff;
+  border-color: rgba(255,255,255,.2);
+}
+
+article,
+.objective-box,
+.action-matrix-card,
+.observation-card,
+.formula-card,
+.partial-observation-banner,
+.note-strip,
+.decision-banner,
+.policy-lookup,
+.one-line-claim,
+.transition-claim,
+.final-equation {
+  overflow-wrap: anywhere;
+}
+
+.accent-card {
+  border-color: rgba(255,112,67,.55) !important;
+  background: linear-gradient(145deg, rgba(255,112,67,.16), rgba(245,185,66,.1)) !important;
+}
+
+.theme-method .accent-card {
+  background: linear-gradient(145deg, rgba(255,112,67,.2), rgba(245,185,66,.08)) !important;
+}
+
+/* Roadmap */
+.roadmap-grid.six-roadmap {
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.3vw, 19px);
+}
+
+.roadmap-grid.six-roadmap article {
+  min-height: clamp(150px, 20vh, 192px);
+  padding: clamp(17px, 1.5vw, 24px);
+  border: 1px solid rgba(16,32,44,.12);
+  border-radius: 17px;
+  background: rgba(255,255,255,.58);
+  box-shadow: 0 14px 30px rgba(16,32,44,.08);
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.roadmap-grid.six-roadmap article:nth-child(even) {
+  transform: none;
+}
+
+.roadmap-grid.six-roadmap article:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 36px rgba(16,32,44,.13);
+}
+
+.roadmap-grid article > span,
+.contribution-grid article > span,
+.future-flow article > span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.roadmap-grid article p,
+.contribution-grid article p,
+.method-columns article p,
+.assignment-cards article p,
+.rl-method-grid article p,
+.adaptation-grid article p,
+.limitation-grid article p,
+.future-flow article p,
+.closing-grid article p {
+  margin: 0;
+  color: #52616a;
+}
+
+.theme-method .roadmap-grid article p,
+.theme-method .assignment-cards article p,
+.theme-method .rl-method-grid article p,
+.theme-method .adaptation-grid article p {
+  color: rgba(239,245,246,.69);
+}
+
+/* Problem slides */
+.split-figure-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.58fr) minmax(300px, .82fr);
+  gap: clamp(18px, 2.2vw, 34px);
+  height: min(57vh, 520px);
+  align-items: stretch;
+}
+
+.stacked-insights,
+.policy-rules {
+  min-width: 0;
+  display: grid;
+  align-content: stretch;
+  gap: 12px;
+}
+
+.stacked-insights article,
+.policy-rules article {
+  padding: 15px 17px;
+  border: 1px solid rgba(16,32,44,.13);
+  border-radius: 15px;
+  background: rgba(255,255,255,.55);
+}
+
+.stacked-insights article > span,
+.policy-rules article > span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.stacked-insights h3 {
+  margin-bottom: 5px;
+}
+
+.stacked-insights p,
+.policy-rules p {
+  margin: 0;
+}
+
+.decision-banner,
+.policy-lookup,
+.partial-observation-banner,
+.note-strip,
+.one-line-claim {
+  padding: 12px 16px;
+  border-radius: 13px;
+  background: var(--deep-blue);
+  color: #eef4f5;
+  font-size: clamp(12px, .91vw, 15px);
+  line-height: 1.4;
+}
+
+.queue-objective-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, .72fr) minmax(0, 2fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.objective-box {
+  padding: clamp(18px, 2vw, 28px);
+  display: grid;
+  align-content: center;
+  border-radius: 18px;
+  border: 1px solid rgba(16,32,44,.13);
+  background: var(--deep-blue);
+  color: white;
+  box-shadow: 0 18px 35px rgba(12,38,58,.18);
+}
+
+.objective-box small {
+  color: var(--accent-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.objective-box strong {
+  margin: 7px 0;
+  font-size: clamp(27px, 2.6vw, 43px);
+  line-height: 1;
+}
+
+.objective-box p {
+  margin: 0;
+  color: rgba(255,255,255,.72);
+}
+
+.contribution-grid.contribution-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.contribution-grid article,
+.method-columns article,
+.assignment-cards article,
+.rl-method-grid article,
+.adaptation-grid article,
+.limitation-grid article,
+.future-flow article,
+.closing-grid article {
+  padding: clamp(16px, 1.4vw, 22px);
+  border-radius: 16px;
+  border: 1px solid rgba(16,32,44,.13);
+  background: rgba(255,255,255,.58);
+}
+
+.one-line-claim {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.one-line-claim span {
+  flex: 0 0 auto;
+  color: var(--accent-2);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.literature-layout {
+  display: grid;
+  gap: 14px;
+}
+
+.method-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.method-columns article small {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.gap-banner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255,255,255,.22);
+}
+
+.gap-banner > div {
+  min-height: 92px;
+  padding: 16px 20px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  background: var(--deep-blue);
+  color: white;
+}
+
+.gap-banner span {
+  color: var(--accent-2);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.gap-banner strong {
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.35;
+}
+
+/* Queue model */
+.queue-system-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 9px;
+}
+
+.queue-system-flow > i,
+.future-flow > i,
+.mdp-loop > i {
+  align-self: center;
+  color: var(--accent);
+  font-style: normal;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.queue-system-flow {
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1.25fr) auto minmax(0,1.2fr) auto minmax(0,1fr);
+}
+
+.queue-system-flow article {
+  min-height: clamp(185px, 27vh, 250px);
+  padding: clamp(16px, 1.6vw, 24px);
+  display: grid;
+  align-content: center;
+  border-radius: 17px;
+  border: 1px solid rgba(16,32,44,.13);
+  background: rgba(255,255,255,.58);
+}
+
+.queue-system-flow article span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.queue-system-flow article strong {
+  margin: 9px 0;
+  color: var(--deep-blue);
+  font-size: clamp(25px, 2.2vw, 38px);
+  line-height: 1;
+}
+
+.queue-system-flow article p {
+  margin: 0;
+}
+
+.queue-characteristics {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.queue-characteristics span {
+  padding: 8px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(16,32,44,.15);
+  background: rgba(255,255,255,.5);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.assumption-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.assumption-grid article {
+  min-height: 132px;
+  padding: 15px 17px;
+  border: 1px solid rgba(16,32,44,.12);
+  border-radius: 15px;
+  background: rgba(255,255,255,.55);
+}
+
+.assumption-grid b {
+  color: var(--accent);
+  font-size: 11px;
+}
+
+.assumption-grid h3 {
+  margin: 5px 0;
+}
+
+.assumption-grid p {
+  margin: 0;
+}
+
+.note-strip {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.transition-layout {
+  display: grid;
+  gap: 14px;
+}
+
+.transition-claim {
+  padding: 9px 16px;
+  border: 1px solid rgba(16,32,44,.12);
+  border-radius: 15px;
+  background: rgba(255,255,255,.62);
+  text-align: center;
+  font-size: clamp(14px, 1.1vw, 18px);
+}
+
+.transition-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.transition-columns article {
+  min-height: 305px;
+  padding: clamp(18px, 1.8vw, 27px);
+  display: grid;
+  align-content: center;
+  border-radius: 18px;
+  border: 1px solid rgba(16,32,44,.13);
+  background: rgba(255,255,255,.57);
+}
+
+.action-label {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.hold-label { background: var(--blue); }
+.match-label { background: var(--accent); }
+.transition-columns p { margin: 9px 0 0; }
+
+.foundation-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.foundation-grid article {
+  min-height: clamp(150px, 20vh, 185px);
+  padding: 15px;
+  display: grid;
+  align-content: center;
+  gap: 7px;
+  border: 1px solid rgba(16,32,44,.13);
+  border-radius: 15px;
+  background: rgba(255,255,255,.56);
+}
+
+.foundation-grid b {
+  color: var(--deep-blue);
+  font-size: clamp(15px, 1.08vw, 18px);
+}
+
+.foundation-grid span {
+  color: #52616a;
+  font-size: clamp(12px, .85vw, 14px);
+  line-height: 1.4;
+}
+
+.tradeoff-layout {
+  height: min(58vh, 530px);
+  display: grid;
+  grid-template-columns: minmax(320px, .82fr) minmax(0, 1.55fr);
+  gap: 22px;
+}
+
+.tradeoff-formulas {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+}
+
+.formula-card {
+  padding: 13px 17px;
+  border-radius: 15px;
+  border: 1px solid rgba(16,32,44,.13);
+  background: rgba(255,255,255,.63);
+  font-size: clamp(14px, 1.15vw, 18px);
+}
+
+.red-formula { border-left: 5px solid var(--red); }
+.green-formula { border-left: 5px solid var(--green); }
+.total-formula { border-left: 5px solid var(--accent); background: var(--deep-blue); color: white; }
+.tradeoff-formulas p { margin: 3px 0 0; }
+.contours-layout { grid-template-columns: minmax(0, 1.65fr) minmax(280px, .75fr); }
+
+/* Dark simulator and RL slides */
+.theme-method article,
+.theme-method .action-matrix-card,
+.theme-method .observation-card,
+.theme-method .architecture-warning,
+.theme-method .partial-observation-banner,
+.theme-method .note-strip {
+  border-color: rgba(255,255,255,.13);
+}
+
+.theme-method .stacked-insights article,
+.theme-method .assignment-cards article,
+.theme-method .rl-method-grid article,
+.theme-method .adaptation-grid article,
+.theme-method .action-matrix-card,
+.theme-method .observation-card {
+  background: rgba(255,255,255,.065);
+  color: #eef4f5;
+}
+
+.dark-insights p,
+.theme-method .assignment-cards p,
+.theme-method .rl-method-grid p,
+.theme-method .adaptation-grid p,
+.theme-method .action-matrix-card p,
+.theme-method .observation-card p {
+  color: rgba(239,245,246,.7);
+}
+
+.grid-action-layout {
+  height: min(58vh, 530px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(300px, .8fr);
+  gap: 22px;
+}
+
+.action-matrix-card {
+  padding: clamp(18px, 2vw, 28px);
+  display: grid;
+  align-content: center;
+  border-radius: 18px;
+}
+
+.action-matrix-card > span,
+.observation-card > span {
+  color: var(--accent-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.binary-grid {
+  margin: 16px 0 10px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+}
+
+.binary-grid b {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: rgba(46,114,168,.45);
+  color: white;
+  font-size: 15px;
+}
+
+.binary-grid b.one {
+  background: var(--accent);
+}
+
+.legend-row {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+}
+
+.legend-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-row i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.hold-dot { background: var(--blue); }
+.match-dot { background: var(--accent); }
+
+.assignment-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.35fr);
+  gap: 20px;
+}
+
+.light-math-box {
+  min-height: 390px;
+  background: rgba(255,255,255,.96);
+  color: var(--ink);
+}
+
+.light-math-box small { color: var(--accent); }
+.light-math-box mjx-container { font-size: 105%; }
+
+.assignment-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.assignment-cards article {
+  display: grid;
+  align-content: center;
+}
+
+.assignment-cards b {
+  color: var(--accent-2);
+  font-size: 17px;
+}
+
+.mdp-layout {
+  display: grid;
+  gap: 14px;
+}
+
+.mdp-loop {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr) auto);
+  align-items: center;
+  gap: 8px;
+}
+
+.mdp-loop > div {
+  min-height: 96px;
+  padding: 13px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,.065);
+}
+
+.mdp-loop > div span {
+  color: rgba(255,255,255,.65);
+  font-size: 11px;
+}
+
+.mdp-loop > div strong {
+  color: var(--accent-2);
+  font-size: clamp(20px, 1.8vw, 29px);
+}
+
+.observation-card {
+  padding: 15px 20px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.observation-card mjx-container { font-size: 105%; }
+.observation-card p { margin: 4px 0 0; }
+.partial-observation-banner { background: rgba(255,112,67,.17); border: 1px solid rgba(255,112,67,.45); }
+
+.rl-method-grid,
+.adaptation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.rl-method-grid article,
+.adaptation-grid article {
+  min-height: clamp(205px, 31vh, 290px);
+  display: grid;
+  align-content: center;
+}
+
+.rl-method-grid article > span,
+.adaptation-grid article > span {
+  color: var(--accent-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.rl-method-grid article h3,
+.adaptation-grid article h3 { margin-top: 7px; }
+
+/* Conceptual architecture */
+.architecture-layout {
+  display: grid;
+  gap: 14px;
+}
+
+.conceptual-diagram {
+  min-height: clamp(300px, 43vh, 405px);
+  padding: clamp(18px, 2vw, 28px);
+  display: grid;
+  grid-template-columns: minmax(150px, .8fr) auto minmax(170px, .95fr) auto minmax(230px, 1.35fr);
+  align-items: center;
+  gap: 13px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+  background: rgba(255,255,255,.055);
+}
+
+.arch-block {
+  min-height: 200px;
+  padding: 16px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 16px;
+  background: rgba(255,255,255,.055);
+  text-align: center;
+}
+
+.arch-block > span {
+  color: var(--accent-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.arch-block p { margin: 0; color: rgba(239,245,246,.72); }
+.arch-block strong { font-size: 19px; }
+
+.nodes {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.nodes i {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-2);
+  background: rgba(245,185,66,.1);
+}
+
+.dual-output {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px;
+}
+
+.dual-output > div {
+  min-height: 155px;
+  padding: 14px;
+  display: grid;
+  align-content: center;
+  border-radius: 14px;
+  background: rgba(255,255,255,.08);
+}
+
+.dual-output span { color: var(--accent-2); font-size: 11px; text-transform: uppercase; }
+.dual-output strong { margin: 5px 0; }
+.dual-output p { margin: 0; color: rgba(239,245,246,.68); }
+
+.mapping-block .mini-action-grid {
+  width: 116px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.mini-action-grid b {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  background: rgba(46,114,168,.55);
+  color: white;
+}
+
+.mini-action-grid b.one { background: var(--accent); }
+
+.conceptual-diagram > i {
+  color: var(--accent);
+  font-style: normal;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.architecture-warning {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(245,185,66,.1);
+  color: rgba(255,255,255,.8);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Rewards */
+.reward-layout {
+  height: min(58vh, 530px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(310px, .8fr);
+  gap: 20px;
+}
+
+.reward-layout .figure-card { background: white; }
+.reward-interpretation {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+}
+
+.reward-interpretation article {
+  padding: 15px 17px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.065);
+}
+
+.reward-interpretation article span {
+  color: var(--accent-2);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.reward-interpretation p { margin: 5px 0 0; color: rgba(239,245,246,.7); }
+.dark-claim {
+  padding: 14px 17px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
+.reward-equations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.reward-equations article {
+  min-height: 240px;
+  padding: 19px;
+  display: grid;
+  align-content: center;
+  border-radius: 18px;
+  background: rgba(255,255,255,.07);
+}
+
+.reward-equations article > span {
+  color: var(--accent-2);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.reward-equations p { margin: 7px 0 0; color: rgba(239,245,246,.7); }
+
+.weight-card {
+  margin-top: 13px;
+  padding: 15px 18px;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  align-items: center;
+  gap: 18px;
+  border-radius: 16px;
+  background: rgba(255,112,67,.16);
+  border: 1px solid rgba(255,112,67,.42);
+}
+
+.weight-card .formula-strip {
+  font-size: clamp(16px, 1.3vw, 21px);
+  color: white;
+}
+
+.weight-card p { margin: 0; color: rgba(239,245,246,.76); }
+
+/* Evidence */
+.dataset-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dataset-facts article {
+  min-height: 106px;
+  padding: 14px;
+  display: grid;
+  align-content: center;
+  border: 1px solid rgba(16,32,44,.13);
+  border-radius: 14px;
+  background: rgba(255,255,255,.56);
+}
+
+.dataset-facts span,
+.experiment-parameters span {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.dataset-facts strong {
+  margin-top: 3px;
+  font-size: clamp(18px, 1.45vw, 25px);
+}
+
+.experiment-layout {
+  height: min(57vh, 515px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(290px, .75fr);
+  gap: 20px;
+}
+
+.experiment-parameters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  align-content: stretch;
+  gap: 10px;
+}
+
+.experiment-parameters article {
+  padding: 14px;
+  display: grid;
+  align-content: center;
+  border: 1px solid rgba(16,32,44,.13);
+  border-radius: 14px;
+  background: rgba(255,255,255,.56);
+}
+
+.experiment-parameters strong {
+  margin-top: 3px;
+  font-size: clamp(17px, 1.35vw, 23px);
+}
+
+.result-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, .72fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.result-table-wrap {
+  overflow: hidden;
+  border: 1px solid rgba(16,32,44,.14);
+  border-radius: 17px;
+  background: rgba(255,255,255,.65);
+  box-shadow: 0 18px 36px rgba(16,32,44,.09);
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-table th,
+.result-table td {
+  padding: clamp(14px, 1.5vw, 22px);
+  text-align: left;
+  border-bottom: 1px solid rgba(16,32,44,.1);
+}
+
+.result-table th {
+  background: var(--deep-blue);
+  color: white;
+  font-size: clamp(11px, .85vw, 14px);
+  text-transform: uppercase;
+}
+
+.result-table tbody tr:last-child td { border-bottom: 0; }
+.result-table .highlight-row { background: rgba(245,185,66,.24); font-weight: 700; }
+
+.big-result-card {
+  min-height: 300px;
+  padding: clamp(22px, 2.2vw, 34px);
+  display: grid;
+  align-content: center;
+  border-radius: 18px;
+  background: var(--deep-blue);
+  color: white;
+  box-shadow: 0 18px 38px rgba(12,38,58,.22);
+}
+
+.big-result-card > span {
+  color: var(--accent-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.big-result-card > strong {
+  margin: 7px 0 10px;
+  color: var(--accent-2);
+  font-size: clamp(48px, 5vw, 78px);
+  line-height: 1;
+}
+
+.big-result-card p { margin: 0; color: rgba(255,255,255,.75); }
+
+.policy-interpretation-layout {
+  height: min(58vh, 535px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(310px, .78fr);
+  gap: 20px;
+}
+
+.tall-figure { min-height: 0; }
+
+/* Assessment and close */
+.limitation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 13px;
+}
+
+.limitation-grid article {
+  min-height: clamp(150px, 21vh, 190px);
+  display: grid;
+  align-content: center;
+}
+
+.limitation-grid article > span {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.future-flow {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+  align-items: stretch;
+  gap: 9px;
+}
+
+.future-flow article {
+  min-height: clamp(245px, 36vh, 330px);
+  display: grid;
+  align-content: center;
+}
+
+.closing-layout {
+  height: 100%;
+  display: grid;
+  align-content: center;
+  gap: clamp(16px, 2.2vh, 25px);
+}
+
+.closing-layout h2 {
+  max-width: 1120px;
+  font-size: clamp(37px, 4.3vw, 68px);
+}
+
+.closing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 13px;
+}
+
+.closing-grid article {
+  min-height: 145px;
+  display: grid;
+  align-content: center;
+  background: rgba(255,255,255,.065);
+  border-color: rgba(255,255,255,.14);
+}
+
+.closing-grid strong {
+  color: var(--accent-2);
+  font-size: 18px;
+}
+
+.closing-grid p { color: rgba(239,245,246,.72); }
+
+.final-equation {
+  padding: 12px 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 15px;
+  background: rgba(255,255,255,.06);
+  color: white;
+  text-align: center;
+  font-size: clamp(16px, 1.25vw, 20px);
+}
+
+/* Compact desktop / laptop fitting */
+@media (max-height: 820px) and (min-width: 761px) {
+  .slide {
+    padding-top: 20px;
+    padding-bottom: 24px;
+  }
+  .slide-heading { margin-bottom: 14px; }
+  .slide-heading h2 { font-size: clamp(29px, 3.2vw, 49px); }
+  .display-title { font-size: clamp(43px, 5.45vw, 78px); }
+  .roadmap-grid.six-roadmap article { min-height: 137px; }
+  .assumption-grid article { min-height: 115px; }
+  .foundation-grid article { min-height: 135px; }
+  .split-figure-layout,
+  .tradeoff-layout,
+  .grid-action-layout,
+  .reward-layout,
+  .experiment-layout,
+  .policy-interpretation-layout { height: min(55vh, 440px); }
+  .rl-method-grid article,
+  .adaptation-grid article { min-height: 185px; }
+  .conceptual-diagram { min-height: 310px; }
+  .limitation-grid article { min-height: 135px; }
+  .future-flow article { min-height: 235px; }
+}
+
+@media (max-width: 1120px) and (min-width: 761px) {
+  .top-frame { grid-template-columns: minmax(210px, 1fr) minmax(250px, 1fr) 105px; }
+  .bottom-frame { grid-template-columns: minmax(235px,1fr) auto minmax(350px,1fr); }
+  .slide { padding-left: 34px; padding-right: 34px; }
+  .foundation-grid { grid-template-columns: repeat(5, minmax(0,1fr)); gap: 7px; }
+  .foundation-grid article { padding: 11px; }
+  .future-flow article { padding: 13px; }
+}
+
+/* Phone and narrow landscape: same content, vertically scrollable. */
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  :root {
+    --mobile-header-h: calc(62px + env(safe-area-inset-top, 0px));
+    --mobile-footer-h: calc(72px + env(safe-area-inset-bottom, 0px));
+    --frame-h: var(--mobile-header-h) !important;
+    --footer-h: var(--mobile-footer-h) !important;
+  }
+
+  html,
+  body,
+  .slide,
+  .slide *:not(mjx-container):not(mjx-container *) {
+    font-family: "Times New Roman", Times, serif !important;
+  }
+
+  .top-frame {
+    grid-template-columns: auto minmax(0,1fr) auto !important;
+    align-items: end !important;
+    gap: 8px !important;
+    padding: env(safe-area-inset-top, 0px) 11px 8px !important;
+  }
+
+  .logo-slot {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+  }
+
+  .lockup-copy strong {
+    max-width: 92px !important;
+    font-size: 11px !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+  }
+
+  .paper-link::before { content: "Paper" !important; }
+
+  .slide {
+    display: none !important;
+    padding: 20px 15px calc(28px + env(safe-area-inset-bottom, 0px)) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .slide.is-active {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .slide-heading,
+  .compact-heading {
+    width: 100% !important;
+    margin: 0 0 15px !important;
+  }
+
+  .slide-heading h2,
+  .closing-layout h2 {
+    width: 100% !important;
+    max-width: none !important;
+    font-size: clamp(29px, 8.4vw, 39px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.025em !important;
+    text-wrap: balance !important;
+  }
+
+  p,
+  li,
+  td,
+  th {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .slide-content {
+    width: 100% !important;
+    min-height: auto !important;
+    display: block !important;
+  }
+
+  .source-note {
+    position: static !important;
+    margin: 13px 0 0 !important;
+  }
+
+  .hero-slide-centered {
+    min-height: calc(100% - 4px) !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    text-align: left !important;
+  }
+
+  .hero-slide-centered .hero-copy {
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  .display-title {
+    font-size: clamp(39px, 11.4vw, 54px) !important;
+    line-height: .97 !important;
+    text-align: left !important;
+  }
+
+  .display-title br { display: none; }
+  .hero-subtitle,
+  .paper-authors { margin-left: 0 !important; margin-right: 0 !important; }
+  .paper-authors { line-height: 1.45; }
+  .presenter-group { margin-top: 21px !important; }
+  .title-meta-row { grid-template-columns: 1fr !important; }
+
+  .roadmap-grid.six-roadmap,
+  .method-columns,
+  .contribution-grid.contribution-three,
+  .assumption-grid,
+  .foundation-grid,
+  .transition-columns,
+  .assignment-cards,
+  .rl-method-grid,
+  .adaptation-grid,
+  .reward-equations,
+  .dataset-facts,
+  .experiment-parameters,
+  .limitation-grid,
+  .closing-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: 11px !important;
+  }
+
+  .roadmap-grid.six-roadmap article,
+  .contribution-grid article,
+  .method-columns article,
+  .assumption-grid article,
+  .foundation-grid article,
+  .transition-columns article,
+  .assignment-cards article,
+  .rl-method-grid article,
+  .adaptation-grid article,
+  .reward-equations article,
+  .dataset-facts article,
+  .limitation-grid article,
+  .closing-grid article {
+    min-height: 0 !important;
+  }
+
+  .split-figure-layout,
+  .tradeoff-layout,
+  .contours-layout,
+  .queue-objective-layout,
+  .grid-action-layout,
+  .assignment-layout,
+  .reward-layout,
+  .experiment-layout,
+  .result-layout,
+  .policy-interpretation-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: 13px !important;
+  }
+
+  .figure-card,
+  .large-figure,
+  .tall-figure {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 9px !important;
+  }
+
+  .figure-card img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .one-line-claim,
+  .weight-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 7px !important;
+  }
+
+  .gap-banner { grid-template-columns: 1fr !important; }
+
+  .queue-system-flow,
+  .future-flow,
+  .mdp-loop {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: 9px !important;
+  }
+
+  .queue-system-flow > i,
+  .future-flow > i,
+  .mdp-loop > i {
+    transform: rotate(90deg);
+    justify-self: center;
+    line-height: 1;
+  }
+
+  .queue-system-flow article,
+  .future-flow article {
+    min-height: 0 !important;
+  }
+
+  .queue-characteristics { justify-content: flex-start !important; }
+
+  .transition-claim,
+  .formula-card,
+  .observation-card,
+  .final-equation {
+    overflow-x: auto !important;
+  }
+
+  .light-math-box { min-height: 0 !important; }
+
+  .conceptual-diagram {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+    gap: 9px !important;
+  }
+
+  .conceptual-diagram > i {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+
+  .arch-block { min-height: 0 !important; }
+  .dual-output { grid-template-columns: 1fr !important; }
+  .dual-output > div { min-height: 0 !important; }
+
+  .result-table-wrap {
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+  .result-table {
+    min-width: 650px;
+  }
+
+  .big-result-card { min-height: 0 !important; }
+
+  .future-flow article { min-height: 0 !important; }
+
+  .closing-layout {
+    min-height: calc(100% - 5px) !important;
+    height: auto !important;
+  }
+
+  .bottom-frame {
+    grid-template-columns: auto 1fr auto !important;
+    gap: 8px !important;
+    padding: 0 11px env(safe-area-inset-bottom, 0px) !important;
+  }
+
+  .presenter-line { display: none !important; }
+  .navigation-controls { justify-self: stretch !important; justify-content: center !important; }
+  .navigation-controls p { display: none !important; }
+  .navigation-controls button {
+    width: min(125px, 34vw) !important;
+    height: 39px !important;
+    font-size: 12px !important;
+  }
+  .slide-counter { grid-column: 1 !important; grid-row: 1 !important; }
+  .navigation-controls { grid-column: 2 / 4 !important; grid-row: 1 !important; }
+}
+
+@media (max-width: 390px) {
+  .slide-heading h2,
+  .closing-layout h2 { font-size: 28px !important; }
+  .display-title { font-size: 39px !important; }
+  .chapter-status strong { font-size: 10px !important; }
+  .navigation-controls button { width: 105px !important; }
+}
+
+@media print {
+  html,
+  body { overflow: visible !important; background: white !important; }
+  .top-frame,
+  .bottom-frame { display: none !important; }
+  .slide-stage { position: static !important; }
+  .slide {
+    position: relative !important;
+    display: block !important;
+    page-break-after: always;
+    min-height: 100vh;
+  }
+}
+
+/* Final contrast, architecture, learned-policy, and mobile-control corrections. */
+.slide:not(.theme-method):not(.theme-closing) .accent-card,
+.slide:not(.theme-method):not(.theme-closing) .accent-card p,
+.slide:not(.theme-method):not(.theme-closing) .accent-card mjx-container {
+  color: var(--ink) !important;
+}
+
+.conceptual-diagram {
+  grid-template-columns: minmax(145px,.82fr) auto minmax(165px,.96fr) auto minmax(250px,1.38fr) auto minmax(190px,1.02fr);
+}
+
+.nodes b,
+.nodes i {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-2);
+  background: rgba(245,185,66,.1);
+}
+
+.policy-panel-grid {
+  min-width: 0;
+  height: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-rows: repeat(2, minmax(0,1fr));
+  gap: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(16,32,44,.12);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.7);
+  box-shadow: 0 18px 42px rgba(16,32,44,.12);
+}
+
+.policy-panel-grid figure {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: white;
+}
+
+.policy-panel-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.policy-panel-grid figcaption {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: white;
+  background: rgba(12,38,58,.88);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.theme-closing .closing-grid article p {
+  color: rgba(239,245,246,.78) !important;
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  .slide::after {
+    display: none !important;
+  }
+
+  .bottom-frame {
+    display: grid !important;
+    grid-template-columns: auto minmax(0,1fr) !important;
+    align-items: center !important;
+  }
+
+  .bottom-frame > .slide-counter {
+    display: flex !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .bottom-frame > .navigation-controls {
+    display: flex !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+  }
+
+  .navigation-controls button {
+    display: inline-flex !important;
+  }
+
+  .slide mjx-container[display="true"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    font-size: 88% !important;
+  }
+
+  .policy-panel-grid {
+    width: 100% !important;
+    height: auto !important;
+    padding: 8px !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    gap: 8px !important;
+  }
+
+  .policy-panel-grid figure {
+    height: auto !important;
+    aspect-ratio: 1.1 / 1;
+  }
+
+  .policy-panel-grid img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.policy-rules .accent-card > span {
+  color: var(--accent) !important;
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  .policy-panel-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+}
+
+/* ========================================================================
+   V2 — align the presentation scale, titles, cards, footer and closing page
+   with the latest reference site while preserving Times New Roman.
+   ======================================================================== */
+
+/* Reference-site title placement and typography. */
+.slide {
+  padding: clamp(28px, 3.2vh, 46px) clamp(38px, 5vw, 88px);
+}
+
+.slide-heading {
+  max-width: 1040px;
+  margin-bottom: clamp(24px, 3.1vh, 42px);
+}
+
+.compact-heading {
+  margin-bottom: clamp(14px, 2vh, 26px);
+}
+
+.slide-heading h2 {
+  max-width: 1160px;
+  margin: 0 0 12px;
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: clamp(34px, 4.2vw, 70px);
+  line-height: .98;
+  font-weight: 500;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: clamp(10px, .8vw, 13px);
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+/* Match the reference site's text-to-card proportions. */
+p,
+li,
+td,
+th {
+  font-size: clamp(11px, .82vw, 13px);
+  line-height: 1.48;
+}
+
+h3,
+.slide article h3 {
+  margin-bottom: 8px;
+  font-size: clamp(15px, 1.25vw, 21px);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.slide article > strong:first-child,
+.slide article > b:first-child {
+  font-size: clamp(14px, 1.08vw, 18px);
+  line-height: 1.16;
+}
+
+.slide article > span:first-child:not(.action-label),
+.slide article > small:first-child {
+  font-size: clamp(11px, .86vw, 14px);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.slide article > h3 + p,
+.slide article > strong + p,
+.slide article > span + p,
+.slide article > b + span,
+.slide article > b + p {
+  font-size: clamp(11px, .78vw, 13px);
+}
+
+/* Cards alongside one another always stretch to the same height, without
+   oversized fixed empty areas. */
+.roadmap-grid.six-roadmap,
+.method-columns,
+.contribution-grid.contribution-three,
+.assumption-grid,
+.foundation-grid,
+.transition-columns,
+.assignment-cards,
+.rl-method-grid,
+.adaptation-grid,
+.reward-equations,
+.dataset-facts,
+.experiment-parameters,
+.limitation-grid,
+.closing-grid,
+.policy-rules {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.roadmap-grid.six-roadmap article,
+.contribution-grid.contribution-three article,
+.method-columns article,
+.assumption-grid article,
+.foundation-grid article,
+.transition-columns article,
+.assignment-cards article,
+.rl-method-grid article,
+.adaptation-grid article,
+.reward-equations article,
+.dataset-facts article,
+.experiment-parameters article,
+.limitation-grid article,
+.closing-grid article,
+.policy-rules article {
+  min-height: 0;
+  height: 100%;
+}
+
+.roadmap-grid.six-roadmap article,
+.contribution-grid.contribution-three article,
+.method-columns article,
+.assignment-cards article,
+.rl-method-grid article,
+.adaptation-grid article,
+.limitation-grid article,
+.closing-grid article {
+  padding: clamp(18px, 1.45vw, 24px);
+}
+
+/* Opening slide scale from the reference presentation. */
+.display-title {
+  margin: 0 0 clamp(18px, 2.5vh, 30px);
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: clamp(46px, 6.2vw, 104px);
+  line-height: .88;
+  font-weight: 500;
+  letter-spacing: -.065em;
+}
+
+.display-title em {
+  font-weight: 500;
+}
+
+.presenter-group {
+  width: min(620px, 100%);
+  margin-top: clamp(24px, 3vh, 40px);
+  gap: 14px;
+}
+
+.presenter-block {
+  padding: 18px 26px;
+  border-top-width: 4px;
+  border-radius: 14px;
+}
+
+.presenter-names strong {
+  font-size: clamp(12px, .95vw, 15px);
+}
+
+/* Footer: remove the keyboard hint/arrow controls and use the same compact
+   Overview + Fullscreen controls as the reference site. */
+.bottom-frame {
+  grid-template-columns: minmax(340px, 1fr) auto minmax(340px, 1fr);
+  gap: 20px;
+  padding: 0 24px;
+}
+
+.navigation-controls-compact {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navigation-controls-compact button {
+  display: inline-flex !important;
+}
+
+/* Reference-style final questions page. */
+.closing-slide {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.closing-mark {
+  margin-bottom: 24px;
+}
+
+.closing-slide .display-title {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(58px, 8vw, 126px);
+}
+
+.closing-names {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  color: rgba(240,246,246,.75);
+  font-size: 16px;
+}
+
+.closing-names span {
+  color: var(--accent);
+}
+
+.doi-card {
+  margin-top: 28px;
+  padding: 13px 18px;
+  display: flex;
+  gap: 28px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  color: rgba(240,246,246,.65);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.doi-card span {
+  color: var(--accent-2);
+  font-weight: 800;
+}
+
+/* Overview is part of the fixed presentation UI. */
+.slide-map {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+.map-head strong,
+.map-list button,
+.map-list span,
+.map-list small,
+.map-list b {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .navigation-controls-compact button {
+    display: inline-flex !important;
+  }
+  .bottom-frame {
+    grid-template-columns: 1fr auto;
+    padding: 0 16px;
+  }
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  .slide {
+    padding: 20px 15px calc(28px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .slide-heading,
+  .compact-heading {
+    margin: 0 0 15px !important;
+  }
+
+  .slide-heading h2 {
+    font-size: clamp(29px, 8.4vw, 39px) !important;
+    line-height: 1.05 !important;
+    font-weight: 500 !important;
+  }
+
+  p,
+  li,
+  td,
+  th {
+    font-size: 14px !important;
+  }
+
+  .navigation-controls-compact {
+    display: flex !important;
+    justify-self: end !important;
+  }
+
+  .navigation-controls-compact button {
+    display: inline-flex !important;
+    width: auto !important;
+    min-width: 96px !important;
+    height: 39px !important;
+    padding: 0 11px !important;
+  }
+
+  .closing-slide {
+    min-height: calc(100% - 4px);
+  }
+
+  .closing-slide .display-title {
+    font-size: clamp(46px, 14vw, 70px) !important;
+    text-align: center !important;
+  }
+
+  .closing-names {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .doi-card {
+    gap: 10px;
+    font-size: 11px;
+  }
+}
+
+/* V2 contrast correction for contribution cards */
+.contribution-grid.contribution-three article,
+.contribution-grid.contribution-three article h3 {
+  color: #fff;
+}
+.contribution-grid.contribution-three article p {
+  color: rgba(255,255,255,.78) !important;
+}
+
+/* ========================================================================
+   V3 — stable 100%-zoom laptop fit, unified typography, compact roadmap,
+   equal title sizing, and click-to-expand figures.
+   ======================================================================== */
+
+:root {
+  --slide-title-size: 54px;
+  --slide-body-size: 15px;
+  --card-body-size: 14px;
+  --card-title-size: 19px;
+  --label-size: 11px;
+}
+
+/* Every ordinary slide title uses exactly the same desktop font size.
+   Long titles wrap naturally; JavaScript no longer shrinks individual titles. */
+.slide-heading,
+.compact-heading {
+  width: 100%;
+  max-width: 1220px;
+  min-height: 128px;
+  margin: 0 0 20px;
+}
+
+.slide-heading h2,
+.compact-heading h2 {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0;
+  font-size: var(--slide-title-size) !important;
+  line-height: 1.02 !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.04em !important;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: var(--label-size) !important;
+  line-height: 1.1;
+}
+
+/* A coherent typographic ladder across all slide families. */
+.slide p,
+.slide li {
+  font-size: var(--slide-body-size) !important;
+  line-height: 1.42 !important;
+}
+
+.slide article p,
+.slide .stacked-insights p,
+.slide .policy-rules p,
+.slide .future-flow p,
+.slide .closing-grid p,
+.slide .method-columns p,
+.slide .assignment-cards p,
+.slide .adaptation-grid p,
+.slide .rl-method-grid p,
+.slide .limitation-grid p,
+.slide .roadmap-grid p {
+  font-size: var(--card-body-size) !important;
+  line-height: 1.4 !important;
+}
+
+.slide h3,
+.slide article h3 {
+  margin: 0 0 7px;
+  font-size: var(--card-title-size) !important;
+  line-height: 1.16 !important;
+}
+
+.slide article > strong:first-child,
+.slide article > b:first-child,
+.closing-grid strong {
+  font-size: var(--card-title-size) !important;
+  line-height: 1.16 !important;
+}
+
+.slide article > span:first-child:not(.action-label),
+.slide article > small:first-child,
+.stacked-insights article > span,
+.policy-rules article > span,
+.limitation-grid article > span,
+.future-flow article > span,
+.contribution-grid article > span,
+.roadmap-grid article > span {
+  font-size: var(--label-size) !important;
+  line-height: 1.15 !important;
+}
+
+.decision-banner,
+.policy-lookup,
+.partial-observation-banner,
+.note-strip,
+.one-line-claim,
+.transition-claim,
+.final-equation {
+  font-size: var(--slide-body-size) !important;
+  line-height: 1.4 !important;
+}
+
+.result-table th,
+.result-table td {
+  font-size: 13.5px !important;
+  line-height: 1.35 !important;
+}
+
+.source-note {
+  font-size: 10.5px !important;
+}
+
+/* Keep all side-by-side cards equal in height while letting their content
+   determine a compact, predictable row size. */
+.roadmap-grid.six-roadmap {
+  width: min(1060px, 100%);
+  margin: 0 auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 124px !important;
+  gap: 12px;
+}
+
+.roadmap-grid.six-roadmap article {
+  min-height: 0 !important;
+  height: 124px !important;
+  padding: 14px 18px !important;
+  justify-content: flex-end;
+  border-radius: 15px;
+}
+
+.roadmap-grid.six-roadmap article::before {
+  height: 6px;
+  margin: -14px -18px auto;
+}
+
+.roadmap-grid.six-roadmap article > span {
+  font-size: 28px !important;
+  line-height: 1 !important;
+  color: rgba(16,32,44,.16);
+}
+
+.roadmap-grid.six-roadmap article h3 {
+  margin-bottom: 4px;
+  font-size: 18px !important;
+}
+
+.roadmap-grid.six-roadmap article p {
+  font-size: 13px !important;
+  line-height: 1.28 !important;
+}
+
+
+.closing-layout h2 {
+  max-width: 1220px;
+  font-size: var(--slide-title-size) !important;
+  line-height: 1.02 !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.04em !important;
+}
+
+/* Figure affordance and full-image viewer. */
+.slide img[data-lightbox-image] {
+  cursor: zoom-in;
+}
+
+.image-lightbox {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: 34px;
+  background: rgba(3, 10, 16, .94);
+  backdrop-filter: blur(12px);
+}
+
+.image-lightbox.is-open {
+  display: grid;
+}
+
+.image-lightbox figure {
+  width: min(96vw, 1500px);
+  height: min(89vh, 920px);
+  margin: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+  place-items: center;
+}
+
+.image-lightbox img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  cursor: zoom-out;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 28px 90px rgba(0,0,0,.45);
+}
+
+.image-lightbox figcaption {
+  max-width: 1000px;
+  color: rgba(245,248,249,.78);
+  font-size: 14px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.image-lightbox-close:hover {
+  background: rgba(255,255,255,.16);
+}
+
+/* The presentation is composed for a stable 1440px virtual desktop width.
+   These height refinements keep both 16:9 and 16:10 laptops inside the frame. */
+@media (max-height: 835px) and (min-width: 761px) {
+  .slide {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .slide-heading,
+  .compact-heading {
+    min-height: 116px;
+    margin-bottom: 14px;
+  }
+
+  .slide-heading h2,
+  .compact-heading h2,
+  .closing-layout h2 {
+    font-size: 50px !important;
+  }
+
+  :root {
+    --slide-body-size: 14px;
+    --card-body-size: 14px;
+    --card-title-size: 18px;
+  }
+
+  .roadmap-grid.six-roadmap {
+    grid-auto-rows: 112px !important;
+  }
+
+  .roadmap-grid.six-roadmap article {
+    height: 112px !important;
+    padding: 12px 16px !important;
+  }
+
+  .roadmap-grid.six-roadmap article::before {
+    margin: -12px -16px auto;
+  }
+
+  .roadmap-grid.six-roadmap article p {
+    font-size: 12.5px !important;
+  }
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  .slide-heading,
+  .compact-heading {
+    min-height: 0 !important;
+    margin-bottom: 15px !important;
+  }
+
+  .slide-heading h2,
+  .compact-heading h2 {
+    font-size: clamp(29px, 8.4vw, 39px) !important;
+  }
+
+  .roadmap-grid.six-roadmap {
+    width: 100%;
+    grid-auto-rows: auto !important;
+  }
+
+  .roadmap-grid.six-roadmap article {
+    height: auto !important;
+    min-height: 104px !important;
+  }
+
+  .image-lightbox {
+    padding: 54px 10px 18px;
+  }
+
+  .image-lightbox figure {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-lightbox-close {
+    top: 8px;
+    right: 10px;
+  }
+}
+
+/* ========================================================================
+   V5 — conservative correction from the last stable layout.
+   No decorative images were added. Uploaded paper figures are used only on
+   the slides where they directly explain the corresponding concept.
+   ======================================================================== */
+
+/* Use more of the available area on the two text-heavy but visually sparse
+   slides, without changing the global title or body-text scale. */
+#slide-16 .slide-content,
+#slide-29 .slide-content {
+  min-height: 0;
+}
+
+#slide-16 .rl-method-grid {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(150px, 1fr);
+  gap: 14px;
+}
+
+#slide-16 .rl-method-grid article {
+  min-height: 150px !important;
+  padding: 18px 22px;
+}
+
+#slide-16 .formula-strip {
+  width: min(1040px, 100%);
+  margin: 14px auto 0;
+}
+
+#slide-29 .future-flow {
+  width: min(1060px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+#slide-29 .future-flow > i {
+  display: none;
+}
+
+#slide-29 .future-flow article {
+  min-height: 170px;
+  padding: 20px 24px;
+}
+
+/* One footer action only: Overview. Fullscreen remains available with the F
+   key, but its visible footer label stays removed as requested. */
+.navigation-controls-compact {
+  min-width: 120px;
+}
+
+.navigation-controls-compact button {
+  min-width: 112px;
+}
+
+/* Keep high-resolution paper figures contained in their cards at every
+   desktop aspect ratio. */
+.figure-card,
+.figure-card img,
+.policy-panel-grid figure,
+.policy-panel-grid img {
+  min-width: 0;
+  min-height: 0;
+}
+
+.figure-card img,
+.policy-panel-grid img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Runtime overflow guard scales only the content area when a browser's font
+   metrics differ. Slide titles retain the same global size on every slide. */
+.slide-content.is-runtime-fitted {
+  transform-origin: top left;
+}
+
+@media (max-height: 835px) and (min-width: 761px) {
+  #slide-16 .rl-method-grid {
+    grid-auto-rows: minmax(132px, 1fr);
+    gap: 11px;
+  }
+
+  #slide-16 .rl-method-grid article {
+    min-height: 132px !important;
+    padding: 15px 19px;
+  }
+
+  #slide-29 .future-flow article {
+    min-height: 146px;
+    padding: 16px 20px;
+  }
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  #slide-16 .rl-method-grid,
+  #slide-29 .future-flow {
+    width: 100%;
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+  }
+
+  #slide-16 .rl-method-grid article,
+  #slide-29 .future-flow article {
+    min-height: 0 !important;
+  }
+
+  .slide-content.is-runtime-fitted {
+    transform: none !important;
+  }
+}
+
+/* ========================================================================
+   V6 — fit-to-laptop 100% scale, restored fullscreen and zoom controls,
+   uniform slide titles, compact content-sized cards, and a stacked data panel.
+   ======================================================================== */
+
+/* All ordinary slide titles use one exact size inside the fixed 1440×810
+   design canvas. The parent page scales that complete canvas to each laptop. */
+.slide-heading h2,
+.compact-heading h2 {
+  font-size: 50px !important;
+  line-height: 1.02 !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.slide-heading,
+.compact-heading {
+  min-height: 116px;
+  margin-bottom: 14px;
+}
+
+/* Restore the complete control group. */
+.bottom-frame {
+  grid-template-columns: minmax(300px, 1fr) auto minmax(520px, 1fr) !important;
+}
+
+.navigation-controls-compact {
+  min-width: 0 !important;
+  gap: 8px !important;
+}
+
+.navigation-controls-compact > button {
+  display: inline-flex !important;
+  min-width: 104px !important;
+}
+
+.zoom-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 10px;
+  background: rgba(255,255,255,.035);
+}
+
+.zoom-controls button {
+  display: inline-grid !important;
+  place-items: center;
+  min-width: 30px !important;
+  width: 30px;
+  height: 26px;
+  padding: 0 !important;
+  border-radius: 7px !important;
+}
+
+.zoom-controls .zoom-value {
+  width: 51px;
+  min-width: 51px !important;
+  font-size: 10px !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Flash cards size themselves from their content. Cards sharing a grid row
+   still stretch to the same row height, but unrelated rows are not forced to
+   share one oversized fixed height. */
+.roadmap-grid.six-roadmap,
+.method-columns,
+.contribution-grid.contribution-three,
+.assumption-grid,
+.foundation-grid,
+.assignment-cards,
+.rl-method-grid,
+.adaptation-grid,
+.reward-equations,
+.dataset-facts,
+.experiment-parameters,
+.limitation-grid,
+.closing-grid,
+.policy-rules,
+#slide-29 .future-flow {
+  grid-auto-rows: auto !important;
+  align-items: stretch !important;
+  align-content: start;
+}
+
+.roadmap-grid.six-roadmap article,
+.method-columns article,
+.contribution-grid.contribution-three article,
+.assumption-grid article,
+.foundation-grid article,
+.assignment-cards article,
+.rl-method-grid article,
+.adaptation-grid article,
+.reward-equations article,
+.dataset-facts article,
+.experiment-parameters article,
+.limitation-grid article,
+.closing-grid article,
+.policy-rules article,
+#slide-29 .future-flow article {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 14px 17px !important;
+}
+
+.roadmap-grid.six-roadmap {
+  grid-auto-rows: auto !important;
+  align-content: center;
+}
+
+.roadmap-grid.six-roadmap article {
+  min-height: 96px !important;
+  height: auto !important;
+  padding: 12px 16px !important;
+}
+
+.roadmap-grid.six-roadmap article::before {
+  margin: -12px -16px auto !important;
+}
+
+.roadmap-grid.six-roadmap article > span {
+  font-size: 22px !important;
+}
+
+.roadmap-grid.six-roadmap article h3 {
+  font-size: 17px !important;
+  margin-bottom: 3px !important;
+}
+
+.roadmap-grid.six-roadmap article p {
+  font-size: 12.5px !important;
+  line-height: 1.28 !important;
+}
+
+/* Slide 21: four horizontal information cards stacked vertically. */
+#slide-21 .split-figure-layout {
+  grid-template-columns: minmax(0, 1.52fr) minmax(410px, .86fr);
+  gap: 18px;
+}
+
+#slide-21 .dataset-facts {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: repeat(4, auto);
+  gap: 9px;
+  align-content: center;
+}
+
+#slide-21 .dataset-facts article {
+  display: grid;
+  grid-template-columns: 76px 142px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px !important;
+  min-height: 0 !important;
+}
+
+#slide-21 .dataset-facts span {
+  margin: 0;
+  font-size: 10.5px !important;
+}
+
+#slide-21 .dataset-facts strong {
+  margin: 0;
+  font-size: 18px !important;
+  line-height: 1.12;
+}
+
+#slide-21 .dataset-facts p {
+  margin: 0;
+  font-size: 13px !important;
+  line-height: 1.34 !important;
+}
+
+/* Remove remaining V5 fixed card heights on the two adjusted slides. */
+#slide-16 .rl-method-grid {
+  grid-auto-rows: auto !important;
+  align-content: center;
+}
+
+#slide-16 .rl-method-grid article,
+#slide-29 .future-flow article {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  .slide-heading,
+  .compact-heading {
+    min-height: 0 !important;
+  }
+
+  .slide-heading h2,
+  .compact-heading h2 {
+    font-size: clamp(29px, 8.4vw, 39px) !important;
+  }
+
+  .bottom-frame {
+    grid-template-columns: auto 1fr !important;
+  }
+
+  .zoom-controls {
+    display: none !important;
+  }
+
+  #slide-21 .dataset-facts {
+    grid-template-columns: 1fr !important;
+  }
+
+  #slide-21 .dataset-facts article {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+}
+
+/* ========================================================================
+   V7 — reference-site adaptive zoom, one-line titles, targeted card geometry,
+   repaired fullscreen, and slide-specific layout refinements.
+   ======================================================================== */
+
+/* The outer index.html now applies the same adaptive desktop zoom strategy as
+   the reference site. Inside the presentation, every normal title therefore
+   uses one fixed base size and remains on one line. */
+@media (min-width: 761px) {
+  .slide-heading,
+  .compact-heading {
+    min-height: 0 !important;
+    max-width: none !important;
+    margin-bottom: 12px !important;
+  }
+
+  .slide-heading h2,
+  .compact-heading h2,
+  #slide-30 .closing-layout h2 {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    font-size: 36px !important;
+    line-height: 1.05 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.025em !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+  }
+}
+
+/* Remove all custom zoom UI. Browser zoom remains fully native. */
+.zoom-controls,
+#zoom-out-button,
+#zoom-reset-button,
+#zoom-in-button {
+  display: none !important;
+}
+
+.bottom-frame {
+  grid-template-columns: minmax(300px, 1fr) auto minmax(300px, 1fr) !important;
+}
+
+.navigation-controls-compact {
+  min-width: 0 !important;
+  justify-self: end !important;
+  gap: 8px !important;
+}
+
+.navigation-controls-compact > button {
+  display: inline-flex !important;
+  min-width: 104px !important;
+}
+
+/* Slides 3, 11, 12, 23, 24, and 26: three side cards share the exact height
+   required by the largest item. */
+#slide-3 .stacked-insights,
+#slide-11 .stacked-insights,
+#slide-12 .stacked-insights,
+#slide-23 .stacked-insights,
+#slide-24 .stacked-insights,
+#slide-26 .stacked-insights {
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+  align-content: stretch !important;
+}
+
+#slide-3 .stacked-insights > *,
+#slide-11 .stacked-insights > *,
+#slide-12 .stacked-insights > *,
+#slide-23 .stacked-insights > *,
+#slide-24 .stacked-insights > *,
+#slide-26 .stacked-insights > * {
+  height: 100% !important;
+  min-height: 0 !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+/* Slide 4: the control card and all three contribution cards become one
+   four-column row with identical dimensions. */
+#slide-4 .queue-objective-layout {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 13px !important;
+  align-items: stretch !important;
+}
+
+#slide-4 .contribution-grid.contribution-three {
+  display: contents !important;
+}
+
+#slide-4 .objective-box,
+#slide-4 .contribution-grid article {
+  width: 100% !important;
+  min-height: 205px !important;
+  height: 100% !important;
+  padding: 18px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+#slide-4 .objective-box strong {
+  font-size: 30px !important;
+}
+
+/* Slide 5: increase the analytical / MDP / RL cards without adding empty
+   vertical padding elsewhere. */
+#slide-5 .method-columns {
+  gap: 17px !important;
+}
+
+#slide-5 .method-columns article {
+  min-height: 225px !important;
+  padding: 23px 25px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+/* Slide 7: all six assumption cards have the same dimensions. */
+#slide-7 .assumption-grid {
+  grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+  grid-auto-rows: 1fr !important;
+}
+
+#slide-7 .assumption-grid article {
+  height: 100% !important;
+  min-height: 0 !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+/* Slides 8 and 15: connected panels, with no gap between the upper panel and
+   the lower panels. */
+#slide-8 .transition-layout,
+#slide-15 .mdp-layout {
+  gap: 0 !important;
+}
+
+#slide-8 .transition-claim {
+  border-radius: 16px 16px 0 0 !important;
+  border-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+#slide-8 .transition-columns {
+  gap: 14px !important;
+}
+
+#slide-8 .transition-columns article {
+  border-radius: 0 0 17px 17px !important;
+  margin-top: 0 !important;
+}
+
+#slide-15 .mdp-loop {
+  padding: 13px !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-bottom: 0 !important;
+  border-radius: 16px 16px 0 0 !important;
+  background: rgba(255,255,255,.045) !important;
+}
+
+#slide-15 .observation-card {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border-bottom: 0 !important;
+}
+
+#slide-15 .partial-observation-banner {
+  margin: 0 !important;
+  border-radius: 0 0 16px 16px !important;
+}
+
+/* Slide 18: center the three adaptation cards and their content. */
+#slide-18 .adaptation-grid {
+  width: min(1040px, 100%) !important;
+  margin: 0 auto !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  justify-content: center !important;
+}
+
+#slide-18 .adaptation-grid article {
+  min-height: 225px !important;
+  text-align: center !important;
+  justify-items: center !important;
+  align-content: center !important;
+}
+
+#slide-18 .one-line-claim {
+  width: min(1040px, 100%) !important;
+  margin: 14px auto 0 !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Slide 20: three equal reward cards on top, one connected interpretation
+   panel below. */
+#slide-20 .reward-layout {
+  height: auto !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 13px !important;
+}
+
+#slide-20 .reward-equations {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 13px !important;
+}
+
+#slide-20 .reward-equations article {
+  min-height: 205px !important;
+  height: 100% !important;
+  padding: 18px !important;
+  text-align: center !important;
+  justify-items: center !important;
+  align-content: center !important;
+}
+
+#slide-20 .reward-equations mjx-container {
+  font-size: 88% !important;
+}
+
+#slide-20 .reward-interpretation {
+  padding: 17px 19px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr) !important;
+  grid-template-rows: auto 1fr !important;
+  column-gap: 18px !important;
+  row-gap: 5px !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+  border-radius: 17px !important;
+  background: rgba(255,255,255,.055) !important;
+}
+
+#slide-20 .reward-interpretation h3 {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  margin: 0 !important;
+}
+
+#slide-20 .reward-interpretation > p {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  margin: 0 !important;
+  align-self: center !important;
+}
+
+#slide-20 .weight-card {
+  grid-column: 2 !important;
+  grid-row: 1 / 3 !important;
+  margin: 0 !important;
+  align-self: stretch !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+/* Slide 22: six compact horizontal parameter cards stacked vertically with
+   identical text sizing. */
+#slide-22 .experiment-layout {
+  grid-template-columns: minmax(0, 1.55fr) minmax(330px, .72fr) !important;
+}
+
+#slide-22 .experiment-parameters {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: repeat(6, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+#slide-22 .experiment-parameters article {
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: 10px 14px !important;
+  display: grid !important;
+  grid-template-columns: 88px minmax(0, 1fr) !important;
+  align-items: center !important;
+  align-content: center !important;
+  column-gap: 12px !important;
+}
+
+#slide-22 .experiment-parameters b {
+  color: var(--accent) !important;
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+}
+
+#slide-22 .experiment-parameters span {
+  color: var(--ink) !important;
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* Slide 25: remove the large blank table panel and use the lower area for the
+   actual wait-time deltas. */
+#slide-25 .result-layout {
+  height: min(56vh, 510px) !important;
+  grid-template-columns: minmax(0, 1.62fr) minmax(300px, .68fr) !important;
+  align-items: stretch !important;
+}
+
+#slide-25 .result-table-wrap {
+  display: grid !important;
+  grid-template-rows: auto 1fr !important;
+  align-content: stretch !important;
+  overflow: hidden !important;
+}
+
+#slide-25 .result-table th,
+#slide-25 .result-table td {
+  padding: 15px 18px !important;
+}
+
+#slide-25 .result-delta-grid {
+  padding: 13px !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+  background: rgba(16,32,44,.035) !important;
+  border-top: 1px solid rgba(16,32,44,.1) !important;
+}
+
+#slide-25 .result-delta-grid article {
+  min-height: 0 !important;
+  padding: 14px !important;
+  display: grid !important;
+  align-content: center !important;
+  border: 1px solid rgba(16,32,44,.12) !important;
+  border-radius: 13px !important;
+  background: rgba(255,255,255,.66) !important;
+}
+
+#slide-25 .result-delta-grid span {
+  color: var(--accent) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: .05em !important;
+  text-transform: uppercase !important;
+}
+
+#slide-25 .result-delta-grid strong {
+  margin: 6px 0 !important;
+  color: var(--deep-blue) !important;
+  font-size: 25px !important;
+}
+
+#slide-25 .result-delta-grid p {
+  margin: 0 !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+
+#slide-25 .big-result-card {
+  min-height: 0 !important;
+  height: 100% !important;
+}
+
+/* Slide 28: larger card text. */
+#slide-28 .limitation-grid article {
+  padding: 21px 23px !important;
+}
+
+#slide-28 .limitation-grid article > span {
+  font-size: 13px !important;
+}
+
+#slide-28 .limitation-grid article p {
+  font-size: 17px !important;
+  line-height: 1.45 !important;
+}
+
+/* Slide 30: title and conclusion label stay at the top, followed by the cards. */
+#slide-30 .closing-layout {
+  height: 100% !important;
+  display: grid !important;
+  grid-template-rows: auto auto auto auto !important;
+  align-content: start !important;
+  gap: 17px !important;
+}
+
+#slide-30 .closing-layout .eyebrow {
+  margin: 0 !important;
+}
+
+#slide-30 .closing-grid {
+  margin-top: 4px !important;
+}
+
+#slide-30 .final-equation {
+  margin-top: 0 !important;
+}
+
+/* Native mobile layout remains scrollable and permits title wrapping. */
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  .slide-heading h2,
+  .compact-heading h2,
+  #slide-30 .closing-layout h2 {
+    white-space: normal !important;
+    text-wrap: balance !important;
+  }
+
+  #slide-4 .queue-objective-layout,
+  #slide-18 .adaptation-grid,
+  #slide-20 .reward-equations,
+  #slide-20 .reward-interpretation,
+  #slide-22 .experiment-parameters,
+  #slide-25 .result-delta-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+
+  #slide-4 .contribution-grid.contribution-three {
+    display: grid !important;
+  }
+
+  #slide-8 .transition-layout,
+  #slide-15 .mdp-layout {
+    gap: 11px !important;
+  }
+
+  #slide-8 .transition-claim,
+  #slide-8 .transition-columns article,
+  #slide-15 .mdp-loop,
+  #slide-15 .observation-card,
+  #slide-15 .partial-observation-banner {
+    border-radius: 14px !important;
+    border: 1px solid rgba(16,32,44,.13) !important;
+  }
+
+  #slide-20 .weight-card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  #slide-22 .experiment-parameters article {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Pack the connected rows together instead of letting the parent grid stretch
+   them apart across the available slide height. */
+#slide-8 .transition-layout {
+  grid-template-rows: auto auto !important;
+  align-content: center !important;
+}
+
+#slide-15 .mdp-layout {
+  grid-template-rows: auto auto auto !important;
+  align-content: center !important;
+}
+
+/* Keep card copy readable; do not stretch word spacing to justify short text. */
+.slide-content article p,
+.stacked-insights p,
+.policy-rules p,
+.result-delta-grid p {
+  text-align: left !important;
+}
+
+/* Ensure the numerical experiment weights are prominent in the redesigned
+   reward panel. */
+#slide-20 .weight-card {
+  grid-template-columns: 1fr !important;
+  gap: 7px !important;
+  justify-items: start !important;
+}
+
+#slide-20 .weight-card strong {
+  display: block !important;
+  color: var(--accent-2) !important;
+  font-size: 22px !important;
+  line-height: 1.1 !important;
+}
+
+#slide-20 .weight-card small {
+  color: rgba(239,245,246,.78) !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+
+/* === V8 focused refinements === */
+
+/* Slides 8 and 15: keep the related panels close, but visibly separate. */
+#slide-8 .transition-layout {
+  gap: 9px !important;
+  grid-template-rows: auto auto !important;
+  align-content: center !important;
+}
+
+#slide-8 .transition-claim {
+  margin: 0 !important;
+  border: 1px solid rgba(16,32,44,.12) !important;
+  border-radius: 15px !important;
+}
+
+#slide-8 .transition-columns {
+  margin: 0 !important;
+  gap: 14px !important;
+}
+
+#slide-8 .transition-columns article {
+  margin: 0 !important;
+  border-radius: 17px !important;
+}
+
+#slide-15 .mdp-layout {
+  gap: 9px !important;
+  grid-template-rows: auto auto auto !important;
+  align-content: center !important;
+}
+
+#slide-15 .mdp-loop,
+#slide-15 .observation-card,
+#slide-15 .partial-observation-banner {
+  margin: 0 !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 16px !important;
+}
+
+#slide-15 .partial-observation-banner {
+  border-color: rgba(255,112,67,.45) !important;
+}
+
+/* Slide 25: the highlight card should hug its content instead of filling the
+   full height of the result panel. */
+#slide-25 .result-layout {
+  grid-template-columns: minmax(0, 1.72fr) minmax(255px, .54fr) !important;
+  align-items: start !important;
+}
+
+#slide-25 .big-result-card {
+  min-height: 0 !important;
+  height: auto !important;
+  align-self: start !important;
+  padding: 24px 25px !important;
+}
+
+#slide-25 .big-result-card > strong {
+  margin: 8px 0 10px !important;
+  font-size: clamp(45px, 4.4vw, 66px) !important;
+}
+
+#slide-25 .big-result-card p {
+  font-size: 14px !important;
+  line-height: 1.43 !important;
+}
+
+/* Slide 30: retain the top title, strengthen hierarchy, and use the lower
+   space for a compact operational synthesis. */
+#slide-30 .closing-layout {
+  height: 100% !important;
+  display: grid !important;
+  grid-template-rows: auto auto auto auto !important;
+  align-content: start !important;
+  gap: 15px !important;
+}
+
+#slide-30 .closing-grid {
+  margin: 0 !important;
+  gap: 13px !important;
+  grid-auto-rows: 1fr !important;
+}
+
+#slide-30 .closing-grid article {
+  min-height: 132px !important;
+  padding: 20px 22px !important;
+  align-content: center !important;
+}
+
+#slide-30 .closing-grid strong {
+  font-size: 20px !important;
+}
+
+#slide-30 .closing-grid p {
+  margin: 6px 0 0 !important;
+  font-size: 15px !important;
+  line-height: 1.42 !important;
+}
+
+#slide-30 .closing-synthesis {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr) !important;
+  gap: 13px !important;
+  align-items: stretch !important;
+}
+
+#slide-30 .final-equation {
+  margin: 0 !important;
+  min-height: 126px !important;
+  padding: 18px 22px !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: clamp(17px, 1.35vw, 22px) !important;
+}
+
+#slide-30 .closing-policy-rule {
+  padding: 17px 18px !important;
+  display: grid !important;
+  align-content: center !important;
+  gap: 10px !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 15px !important;
+  background: rgba(255,255,255,.06) !important;
+}
+
+#slide-30 .closing-policy-rule > span {
+  color: var(--accent-2) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+}
+
+#slide-30 .closing-rule-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 9px !important;
+}
+
+#slide-30 .closing-rule-grid article {
+  padding: 12px 13px !important;
+  border-radius: 11px !important;
+  background: rgba(255,255,255,.07) !important;
+}
+
+#slide-30 .closing-rule-grid strong {
+  color: #eef4f5 !important;
+  font-size: 14px !important;
+}
+
+#slide-30 .closing-rule-grid p {
+  margin: 4px 0 0 !important;
+  color: var(--accent-2) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-30 .closing-layout {
+    gap: 12px !important;
+  }
+
+  #slide-30 .closing-grid article {
+    min-height: 112px !important;
+    padding: 16px 18px !important;
+  }
+
+  #slide-30 .final-equation {
+    min-height: 105px !important;
+  }
+
+  #slide-30 .closing-policy-rule {
+    padding: 13px 15px !important;
+  }
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  #slide-8 .transition-layout,
+  #slide-15 .mdp-layout {
+    gap: 10px !important;
+  }
+
+  #slide-25 .result-layout,
+  #slide-30 .closing-synthesis,
+  #slide-30 .closing-rule-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #slide-25 .big-result-card {
+    width: 100% !important;
+  }
+}
+
+/* === V9 typography and centered-body refinements === */
+
+/* Increase the readable body typography while leaving slide titles, header,
+   footer, page indicators, and source notes unchanged. */
+.slide-content p,
+.slide-content li,
+.slide-content td,
+.slide-content th,
+.slide-content .decision-banner,
+.slide-content .policy-lookup,
+.slide-content .partial-observation-banner,
+.slide-content .note-strip,
+.slide-content .one-line-claim,
+.closing-layout p,
+.closing-layout .closing-policy-rule,
+.closing-layout .final-equation {
+  font-size: 17px !important;
+  line-height: 1.48 !important;
+}
+
+.slide-content h3,
+.closing-layout .closing-grid strong {
+  font-size: 22px !important;
+  line-height: 1.2 !important;
+}
+
+.slide-content article > span,
+.slide-content article > small,
+.slide-content .objective-box > small,
+.slide-content .action-matrix-card > span,
+.slide-content .observation-card > span,
+.slide-content .dataset-facts span,
+.slide-content .experiment-parameters span,
+.slide-content .big-result-card > span,
+.slide-content .reward-equations article > span,
+.slide-content .reward-interpretation .weight-card > span,
+.closing-layout .closing-policy-rule > span {
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+}
+
+.slide-content mjx-container {
+  font-size: 108% !important;
+}
+
+/* Center all body copy and card labels inside the slide area. Titles and the
+   fixed frame around the slide are intentionally excluded. */
+.slide-content,
+.slide-content article,
+.slide-content article p,
+.slide-content article h3,
+.slide-content article strong,
+.slide-content article span,
+.slide-content article small,
+.slide-content .decision-banner,
+.slide-content .policy-lookup,
+.slide-content .partial-observation-banner,
+.slide-content .note-strip,
+.slide-content .one-line-claim,
+.slide-content .objective-box,
+.slide-content .action-matrix-card,
+.slide-content .observation-card,
+.slide-content .reward-interpretation,
+.slide-content .weight-card,
+.slide-content .big-result-card,
+.slide-content table th,
+.slide-content table td,
+.closing-layout .closing-grid article,
+.closing-layout .closing-policy-rule,
+.closing-layout .final-equation {
+  text-align: center !important;
+}
+
+.slide-content article,
+.slide-content .objective-box,
+.slide-content .action-matrix-card,
+.slide-content .observation-card,
+.slide-content .reward-interpretation,
+.slide-content .weight-card,
+.slide-content .big-result-card,
+.closing-layout .closing-grid article,
+.closing-layout .closing-policy-rule {
+  justify-items: center !important;
+}
+
+.slide-content .one-line-claim,
+.slide-content .decision-banner,
+.slide-content .note-strip,
+.slide-content .policy-lookup,
+.slide-content .partial-observation-banner {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.slide-content .legend-row,
+.slide-content .queue-characteristics,
+.slide-content .presenter-names {
+  justify-content: center !important;
+}
+
+/* Slide 5: keep the three literature cards and the two lower summary boxes
+   visually close, with no excessive dead space. */
+#slide-5 .literature-layout {
+  gap: 9px !important;
+}
+
+#slide-5 .method-columns {
+  gap: 10px !important;
+}
+
+#slide-5 .method-columns article {
+  min-height: 0 !important;
+  padding: 19px 21px !important;
+}
+
+#slide-5 .gap-banner {
+  gap: 0 !important;
+}
+
+/* Slide 17: reduce separation between architecture blocks and warning bar. */
+#slide-17 .architecture-layout {
+  gap: 7px !important;
+}
+
+#slide-17 .conceptual-diagram {
+  gap: 7px !important;
+  padding: 20px !important;
+}
+
+#slide-17 .dual-output {
+  gap: 7px !important;
+}
+
+#slide-17 .architecture-warning {
+  margin-top: 0 !important;
+}
+
+/* Slide 20: tighten the three reward cards and the interpretation panel. */
+#slide-20 .reward-layout {
+  gap: 7px !important;
+}
+
+#slide-20 .reward-equations {
+  gap: 8px !important;
+}
+
+#slide-20 .reward-equations article {
+  min-height: 190px !important;
+  padding: 15px !important;
+}
+
+#slide-20 .reward-interpretation {
+  column-gap: 10px !important;
+  row-gap: 3px !important;
+  padding: 14px 16px !important;
+}
+
+#slide-20 .weight-card {
+  gap: 5px !important;
+}
+
+/* Keep dense laptop layouts contained after the typography increase. */
+@media (max-height: 820px) and (min-width: 761px) {
+  .slide-content p,
+  .slide-content li,
+  .slide-content td,
+  .slide-content th,
+  .slide-content .decision-banner,
+  .slide-content .policy-lookup,
+  .slide-content .partial-observation-banner,
+  .slide-content .note-strip,
+  .slide-content .one-line-claim,
+  .closing-layout p,
+  .closing-layout .closing-policy-rule,
+  .closing-layout .final-equation {
+    font-size: 16px !important;
+  }
+
+  .slide-content h3,
+  .closing-layout .closing-grid strong {
+    font-size: 20px !important;
+  }
+
+  #slide-5 .method-columns article {
+    padding: 16px 18px !important;
+  }
+
+  #slide-17 .conceptual-diagram {
+    padding: 16px !important;
+  }
+
+  #slide-20 .reward-equations article {
+    min-height: 170px !important;
+    padding: 13px !important;
+  }
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  .slide-content p,
+  .slide-content li,
+  .slide-content td,
+  .slide-content th,
+  .slide-content .decision-banner,
+  .slide-content .policy-lookup,
+  .slide-content .partial-observation-banner,
+  .slide-content .note-strip,
+  .slide-content .one-line-claim,
+  .closing-layout p,
+  .closing-layout .closing-policy-rule,
+  .closing-layout .final-equation {
+    font-size: 16px !important;
+  }
+}
+
+/* Center the complete body group vertically, rather than stretching rows to
+   fill the entire slide and creating artificial blank bands. */
+.slide-content {
+  align-content: center !important;
+}
+
+#slide-5 .literature-layout,
+#slide-17 .architecture-layout,
+#slide-20 .reward-layout {
+  align-content: center !important;
+  grid-template-rows: auto auto !important;
+}
+
+#slide-20 .reward-equations mjx-container {
+  font-size: 102% !important;
+}
+
+/* ========================================================================
+   V10 — justified body copy and refined opening/conclusion title scale
+   ======================================================================== */
+
+/* Keep box headings, labels, equations, figures, tables and the fixed frame in
+   their existing alignment. Only explanatory body copy is justified. */
+.slide-content article p,
+.slide-content .objective-box p,
+.slide-content .action-matrix-card p,
+.slide-content .observation-card p,
+.slide-content .reward-interpretation > p,
+.slide-content .big-result-card p,
+.slide-content .architecture-reference-note,
+.slide-content .stacked-insights p,
+.slide-content .policy-rules p,
+.slide-content .dataset-facts p,
+.slide-content .closing-grid p,
+.closing-layout .closing-grid p,
+.closing-layout .closing-rule-grid p {
+  text-align: justify !important;
+  text-align-last: left !important;
+  text-justify: inter-word !important;
+  hyphens: auto;
+}
+
+/* Narrative banners are justified only when they wrap; the final line stays
+   naturally left aligned so words are never stretched unnaturally. */
+.slide-content .decision-banner,
+.slide-content .policy-lookup,
+.slide-content .partial-observation-banner,
+.slide-content .note-strip,
+.slide-content .assessment-banner,
+.slide-content .architecture-warning {
+  text-align: justify !important;
+  text-align-last: left !important;
+  text-justify: inter-word !important;
+}
+
+/* The paper title remains the visual focus but no longer overwhelms the first
+   slide. */
+#slide-1 .display-title {
+  font-size: clamp(42px, 4.85vw, 72px) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.04em !important;
+}
+
+/* The conclusion heading keeps its current top position, at a calmer scale. */
+@media (min-width: 761px) {
+  #slide-30 .closing-layout h2 {
+    font-size: 31px !important;
+    line-height: 1.06 !important;
+  }
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-1 .display-title {
+    font-size: clamp(40px, 4.55vw, 66px) !important;
+  }
+
+  #slide-30 .closing-layout h2 {
+    font-size: 29px !important;
+  }
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  #slide-1 .display-title {
+    font-size: clamp(35px, 10vw, 48px) !important;
+  }
+
+  #slide-30 .closing-layout h2 {
+    font-size: clamp(27px, 7.5vw, 34px) !important;
+  }
+}
+
+/* ========================================================================
+   V11 — opening hierarchy, image-tight frames, wider side panels,
+   single-image learned-policy preview, and centered conclusion cards
+   ======================================================================== */
+
+/* Opening slide hierarchy */
+#slide-1 .eyebrow span {
+  padding: 5px 9px !important;
+  font-size: 8.5px !important;
+  letter-spacing: .12em !important;
+}
+
+#slide-1 .presenter-block p {
+  font-size: 11px !important;
+}
+
+#slide-1 .presenter-names strong {
+  font-size: 20px !important;
+  line-height: 1.15 !important;
+}
+
+#slide-1 .title-meta-row > div {
+  min-height: 50px !important;
+  padding: 8px 12px !important;
+}
+
+#slide-1 .title-meta-row span {
+  font-size: 8px !important;
+}
+
+#slide-1 .title-meta-row strong {
+  font-size: 12px !important;
+}
+
+/* Figure frames now hug the rendered figure instead of stretching to the
+   full height of the neighboring text column. */
+.slide-content .figure-card {
+  height: fit-content !important;
+  min-height: 0 !important;
+  align-self: center !important;
+  padding: 8px !important;
+}
+
+.slide-content .figure-card img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: min(54vh, 500px) !important;
+  object-fit: contain !important;
+}
+
+/* Give the explanatory panels more horizontal room on image-led slides. */
+#slide-11 .split-figure-layout,
+#slide-12 .split-figure-layout,
+#slide-19 .split-figure-layout,
+#slide-21 .split-figure-layout,
+#slide-23 .split-figure-layout,
+#slide-24 .split-figure-layout,
+#slide-26 .split-figure-layout {
+  grid-template-columns: minmax(0, 1.34fr) minmax(400px, 1fr) !important;
+  gap: 16px !important;
+}
+
+#slide-22 .experiment-layout {
+  grid-template-columns: minmax(0, 1.3fr) minmax(410px, 1fr) !important;
+  gap: 16px !important;
+}
+
+#slide-27 .policy-interpretation-layout {
+  grid-template-columns: minmax(0, 1.28fr) minmax(410px, 1fr) !important;
+  gap: 16px !important;
+}
+
+/* Slide 21 keeps the four horizontal rows, now with a wider text field. */
+#slide-21 .dataset-facts article {
+  grid-template-columns: 72px 150px minmax(0, 1fr) !important;
+}
+
+/* Slide 27 uses one full source image. The regular view crops to the top row
+   (A1 and B1); the existing lightbox opens the complete six-grid figure. */
+#slide-27 .policy-overview-figure {
+  position: relative;
+  height: min(55vh, 500px) !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  align-self: center !important;
+  background: #fff !important;
+}
+
+#slide-27 .policy-overview-image {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: 50% 0 !important;
+}
+
+#slide-27 .policy-overview-figure figcaption {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  padding: 7px 10px;
+  border-radius: 9px;
+  background: rgba(7,17,28,.84);
+  color: #fff;
+  font-size: 11px !important;
+  text-align: center !important;
+  pointer-events: none;
+}
+
+/* Conclusion: smaller section label, with all card groups centered beneath
+   the already-correct title position. */
+#slide-30 .closing-layout .eyebrow {
+  font-size: 8.5px !important;
+  letter-spacing: .12em !important;
+}
+
+#slide-30 .closing-layout .eyebrow span {
+  padding: 5px 9px !important;
+  font-size: 8.5px !important;
+}
+
+#slide-30 .closing-grid,
+#slide-30 .closing-synthesis {
+  width: min(1060px, 100%) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-self: center !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  .slide-content .figure-card img {
+    max-height: min(51vh, 440px) !important;
+  }
+
+  #slide-27 .policy-overview-figure {
+    height: min(51vh, 440px) !important;
+  }
+
+  #slide-1 .presenter-names strong {
+    font-size: 18px !important;
+  }
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+  .slide-content .figure-card {
+    height: auto !important;
+  }
+
+  .slide-content .figure-card img {
+    max-height: none !important;
+  }
+
+  #slide-27 .policy-overview-figure {
+    height: 340px !important;
+  }
+
+  #slide-27 .policy-overview-image {
+    object-position: 50% 0 !important;
+  }
+}
+
+/* ========================================================================
+   V12 — semantic typography system
+   Each visual role has one fixed font size. Per-slide content scaling is
+   disabled in script.js, so the same category renders identically everywhere.
+   ======================================================================== */
+
+:root {
+  --type-slide-title: 32px;
+  --type-eyebrow: 9px;
+  --type-card-title: 17px;
+  --type-card-label: 10px;
+  --type-body-copy: 14px;
+  --type-banner: 14px;
+  --type-data-value: 20px;
+  --type-table-head: 11px;
+  --type-table-body: 13px;
+  --type-caption: 9px;
+  --type-paper-title: 43px;
+  --type-question-title: 58px;
+}
+
+/* 1. Slide titles — one size across every ordinary slide, including Conclusion. */
+html body #presentation .slide .type-slide-title {
+  font-size: var(--type-slide-title) !important;
+  line-height: 1.06 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.028em !important;
+}
+
+/* 2. Orange eyebrow text above slide titles — one shared size. */
+html body #presentation .slide .type-eyebrow {
+  font-size: var(--type-eyebrow) !important;
+  line-height: 1.15 !important;
+  letter-spacing: .13em !important;
+  font-weight: 700 !important;
+}
+
+/* 3. Titles inside cards. */
+html body #presentation .slide .type-card-title {
+  font-size: var(--type-card-title) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
+
+/* 4. Small orange/category labels inside cards. */
+html body #presentation .slide .type-card-label {
+  font-size: var(--type-card-label) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: .055em !important;
+}
+
+/* 5. Explanatory copy — all card and narrative body text uses one size. */
+html body #presentation .slide .type-body-copy {
+  font-size: var(--type-body-copy) !important;
+  line-height: 1.46 !important;
+  font-weight: 400 !important;
+}
+
+/* Preserve the requested justified paragraph treatment. */
+html body #presentation .slide p.type-body-copy {
+  text-align: justify !important;
+  text-align-last: left !important;
+  text-justify: inter-word !important;
+}
+
+/* 6. Narrative banners / summary strips. */
+html body #presentation .slide .type-banner {
+  font-size: var(--type-banner) !important;
+  line-height: 1.42 !important;
+}
+
+/* 7. Repeated values inside system/observation cards. */
+html body #presentation .slide .type-data-value {
+  font-size: var(--type-data-value) !important;
+  line-height: 1.12 !important;
+  font-weight: 700 !important;
+}
+
+/* 8. Tables. */
+html body #presentation .slide .result-table th {
+  font-size: var(--type-table-head) !important;
+  line-height: 1.3 !important;
+}
+
+html body #presentation .slide .result-table td {
+  font-size: var(--type-table-body) !important;
+  line-height: 1.35 !important;
+}
+
+/* 9. Figure captions and source notes. */
+html body #presentation .slide .type-caption {
+  font-size: var(--type-caption) !important;
+  line-height: 1.25 !important;
+}
+
+/* Formula containers share the body scale unless they are intentional metrics. */
+html body #presentation .slide .formula-card,
+html body #presentation .slide .reward-equations article,
+html body #presentation .slide .transition-claim,
+html body #presentation .slide .final-equation,
+html body #presentation .slide .observation-card {
+  font-size: var(--type-body-copy) !important;
+}
+
+/* Purposeful exceptions are categories of their own, not per-slide variations. */
+html body #presentation #slide-1 .display-title {
+  font-size: var(--type-paper-title) !important;
+  line-height: .98 !important;
+}
+
+html body #presentation #slide-31 .display-title {
+  font-size: var(--type-question-title) !important;
+  line-height: .96 !important;
+}
+
+html body #presentation .slide .big-result-card > strong {
+  font-size: 44px !important;
+  line-height: 1 !important;
+}
+
+/* Remove legacy category-specific font overrides that caused inconsistency. */
+html body #presentation .slide .roadmap-grid article h3,
+html body #presentation .slide .contribution-grid article h3,
+html body #presentation .slide .stacked-insights article h3,
+html body #presentation .slide .method-columns article h3,
+html body #presentation .slide .assumption-grid article h3,
+html body #presentation .slide .rl-method-grid article h3,
+html body #presentation .slide .adaptation-grid article h3,
+html body #presentation .slide .future-grid article h3,
+html body #presentation .slide .future-flow article h3 {
+  font-size: var(--type-card-title) !important;
+}
+
+html body #presentation .slide .roadmap-grid article p,
+html body #presentation .slide .contribution-grid article p,
+html body #presentation .slide .stacked-insights article p,
+html body #presentation .slide .method-columns article p,
+html body #presentation .slide .assumption-grid article p,
+html body #presentation .slide .rl-method-grid article p,
+html body #presentation .slide .adaptation-grid article p,
+html body #presentation .slide .future-grid article p,
+html body #presentation .slide .future-flow article p,
+html body #presentation .slide .limitation-grid article p,
+html body #presentation .slide .assignment-cards article p,
+html body #presentation .slide .dataset-facts article p,
+html body #presentation .slide .policy-rules article p,
+html body #presentation #slide-30 .closing-grid article p,
+html body #presentation #slide-30 .closing-rule-grid article p {
+  font-size: var(--type-body-copy) !important;
+  line-height: 1.46 !important;
+}
+
+/* Mobile keeps the same semantic ladder, with one mobile value per category. */
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  :root {
+    --type-slide-title: 30px;
+    --type-eyebrow: 10px;
+    --type-card-title: 18px;
+    --type-card-label: 11px;
+    --type-body-copy: 15px;
+    --type-banner: 15px;
+    --type-data-value: 21px;
+    --type-table-head: 12px;
+    --type-table-body: 14px;
+    --type-caption: 10px;
+    --type-paper-title: 39px;
+    --type-question-title: 48px;
+  }
+}
+
+/* Complete the semantic map for repeated labels, banner emphasis and metrics. */
+html body #presentation .slide .type-banner.type-banner,
+html body #presentation .slide strong.type-banner {
+  font-size: var(--type-banner) !important;
+  line-height: 1.42 !important;
+}
+
+html body #presentation .slide .type-secondary-metric {
+  font-size: 25px !important;
+  line-height: 1.05 !important;
+  font-weight: 700 !important;
+}
+
+html body #presentation .slide .type-binary-digit {
+  font-size: 15px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+}
+
+
+/* ========================================================================
+   V13 — requested refinements for slides 1, 21, 22, 23, 26, 27, 30, 31
+   ======================================================================== */
+
+/* Slide 1: make the paper title slightly larger, presenters slightly smaller,
+   and reduce the journal / course metadata hierarchy. */
+html body #presentation #slide-1 .eyebrow span {
+  font-size: 7.6px !important;
+  letter-spacing: .115em !important;
+}
+
+html body #presentation #slide-1 .display-title {
+  font-size: 46px !important;
+  line-height: .98 !important;
+}
+
+html body #presentation #slide-1 .presenter-names strong {
+  font-size: 18px !important;
+  line-height: 1.12 !important;
+}
+
+html body #presentation #slide-1 .title-meta-row span {
+  font-size: 7.4px !important;
+}
+
+html body #presentation #slide-1 .title-meta-row strong {
+  font-size: 11px !important;
+}
+
+/* Slide 21: make the right-side data facts slightly smaller and calmer. */
+html body #presentation #slide-21 .dataset-facts {
+  gap: 10px !important;
+}
+
+html body #presentation #slide-21 .dataset-facts article {
+  padding: 11px 15px !important;
+  grid-template-columns: 70px 138px minmax(0, 1fr) !important;
+}
+
+html body #presentation #slide-21 .dataset-facts span {
+  font-size: 9.2px !important;
+}
+
+html body #presentation #slide-21 .dataset-facts strong {
+  font-size: 18px !important;
+  line-height: 1.08 !important;
+}
+
+html body #presentation #slide-21 .dataset-facts p {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+}
+
+/* Slide 22: smaller horizontal cards; label and explanation stay on one line. */
+html body #presentation #slide-22 .experiment-layout {
+  grid-template-columns: minmax(0, 1.28fr) minmax(435px, 1fr) !important;
+}
+
+html body #presentation #slide-22 .experiment-parameters {
+  gap: 7px !important;
+}
+
+html body #presentation #slide-22 .experiment-parameters article {
+  min-height: 64px !important;
+  padding: 7px 16px !important;
+  grid-template-columns: 126px minmax(0, 1fr) !important;
+  column-gap: 16px !important;
+}
+
+html body #presentation #slide-22 .experiment-parameters b {
+  font-size: 14px !important;
+  white-space: nowrap !important;
+}
+
+html body #presentation #slide-22 .experiment-parameters span {
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+}
+
+/* Slides 23 and 26: unify the large banner typography inside the dark card. */
+html body #presentation #slide-23 .decision-banner,
+html body #presentation #slide-26 .decision-banner,
+html body #presentation #slide-27 .policy-lookup {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0 !important;
+}
+
+html body #presentation #slide-23 .decision-banner strong,
+html body #presentation #slide-26 .decision-banner strong,
+html body #presentation #slide-27 .policy-lookup strong {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+}
+
+/* Slides 23 and 26: keep the right-column card typography visually unified. */
+html body #presentation #slide-23 .stacked-insights article h3,
+html body #presentation #slide-26 .stacked-insights article h3,
+html body #presentation #slide-27 .policy-rules article > span {
+  font-size: 17px !important;
+  line-height: 1.2 !important;
+}
+
+html body #presentation #slide-23 .stacked-insights article p,
+html body #presentation #slide-26 .stacked-insights article p,
+html body #presentation #slide-27 .policy-rules article p {
+  font-size: 14px !important;
+  line-height: 1.46 !important;
+}
+
+/* Slide 27: the lookup-rule bar should match the upper cards in scale. */
+html body #presentation #slide-27 .policy-lookup {
+  padding: 16px 18px !important;
+}
+
+/* Slide 30: slightly smaller “Conclusion”, center the card groups, and make
+   the lower-left formula box smaller so the lower-right rule box can grow. */
+html body #presentation #slide-30 .closing-layout .eyebrow,
+html body #presentation #slide-30 .closing-layout .eyebrow span {
+  font-size: 8px !important;
+  letter-spacing: .11em !important;
+}
+
+html body #presentation #slide-30 .closing-layout {
+  gap: 16px !important;
+  align-content: start !important;
+}
+
+html body #presentation #slide-30 .closing-grid,
+html body #presentation #slide-30 .closing-synthesis {
+  width: min(1140px, 100%) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-self: center !important;
+}
+
+html body #presentation #slide-30 .closing-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+html body #presentation #slide-30 .closing-grid article {
+  min-height: 126px !important;
+}
+
+html body #presentation #slide-30 .closing-synthesis {
+  grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+}
+
+html body #presentation #slide-30 .final-equation {
+  min-height: 112px !important;
+  padding: 16px 18px !important;
+  font-size: 15px !important;
+}
+
+html body #presentation #slide-30 .closing-policy-rule {
+  min-height: 112px !important;
+  padding: 16px 18px !important;
+}
+
+html body #presentation #slide-30 .closing-rule-grid {
+  grid-template-columns: .9fr 1.1fr !important;
+  gap: 10px !important;
+}
+
+html body #presentation #slide-30 .closing-rule-grid article {
+  min-height: 88px !important;
+}
+
+/* Last slide: make Questions & Discussion slightly larger. */
+html body #presentation #slide-31 .display-title {
+  font-size: 61px !important;
+  line-height: .96 !important;
+}
+
+/* Reasonable fallback on shorter laptop heights. */
+@media (max-height: 820px) and (min-width: 761px) {
+  html body #presentation #slide-1 .display-title {
+    font-size: 44px !important;
+  }
+
+  html body #presentation #slide-22 .experiment-parameters article {
+    min-height: 60px !important;
+    padding: 6px 14px !important;
+    grid-template-columns: 118px minmax(0, 1fr) !important;
+  }
+
+  html body #presentation #slide-22 .experiment-parameters b,
+  html body #presentation #slide-22 .experiment-parameters span {
+    font-size: 13px !important;
+  }
+
+  html body #presentation #slide-30 .closing-grid article {
+    min-height: 118px !important;
+  }
+
+  html body #presentation #slide-30 .closing-synthesis {
+    grid-template-columns: minmax(235px, .68fr) minmax(0, 1.32fr) !important;
+  }
+
+  html body #presentation #slide-31 .display-title {
+    font-size: 58px !important;
+  }
+}
+
+/* ========================================================================
+   V14 — font audit refinements and reference-style interactive morph states
+   ======================================================================== */
+
+/* Final typography tuning after reviewing all semantic roles. */
+:root {
+  --type-slide-title: 32px;
+  --type-eyebrow: 10px;
+  --type-card-title: 18px;
+  --type-card-label: 10px;
+  --type-body-copy: 14.5px;
+  --type-banner: 14.5px;
+  --type-data-value: 20px;
+  --type-table-head: 11.5px;
+  --type-table-body: 13.5px;
+  --type-caption: 9.5px;
+}
+
+/* Keep the introductory and closing support text in the same visual ladder. */
+#slide-1 .hero-subtitle {
+  font-size: 16px !important;
+  line-height: 1.45 !important;
+}
+
+#slide-1 .paper-authors {
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+}
+
+#slide-31 .eyebrow {
+  font-size: 10px !important;
+}
+
+#slide-31 .closing-names strong {
+  font-size: 15px !important;
+}
+
+/* Preserve intentionally tighter evidence panels while keeping them readable. */
+#slide-21 .dataset-facts span { font-size: 9.5px !important; }
+#slide-21 .dataset-facts strong { font-size: 18.5px !important; }
+#slide-21 .dataset-facts p { font-size: 13.5px !important; line-height: 1.42 !important; }
+
+#slide-22 .experiment-parameters b,
+#slide-22 .experiment-parameters span {
+  font-size: 14px !important;
+}
+
+#slide-23 .decision-banner,
+#slide-26 .decision-banner,
+#slide-27 .policy-lookup,
+#slide-23 .decision-banner strong,
+#slide-26 .decision-banner strong,
+#slide-27 .policy-lookup strong {
+  font-size: var(--type-banner) !important;
+}
+
+/* Subtle chapter-aware card movement and colour morphing. */
+.slide {
+  --morph-rgb: 255, 112, 67;
+}
+.theme-opening { --morph-rgb: 255, 84, 112; }
+.theme-problem { --morph-rgb: 255, 106, 64; }
+.theme-model { --morph-rgb: 118, 89, 255; }
+.theme-method { --morph-rgb: 39, 174, 255; }
+.theme-evidence { --morph-rgb: 25, 201, 151; }
+.theme-assessment { --morph-rgb: 255, 184, 59; }
+.theme-closing { --morph-rgb: 196, 110, 255; }
+
+.morph-card {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden;
+  --morph-x: 50%;
+  --morph-y: 50%;
+  translate: 0 0;
+  scale: 1;
+  transition:
+    translate 220ms cubic-bezier(.2,.8,.2,1),
+    scale 220ms cubic-bezier(.2,.8,.2,1),
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    filter 220ms ease;
+  will-change: translate, scale;
+}
+
+.morph-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--morph-x) var(--morph-y),
+    rgba(var(--morph-rgb), .18) 0%,
+    rgba(var(--morph-rgb), .08) 28%,
+    rgba(var(--morph-rgb), 0) 66%
+  );
+  transition: opacity 220ms ease;
+}
+
+.morph-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .morph-card:hover {
+    translate: 0 -4px;
+    scale: 1.008;
+    border-color: rgba(var(--morph-rgb), .55) !important;
+    box-shadow:
+      0 18px 38px rgba(7,17,28,.14),
+      0 0 0 1px rgba(var(--morph-rgb),.10),
+      0 0 24px rgba(var(--morph-rgb),.10);
+    filter: saturate(1.04);
+  }
+
+  .theme-method .morph-card:hover,
+  .theme-closing .morph-card:hover {
+    box-shadow:
+      0 18px 38px rgba(0,0,0,.24),
+      0 0 0 1px rgba(var(--morph-rgb),.18),
+      0 0 28px rgba(var(--morph-rgb),.13);
+  }
+
+  .morph-card:hover::after { opacity: 1; }
+
+  .morph-card:active {
+    translate: 0 -1px;
+    scale: .997;
+  }
+}
+
+/* Do not let the hover treatment visually fight table geometry. */
+.result-table-wrap.morph-card::after { border-radius: 17px; }
+.figure-card.morph-card::after { border-radius: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  .morph-card {
+    transition: border-color 120ms linear, box-shadow 120ms linear !important;
+    translate: 0 0 !important;
+    scale: 1 !important;
+  }
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  :root {
+    --type-slide-title: 30px;
+    --type-eyebrow: 10px;
+    --type-card-title: 18px;
+    --type-card-label: 11px;
+    --type-body-copy: 15px;
+    --type-banner: 15px;
+    --type-data-value: 21px;
+    --type-table-head: 12px;
+    --type-table-body: 14px;
+    --type-caption: 10px;
+  }
+}
+
+/* Prevent display-title glyph clipping after the final font audit. */
+html body #presentation #slide-1 .display-title {
+  line-height: 1.04 !important;
+}
+
+html body #presentation #slide-31 .display-title {
+  line-height: 1.02 !important;
+}
+
+/* ========================================================================
+   V16 — first section split into more slides for cleaner layout
+   ======================================================================== */
+
+#slide-6 .analogy-map-layout,
+#slide-7 .difference-grid-layout,
+#slide-11b .nonstationary-layout {
+  display: grid;
+  gap: 14px;
+}
+
+#slide-6 .analogy-head,
+#slide-7 .difference-banner {
+  margin: 0;
+}
+
+#slide-6 .analogy-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+#slide-6 .map-col {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(16,32,44,.12);
+  background: rgba(255,255,255,.75);
+  box-shadow: 0 8px 24px rgba(7,17,28,.05);
+}
+
+#slide-6 .map-col > h3 {
+  margin: 0 0 2px;
+  text-align: center;
+}
+
+#slide-6 .map-item {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(6,21,34,.045);
+}
+
+#slide-6 .map-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+#slide-6 .map-arrows {
+  display: grid;
+  grid-template-rows: 52px repeat(4, minmax(0, 1fr));
+  place-items: center;
+  color: var(--accent);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#slide-7 .difference-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#slide-7 .difference-grid article,
+#slide-11b .stacked-insights article {
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(16,32,44,.12);
+  background: rgba(255,255,255,.74);
+  box-shadow: 0 8px 24px rgba(7,17,28,.05);
+}
+
+#slide-8 .queue-objective-layout article,
+#slide-9 .assumption-grid article {
+  min-height: 0 !important;
+}
+
+#slide-10 .transition-columns .formula-card {
+  min-height: 0 !important;
+}
+
+#slide-11b .nonstationary-layout {
+  grid-template-columns: minmax(0, 1.18fr) minmax(350px, .9fr);
+  align-items: center;
+}
+
+#slide-11b .stacked-insights {
+  display: grid;
+  gap: 12px;
+}
+
+#slide-11b .stacked-insights .accent-card {
+  background: rgba(255,112,67,.10);
+}
+
+#slide-12b .method-columns article {
+  min-height: 0 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-6 .map-col,
+  #slide-7 .difference-grid article,
+  #slide-11b .stacked-insights article {
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 760px), (max-width: 1100px) and (max-height: 680px) {
+  #slide-6 .analogy-map,
+  #slide-11b .nonstationary-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  #slide-6 .map-arrows {
+    grid-template-rows: none !important;
+    grid-template-columns: repeat(4, 1fr);
+    min-height: 32px;
+  }
+
+  #slide-7 .difference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ========================================================================
+   V17 — visual polish and safer spacing for the redesigned queueing section
+   ======================================================================== */
+
+#slide-3 .slide-heading,
+#slide-4 .slide-heading,
+#slide-5 .slide-heading,
+#slide-6 .slide-heading,
+#slide-7 .slide-heading,
+#slide-8 .slide-heading,
+#slide-9 .slide-heading,
+#slide-10 .slide-heading,
+#slide-11 .slide-heading,
+#slide-11b .slide-heading,
+#slide-12 .slide-heading,
+#slide-12b .slide-heading {
+  margin-bottom: 14px !important;
+}
+
+#slide-3 .type-slide-title,
+#slide-4 .type-slide-title,
+#slide-5 .type-slide-title,
+#slide-6 .type-slide-title,
+#slide-7 .type-slide-title,
+#slide-8 .type-slide-title,
+#slide-9 .type-slide-title,
+#slide-10 .type-slide-title,
+#slide-11 .type-slide-title,
+#slide-11b .type-slide-title,
+#slide-12 .type-slide-title,
+#slide-12b .type-slide-title {
+  font-size: 30px !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.02em !important;
+}
+
+#slide-3 .slide-content,
+#slide-4 .slide-content,
+#slide-5 .slide-content,
+#slide-6 .slide-content,
+#slide-7 .slide-content,
+#slide-8 .slide-content,
+#slide-9 .slide-content,
+#slide-10 .slide-content,
+#slide-11 .slide-content,
+#slide-11b .slide-content,
+#slide-12 .slide-content,
+#slide-12b .slide-content {
+  align-items: center !important;
+}
+
+/* Card polish: academic, warm, close to the reference site. */
+#slide-3 article,
+#slide-4 .formula-card,
+#slide-4 .tradeoff-formulas,
+#slide-5 .queue-system-flow article,
+#slide-6 .map-col,
+#slide-6 .map-item,
+#slide-7 .difference-grid article,
+#slide-8 .queue-objective-layout article,
+#slide-9 .assumption-grid article,
+#slide-10 .transition-columns .formula-card,
+#slide-11 article,
+#slide-11b article,
+#slide-12 article,
+#slide-12b .method-columns article {
+  border-radius: 18px !important;
+  border: 1px solid rgba(16, 32, 44, .12) !important;
+  box-shadow: 0 14px 34px rgba(7, 17, 28, .075) !important;
+}
+
+#slide-3 .decision-banner,
+#slide-7 .difference-banner,
+#slide-8 .one-line-claim,
+#slide-9 .note-strip,
+#slide-11 .decision-banner,
+#slide-11b .decision-banner,
+#slide-12b .gap-banner {
+  border-radius: 16px !important;
+  box-shadow: 0 12px 28px rgba(7, 17, 28, .09) !important;
+}
+
+/* Slide 3: keep figure generous and make the right cards visually equal. */
+#slide-3 .split-figure-layout {
+  height: min(54vh, 470px) !important;
+  grid-template-columns: minmax(0, 1.45fr) minmax(330px, .82fr) !important;
+  gap: 18px !important;
+}
+
+#slide-3 .stacked-insights {
+  grid-auto-rows: 1fr !important;
+  gap: 11px !important;
+}
+
+#slide-3 .stacked-insights article,
+#slide-3 .decision-banner {
+  min-height: 0 !important;
+  padding: 15px 17px !important;
+}
+
+/* Slide 4: use a visual balance similar to the original trade-off slide. */
+#slide-4 .tradeoff-layout {
+  height: min(55vh, 480px) !important;
+  grid-template-columns: minmax(300px, .8fr) minmax(0, 1.55fr) !important;
+  gap: 20px !important;
+}
+
+#slide-4 .tradeoff-formulas {
+  gap: 10px !important;
+  align-content: center !important;
+}
+
+#slide-4 .formula-card {
+  padding: 12px 16px !important;
+}
+
+/* Slide 5: restore clean horizontal queue flow without overfilling. */
+#slide-5 .queue-system-flow {
+  gap: 10px !important;
+  grid-template-columns: minmax(0,1fr) 26px minmax(0,1.16fr) 26px minmax(0,1.16fr) 26px minmax(0,1fr) !important;
+  align-items: stretch !important;
+}
+
+#slide-5 .queue-system-flow article {
+  min-height: 205px !important;
+  padding: 16px 15px !important;
+}
+
+#slide-5 .queue-system-flow > i {
+  align-self: center !important;
+  justify-self: center !important;
+  font-size: 24px !important;
+}
+
+#slide-5 .queue-characteristics {
+  margin-top: 13px !important;
+  gap: 7px !important;
+}
+
+#slide-5 .queue-characteristics span {
+  padding: 7px 10px !important;
+}
+
+/* Slide 6: analogy map uses rows as visual correspondences. */
+#slide-6 .analogy-map-layout {
+  gap: 12px !important;
+}
+
+#slide-6 .analogy-head {
+  text-align: center !important;
+  padding: 12px 16px !important;
+}
+
+#slide-6 .analogy-map {
+  grid-template-columns: minmax(0,1fr) 38px minmax(0,1fr) !important;
+  gap: 10px !important;
+}
+
+#slide-6 .map-col {
+  padding: 14px !important;
+  gap: 8px !important;
+}
+
+#slide-6 .map-item {
+  padding: 10px 12px !important;
+  min-height: 72px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+#slide-6 .map-item p {
+  margin: 0 !important;
+}
+
+#slide-6 .map-arrows {
+  grid-template-rows: 40px repeat(4, minmax(0, 1fr)) !important;
+  font-size: 21px !important;
+}
+
+/* Slide 7: six differences, still spacious but not tall. */
+#slide-7 .difference-grid-layout {
+  gap: 10px !important;
+}
+
+#slide-7 .difference-banner {
+  text-align: center !important;
+  padding: 12px 15px !important;
+}
+
+#slide-7 .difference-grid {
+  grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  gap: 10px !important;
+}
+
+#slide-7 .difference-grid article {
+  min-height: 126px !important;
+  padding: 13px 14px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+/* Slide 8: four clear formulation cards, not stretched. */
+#slide-8 .queue-objective-layout {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+}
+
+#slide-8 .queue-objective-layout article {
+  min-height: 185px !important;
+  padding: 17px 16px !important;
+  display: grid !important;
+  align-content: center !important;
+  background: rgba(255,255,255,.72) !important;
+}
+
+#slide-8 .one-line-claim {
+  width: min(1080px, 100%) !important;
+  margin: 14px auto 0 !important;
+  text-align: center !important;
+}
+
+/* Slide 9: assumptions fit as a compact 3-by-2 grid. */
+#slide-9 .assumption-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+#slide-9 .assumption-grid article {
+  min-height: 126px !important;
+  padding: 13px 14px !important;
+}
+
+#slide-9 .note-strip {
+  margin-top: 12px !important;
+  padding: 12px 15px !important;
+  text-align: center !important;
+}
+
+/* Slide 10: transition equations stay readable without giant empty space. */
+#slide-10 .transition-layout-refined {
+  display: grid !important;
+  gap: 12px !important;
+}
+
+#slide-10 .transition-claim {
+  padding: 10px 16px !important;
+  text-align: center !important;
+}
+
+#slide-10 .transition-columns {
+  gap: 14px !important;
+}
+
+#slide-10 .transition-columns .formula-card {
+  padding: 17px 20px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+/* Slide 11 and 11b: keep side panels equal and calm. */
+#slide-11 .split-figure-layout,
+#slide-11b .nonstationary-layout,
+#slide-12 .split-figure-layout {
+  height: min(54vh, 470px) !important;
+  grid-template-columns: minmax(0, 1.42fr) minmax(340px, .86fr) !important;
+  gap: 18px !important;
+}
+
+#slide-11 .stacked-insights,
+#slide-11b .stacked-insights,
+#slide-12 .stacked-insights {
+  gap: 11px !important;
+  align-content: center !important;
+}
+
+#slide-11 .stacked-insights article,
+#slide-11b .stacked-insights article,
+#slide-12 .stacked-insights article {
+  min-height: 0 !important;
+  padding: 14px 16px !important;
+}
+
+#slide-11 .decision-banner,
+#slide-11b .decision-banner {
+  padding: 12px 16px !important;
+}
+
+/* Slide 12b: bridge slide with light, centered cards. */
+#slide-12b .method-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+#slide-12b .method-columns article {
+  min-height: 170px !important;
+  padding: 18px 20px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+#slide-12b .gap-banner {
+  margin-top: 14px !important;
+  padding: 16px 20px !important;
+  display: grid !important;
+  gap: 7px !important;
+  background: var(--deep-blue) !important;
+  color: white !important;
+}
+
+#slide-12b .gap-banner strong {
+  color: var(--accent-2) !important;
+  font-size: var(--type-card-title) !important;
+}
+
+#slide-12b .gap-banner span {
+  font-size: var(--type-body-copy) !important;
+  line-height: 1.46 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-3 .type-slide-title,
+  #slide-4 .type-slide-title,
+  #slide-5 .type-slide-title,
+  #slide-6 .type-slide-title,
+  #slide-7 .type-slide-title,
+  #slide-8 .type-slide-title,
+  #slide-9 .type-slide-title,
+  #slide-10 .type-slide-title,
+  #slide-11 .type-slide-title,
+  #slide-11b .type-slide-title,
+  #slide-12 .type-slide-title,
+  #slide-12b .type-slide-title {
+    font-size: 28px !important;
+  }
+
+  #slide-7 .difference-grid article,
+  #slide-9 .assumption-grid article {
+    min-height: 112px !important;
+    padding: 11px 12px !important;
+  }
+
+  #slide-8 .queue-objective-layout article {
+    min-height: 158px !important;
+    padding: 14px 13px !important;
+  }
+
+  #slide-5 .queue-system-flow article {
+    min-height: 176px !important;
+  }
+
+  #slide-6 .map-item {
+    min-height: 60px !important;
+  }
+}
+
+
+/* ========================================================================
+   V18 — visual polish: remove harsh highlight blocks, refine cards & type
+   ======================================================================== */
+
+/* A calmer semantic scale: same categories, better hierarchy */
+:root {
+  --type-slide-title: 30px;
+  --type-eyebrow: 9px;
+  --type-card-title: 17px;
+  --type-card-label: 9.5px;
+  --type-body-copy: 14.5px;
+  --type-banner: 14.5px;
+  --type-data-value: 20px;
+  --type-table-head: 11px;
+  --type-table-body: 13.5px;
+  --type-caption: 9px;
+}
+
+html body #presentation .slide .type-slide-title {
+  font-size: var(--type-slide-title) !important;
+  line-height: 1.08 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.018em !important;
+}
+
+html body #presentation .slide .type-eyebrow {
+  font-size: var(--type-eyebrow) !important;
+  font-weight: 700 !important;
+  letter-spacing: .11em !important;
+  color: rgba(255,112,67,.92) !important;
+}
+
+html body #presentation .slide .type-card-title,
+html body #presentation .slide h3.type-card-title {
+  font-size: var(--type-card-title) !important;
+  line-height: 1.18 !important;
+  font-weight: 650 !important;
+}
+
+html body #presentation .slide .type-body-copy,
+html body #presentation .slide p.type-body-copy {
+  font-size: var(--type-body-copy) !important;
+  line-height: 1.43 !important;
+  font-weight: 400 !important;
+}
+
+html body #presentation .slide .type-card-label,
+html body #presentation .slide article > span.type-card-label,
+html body #presentation .slide .stacked-insights article > span,
+html body #presentation .slide .policy-rules article > span {
+  font-size: var(--type-card-label) !important;
+  line-height: 1.2 !important;
+  letter-spacing: .07em !important;
+  color: rgba(255,112,67,.92) !important;
+}
+
+/* General card language: quiet surface, small shadow, no loud fills */
+html body #presentation .slide article,
+html body #presentation .slide .objective-box,
+html body #presentation .slide .action-matrix-card,
+html body #presentation .slide .observation-card,
+html body #presentation .slide .formula-card,
+html body #presentation .slide .map-item,
+html body #presentation .slide .result-table-wrap,
+html body #presentation .slide .state-summary-card,
+html body #presentation .slide .epoch-strip,
+html body #presentation .slide .epoch-box {
+  border-color: rgba(16,32,44,.105) !important;
+  box-shadow: 0 10px 24px rgba(7,17,28,.055) !important;
+}
+
+/* Replace harsh banner / highlight look with academic side-note cards */
+html body #presentation .slide .decision-banner,
+html body #presentation .slide .note-strip,
+html body #presentation .slide .one-line-claim,
+html body #presentation .slide .partial-observation-banner,
+html body #presentation .slide .policy-lookup,
+html body #presentation .slide .architecture-warning,
+html body #presentation .slide .gap-banner,
+html body #presentation .slide .difference-banner,
+html body #presentation .slide .analogy-head {
+  background: rgba(255,255,255,.78) !important;
+  color: var(--ink) !important;
+  border: 1px solid rgba(16,32,44,.12) !important;
+  border-left: 4px solid rgba(255,112,67,.72) !important;
+  box-shadow: 0 10px 26px rgba(7,17,28,.06) !important;
+  border-radius: 15px !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+}
+
+html body #presentation .slide .decision-banner strong,
+html body #presentation .slide .note-strip strong,
+html body #presentation .slide .one-line-claim strong,
+html body #presentation .slide .partial-observation-banner strong,
+html body #presentation .slide .policy-lookup strong,
+html body #presentation .slide .gap-banner strong,
+html body #presentation .slide .difference-banner strong,
+html body #presentation .slide .analogy-head strong {
+  color: var(--deep-blue) !important;
+  font-weight: 700 !important;
+}
+
+/* Dark-theme slides keep the same idea, but on a translucent quiet card */
+html body #presentation .theme-method .decision-banner,
+html body #presentation .theme-method .note-strip,
+html body #presentation .theme-method .one-line-claim,
+html body #presentation .theme-method .partial-observation-banner,
+html body #presentation .theme-method .architecture-warning,
+html body #presentation .theme-method .gap-banner,
+html body #presentation .theme-method .difference-banner,
+html body #presentation .theme-method .analogy-head {
+  background: rgba(255,255,255,.075) !important;
+  color: #eef4f5 !important;
+  border-color: rgba(255,255,255,.13) !important;
+  border-left-color: rgba(245,185,66,.85) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12) !important;
+}
+
+html body #presentation .theme-method .decision-banner strong,
+html body #presentation .theme-method .note-strip strong,
+html body #presentation .theme-method .one-line-claim strong,
+html body #presentation .theme-method .partial-observation-banner strong,
+html body #presentation .theme-method .architecture-warning strong,
+html body #presentation .theme-method .gap-banner strong {
+  color: var(--accent-2) !important;
+}
+
+/* Accent cards should feel selected, not highlighted with a wash of orange */
+html body #presentation .slide .accent-card {
+  background: rgba(255,255,255,.78) !important;
+  border-color: rgba(255,112,67,.28) !important;
+  border-left: 4px solid rgba(255,112,67,.78) !important;
+}
+
+html body #presentation .theme-method .accent-card {
+  background: rgba(255,255,255,.085) !important;
+  border-color: rgba(245,185,66,.28) !important;
+  border-left: 4px solid rgba(245,185,66,.78) !important;
+}
+
+/* First queueing section: lighter visuals and better rhythm */
+#slide-3 .stacked-insights article,
+#slide-4 .tradeoff-formulas .formula-card,
+#slide-5 .queue-system-flow article,
+#slide-6 .map-col,
+#slide-6 .map-item,
+#slide-7 .difference-grid article,
+#slide-8 .queue-objective-layout article,
+#slide-9 .assumption-grid article,
+#slide-10 .transition-columns .formula-card,
+#slide-11 .stacked-insights article,
+#slide-11b .stacked-insights article,
+#slide-12 .stacked-insights article,
+#slide-12b .method-columns article {
+  background: rgba(255,255,255,.74) !important;
+  border-radius: 16px !important;
+}
+
+#slide-3 .stacked-insights article,
+#slide-11 .stacked-insights article,
+#slide-11b .stacked-insights article,
+#slide-12 .stacked-insights article {
+  padding: 14px 16px !important;
+}
+
+/* Make formula cards quieter and more academic */
+html body #presentation .slide .formula-card {
+  background: rgba(255,255,255,.78) !important;
+  color: var(--ink) !important;
+}
+
+html body #presentation .slide .total-formula,
+html body #presentation .slide .tradeoff-formulas .total-formula {
+  background: rgba(255,255,255,.8) !important;
+  color: var(--ink) !important;
+  border-left: 4px solid rgba(255,112,67,.78) !important;
+}
+
+/* On dark method slides, keep formula cards readable without the heavy color block */
+html body #presentation .theme-method .formula-card {
+  background: rgba(255,255,255,.08) !important;
+  color: #eef4f5 !important;
+  border-color: rgba(255,255,255,.14) !important;
+}
+
+/* Card hover: subtle morph, matching the reference-site feel but not jumpy */
+html body #presentation .slide article,
+html body #presentation .slide .formula-card,
+html body #presentation .slide .figure-card,
+html body #presentation .slide .map-item,
+html body #presentation .slide .objective-box,
+html body #presentation .slide .action-matrix-card,
+html body #presentation .slide .observation-card,
+html body #presentation .slide .result-table-wrap,
+html body #presentation .slide .big-result-card {
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease !important;
+}
+
+html body #presentation .slide article:hover,
+html body #presentation .slide .formula-card:hover,
+html body #presentation .slide .figure-card:hover,
+html body #presentation .slide .map-item:hover,
+html body #presentation .slide .objective-box:hover,
+html body #presentation .slide .action-matrix-card:hover,
+html body #presentation .slide .observation-card:hover,
+html body #presentation .slide .result-table-wrap:hover,
+html body #presentation .slide .big-result-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(255,112,67,.35) !important;
+  box-shadow: 0 16px 34px rgba(7,17,28,.09) !important;
+}
+
+/* Avoid awkward justified stretching in short cards: keep body neat and readable */
+html body #presentation .slide article p.type-body-copy,
+html body #presentation .slide .stacked-insights p.type-body-copy,
+html body #presentation .slide .method-columns p.type-body-copy,
+html body #presentation .slide .assumption-grid p.type-body-copy,
+html body #presentation .slide .difference-grid p.type-body-copy,
+html body #presentation .slide .map-item p.type-body-copy,
+html body #presentation .slide .queue-objective-layout p.type-body-copy {
+  text-align: left !important;
+  text-align-last: left !important;
+}
+
+/* Keep only longer narrative paragraphs justified */
+html body #presentation .slide .closing-grid p.type-body-copy,
+html body #presentation .slide .policy-rules p.type-body-copy,
+html body #presentation .slide .limitation-grid p.type-body-copy {
+  text-align: justify !important;
+  text-align-last: left !important;
+}
+
+/* Refine source/caption treatment */
+html body #presentation .slide .source-note,
+html body #presentation .slide .type-caption {
+  color: rgba(16,32,44,.55) !important;
+  letter-spacing: .045em !important;
+}
+
+/* Better figure card balance */
+html body #presentation .slide .figure-card {
+  background: rgba(255,255,255,.82) !important;
+  padding: 9px !important;
+  border-radius: 18px !important;
+}
+
+html body #presentation .theme-method .figure-card {
+  background: rgba(255,255,255,.94) !important;
+}
+
+/* Slightly reduce crowded section titles on the new queueing slides */
+@media (min-width: 761px) {
+  #slide-3 .type-slide-title,
+  #slide-4 .type-slide-title,
+  #slide-5 .type-slide-title,
+  #slide-6 .type-slide-title,
+  #slide-7 .type-slide-title,
+  #slide-8 .type-slide-title,
+  #slide-9 .type-slide-title,
+  #slide-10 .type-slide-title,
+  #slide-11 .type-slide-title,
+  #slide-11b .type-slide-title,
+  #slide-12 .type-slide-title,
+  #slide-12b .type-slide-title {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  :root {
+    --type-slide-title: 28px;
+    --type-card-title: 16px;
+    --type-body-copy: 13.7px;
+    --type-banner: 13.7px;
+  }
+
+  html body #presentation .slide .type-slide-title {
+    font-size: var(--type-slide-title) !important;
+  }
+
+  #slide-6 .map-item,
+  #slide-7 .difference-grid article,
+  #slide-8 .queue-objective-layout article,
+  #slide-9 .assumption-grid article {
+    padding: 11px 12px !important;
+  }
+}
+
+/* ========================================================================
+   V20 — redesign slides 13 and 14 for cleaner academic visual layout
+   ======================================================================== */
+#slide-12 .simulator-redesign {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(430px, .92fr) !important;
+  gap: 22px !important;
+  align-items: center !important;
+}
+
+#slide-12 .simulator-figure-panel {
+  align-self: center !important;
+  padding: 18px !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.86) !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  box-shadow: 0 14px 34px rgba(7,17,28,.08) !important;
+}
+
+#slide-12 .simulator-figure-panel img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 440px !important;
+  object-fit: contain !important;
+}
+
+#slide-12 .simulator-flow-panel {
+  display: grid !important;
+  gap: 14px !important;
+  align-content: center !important;
+}
+
+#slide-12 .sim-flow-step {
+  display: grid !important;
+  grid-template-columns: 58px minmax(0,1fr) !important;
+  gap: 16px !important;
+  align-items: start !important;
+  padding: 18px 20px !important;
+  border-radius: 18px !important;
+  background: rgba(255,255,255,.74) !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  box-shadow: 0 10px 26px rgba(7,17,28,.055) !important;
+}
+
+#slide-12 .sim-flow-step .step-index {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 14px !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  background: var(--deep-blue) !important;
+  letter-spacing: .04em !important;
+}
+
+#slide-12 .sim-flow-step h3,
+#slide-14 .literature-card h3,
+#slide-12b .literature-card h3 {
+  margin: 0 0 7px !important;
+  color: var(--ink) !important;
+  text-align: left !important;
+}
+
+#slide-12 .sim-flow-step p,
+#slide-14 .literature-card p,
+#slide-12b .literature-card p {
+  margin: 0 !important;
+  color: rgba(25, 43, 58, .78) !important;
+  text-align: justify !important;
+  text-align-last: left !important;
+}
+
+#slide-12 .sim-flow-step p + p,
+#slide-14 .literature-card p + p,
+#slide-12b .literature-card p + p {
+  margin-top: 8px !important;
+}
+
+#slide-12b .literature-redesign,
+#slide-14 .literature-redesign {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) 240px minmax(0,1fr) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+}
+
+#slide-12b .literature-card,
+#slide-14 .literature-card {
+  display: grid !important;
+  align-content: center !important;
+  padding: 28px 30px !important;
+  border-radius: 22px !important;
+  background: rgba(255,255,255,.76) !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  box-shadow: 0 14px 34px rgba(7,17,28,.07) !important;
+}
+
+#slide-12b .literature-card > span,
+#slide-14 .literature-card > span {
+  margin-bottom: 12px !important;
+  color: var(--accent) !important;
+  text-align: left !important;
+}
+
+#slide-12b .bridge-column,
+#slide-14 .bridge-column {
+  display: grid !important;
+  grid-template-rows: 1fr auto 1fr !important;
+  align-items: center !important;
+  justify-items: center !important;
+  min-height: 420px !important;
+}
+
+#slide-12b .bridge-line,
+#slide-14 .bridge-line {
+  width: 1px !important;
+  height: 100% !important;
+  background: linear-gradient(180deg, transparent, rgba(18,39,53,.22), transparent) !important;
+}
+
+#slide-12b .bridge-core,
+#slide-14 .bridge-core {
+  width: 100% !important;
+  padding: 24px 18px !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  box-shadow: 0 16px 40px rgba(7,17,28,.08) !important;
+  text-align: center !important;
+}
+
+#slide-12b .bridge-core span,
+#slide-14 .bridge-core span {
+  display: block !important;
+  margin-bottom: 10px !important;
+  color: var(--accent) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+}
+
+#slide-12b .bridge-core strong,
+#slide-14 .bridge-core strong {
+  color: var(--ink) !important;
+  font-size: 16px !important;
+  line-height: 1.42 !important;
+  font-weight: 600 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-12 .sim-flow-step {
+    padding: 15px 18px !important;
+    gap: 14px !important;
+  }
+  #slide-12 .simulator-figure-panel img {
+    max-height: 390px !important;
+  }
+  #slide-12b .bridge-column,
+  #slide-14 .bridge-column {
+    min-height: 360px !important;
+  }
+  #slide-12b .literature-card,
+  #slide-14 .literature-card {
+    padding: 22px 24px !important;
+  }
+}
+
+/* ========================================================================
+   V21 — requested spacing refinements for slides 8, 9, and actual slide 14
+   ======================================================================== */
+
+/* Slides 8–9: bring the lower summary strips up, but keep a clean gap from
+   the card grid above. */
+#slide-8 .queue-objective-layout {
+  gap: 11px !important;
+  margin-bottom: 7px !important;
+  align-items: start !important;
+}
+
+#slide-8 .queue-objective-layout article {
+  min-height: 160px !important;
+  padding: 15px 15px !important;
+  align-content: center !important;
+}
+
+#slide-8 .one-line-claim {
+  margin: 9px auto 0 !important;
+  padding: 12px 16px !important;
+  transform: translateY(-4px) !important;
+}
+
+#slide-9 .assumption-grid {
+  gap: 9px !important;
+  margin-bottom: 7px !important;
+}
+
+#slide-9 .assumption-grid article {
+  min-height: 112px !important;
+  padding: 12px 13px !important;
+}
+
+#slide-9 .note-strip {
+  margin-top: 9px !important;
+  padding: 11px 15px !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Actual slide 14 is the literature bridge slide (#slide-12b): make the two
+   side cards match the text height and remain equal to each other. */
+#slide-12b .literature-redesign {
+  grid-template-columns: minmax(0, 1fr) 210px minmax(0, 1fr) !important;
+  gap: 16px !important;
+  align-items: center !important;
+}
+
+#slide-12b .literature-card {
+  min-height: 245px !important;
+  height: 245px !important;
+  padding: 20px 22px !important;
+  align-content: center !important;
+}
+
+#slide-12b .bridge-column {
+  min-height: 245px !important;
+  height: 245px !important;
+  grid-template-rows: 1fr auto 1fr !important;
+}
+
+#slide-12b .bridge-core {
+  padding: 17px 14px !important;
+  border-radius: 18px !important;
+}
+
+#slide-12b .bridge-core strong {
+  font-size: 15px !important;
+  line-height: 1.34 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-8 .queue-objective-layout article {
+    min-height: 148px !important;
+    padding: 13px 14px !important;
+  }
+
+  #slide-9 .assumption-grid article {
+    min-height: 104px !important;
+    padding: 10px 12px !important;
+  }
+
+  #slide-12b .literature-card,
+  #slide-12b .bridge-column {
+    height: 225px !important;
+    min-height: 225px !important;
+  }
+
+  #slide-12b .literature-card {
+    padding: 18px 20px !important;
+  }
+}
+
+/* ========================================================================
+   V22 — aesthetic cleanup: pointer, roadmap harmony, slides 4, 8, 9, and 14
+   ======================================================================== */
+
+/* Slide 4: put the concluding sentence in a real visual box */
+#slide-4 .tradeoff-formulas > p.type-body-copy {
+  margin: 4px 0 0 !important;
+  padding: 14px 18px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  background: rgba(255,255,255,.78) !important;
+  box-shadow: 0 10px 24px rgba(7,17,28,.05) !important;
+  text-align: left !important;
+  line-height: 1.42 !important;
+}
+
+/* Roadmap wording and slide-title rhythm */
+#slide-2 .slide-heading,
+#slide-2 .slide-content {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#slide-2 .roadmap-grid.six-roadmap article h3 {
+  letter-spacing: -.02em !important;
+}
+
+/* Slides 8 and 9: raise the bottom horizontal box slightly, keep a clean gap */
+#slide-8 .one-line-claim {
+  max-width: 1320px !important;
+  margin: 4px auto 0 !important;
+  padding: 11px 16px !important;
+  transform: translateY(-12px) !important;
+}
+
+#slide-9 .note-strip {
+  max-width: 1360px !important;
+  margin: 5px auto 0 !important;
+  padding: 11px 16px !important;
+  transform: translateY(-12px) !important;
+}
+
+/* 14th slide in the deck (= slide-12b): center the composition and trim card sizes */
+#slide-12b .slide-shell {
+  height: 100%;
+  display: grid;
+  align-content: center;
+}
+
+#slide-12b .slide-heading {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto 18px !important;
+}
+
+#slide-12b .literature-redesign {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr) !important;
+  gap: 18px !important;
+  align-items: center !important;
+}
+
+#slide-12b .literature-card {
+  min-height: 228px !important;
+  height: auto !important;
+  padding: 18px 20px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+#slide-12b .literature-card .type-card-title,
+#slide-12b .bridge-core strong {
+  font-size: 17px !important;
+  line-height: 1.42 !important;
+}
+
+#slide-12b .literature-card .type-body-copy {
+  line-height: 1.42 !important;
+}
+
+#slide-12b .bridge-column {
+  min-height: 228px !important;
+  height: 228px !important;
+}
+
+#slide-12b .bridge-core {
+  padding: 14px 14px !important;
+}
+
+/* Slightly calmer type proportions on slide 12b so all three panels feel unified */
+#slide-12b .type-card-label,
+#slide-12b .bridge-core span {
+  font-size: 11px !important;
+  letter-spacing: .10em !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-12b .literature-redesign {
+    gap: 16px !important;
+    grid-template-columns: minmax(0, 1fr) 220px minmax(0, 1fr) !important;
+  }
+
+  #slide-12b .literature-card,
+  #slide-12b .bridge-column {
+    min-height: 214px !important;
+    height: 214px !important;
+  }
+}
+
+/* ========================================================================
+   V23 — requested fine adjustments for slides 8, 9, and 14
+   ======================================================================== */
+
+/* Slides 8 and 9: move the bottom strip higher, with a small clean gap */
+#slide-8 .one-line-claim {
+  margin: -8px auto 0 !important;
+  transform: none !important;
+}
+
+#slide-9 .note-strip {
+  margin: -8px auto 0 !important;
+  transform: none !important;
+}
+
+/* Slide 14 in the user's numbering (= #slide-12b): keep the heading in its
+   original position, preserve the center line, and only center the boxes in
+   the remaining page area. */
+#slide-12b .slide-shell {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: stretch !important;
+}
+
+#slide-12b .slide-heading {
+  width: auto !important;
+  max-width: 1040px !important;
+  margin: 0 0 clamp(24px, 3.1vh, 42px) 0 !important;
+}
+
+#slide-12b .literature-redesign {
+  align-self: center !important;
+  margin: 0 auto !important;
+}
+
+/* ========================================================================
+   V24 — stronger upward move for the bottom strips on slides 8 and 9
+   ======================================================================== */
+#slide-8 .queue-objective-layout,
+#slide-9 .assumption-grid {
+  margin-bottom: 0 !important;
+}
+
+#slide-8 .one-line-claim {
+  margin: -24px auto 0 !important;
+  transform: none !important;
+}
+
+#slide-9 .note-strip {
+  margin: -24px auto 0 !important;
+  transform: none !important;
+}
+
+/* ========================================================================
+   V25 — bring the bottom summary boxes directly under the upper cards
+   on slides 8 and 9, without moving the upper cards downward
+   ======================================================================== */
+#slide-8 .one-line-claim {
+  margin: 0 auto !important;
+  transform: translateY(-86px) !important;
+}
+
+#slide-9 .note-strip {
+  margin: 0 auto !important;
+  transform: translateY(-58px) !important;
+}
+
+/* ========================================================================
+   V26 — slide 9 bottom box width aligned with the three upper boxes
+   ======================================================================== */
+#slide-9 .note-strip {
+  width: min(1080px, 100%) !important;
+}
+
+/* ========================================================================
+   V27 — slide 16 (HTML #slide-14): reduce the oversized left math box
+   ======================================================================== */
+#slide-14.assignment-layout {}
+#slide-14 .assignment-layout {
+  grid-template-columns: minmax(0, .84fr) minmax(0, 1.16fr) !important;
+  align-items: stretch;
+}
+
+#slide-14 .light-math-box {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 18px 20px !important;
+  align-content: center !important;
+}
+
+#slide-14 .light-math-box mjx-container {
+  font-size: 96% !important;
+}
+
+/* ========================================================================
+   V28 — slide 29: make orange box titles smaller
+   ======================================================================== */
+#slide-27 .policy-rules .type-card-label {
+  font-size: 10px !important;
+  letter-spacing: .10em !important;
+}
+
+/* === BEGIN NOTEBOOK PATCH: RL PRIMER CARD CLARITY === */
+
+/* Slide 3 — clearer State / Action / Reward cards. */
+#slide-rl-primer .assumption-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+}
+
+#slide-rl-primer .assumption-grid article {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: 18px 22px 18px 25px !important;
+  display: grid !important;
+  grid-template-rows: auto auto 1fr !important;
+  align-content: start !important;
+  justify-items: start !important;
+  border: 1px solid rgba(255,255,255,.20) !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(
+      circle at 92% 0%,
+      rgba(255,183,38,.13),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(39,73,92,.98),
+      rgba(18,44,60,.98)
+    ) !important;
+  box-shadow:
+    0 16px 34px rgba(0,0,0,.24),
+    inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+#slide-rl-primer .assumption-grid article::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 auto 0 0 !important;
+  width: 4px !important;
+  background:
+    linear-gradient(
+      180deg,
+      var(--accent-2),
+      var(--accent)
+    ) !important;
+}
+
+#slide-rl-primer .assumption-grid article > .type-card-label {
+  width: fit-content !important;
+  padding: 5px 10px !important;
+  border: 1px solid rgba(255,183,38,.34) !important;
+  border-radius: 999px !important;
+  background: rgba(255,183,38,.10) !important;
+  color: var(--accent-2) !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  letter-spacing: .11em !important;
+  text-transform: uppercase !important;
+  text-align: left !important;
+}
+
+#slide-rl-primer .assumption-grid article > h3 {
+  margin: 11px 0 7px !important;
+  color: #f4f8fa !important;
+  font-size: 21px !important;
+  line-height: 1.16 !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+#slide-rl-primer .assumption-grid article > p {
+  margin: 0 !important;
+  color: rgba(239,245,246,.86) !important;
+  font-size: 16px !important;
+  line-height: 1.46 !important;
+  text-align: left !important;
+  text-align-last: left !important;
+}
+
+@media
+  (max-width: 760px),
+  (max-width: 900px) and
+  (max-height: 500px) and
+  (orientation: landscape) {
+
+  #slide-rl-primer .assumption-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  #slide-rl-primer .assumption-grid article {
+    padding: 16px 17px 16px 21px !important;
+  }
+
+  #slide-rl-primer .assumption-grid article > h3 {
+    font-size: 19px !important;
+  }
+
+  #slide-rl-primer .assumption-grid article > p {
+    font-size: 15px !important;
+  }
+}
+
+/* === END NOTEBOOK PATCH: RL PRIMER CARD CLARITY === */
+
+/* === BEGIN NOTEBOOK PATCH: INLINE BANNER TEXT FLOW === */
+
+/*
+  متن‌های توضیحی که شامل strong هستند باید به‌صورت یک جریان متنی
+  واحد نمایش داده شوند، حتی اگر باکس والد display:grid داشته باشد.
+*/
+html body #presentation .slide .banner-inline-flow {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+
+  text-align: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  text-wrap: pretty;
+}
+
+/*
+  عبارت‌های تأکیدی مانند pickup wait در وسط کلمه شکسته نشوند.
+*/
+html body #presentation .slide .banner-inline-flow > strong {
+  display: inline !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+
+/*
+  اسلاید نمایشی شماره ۸ در HTML با شناسه slide-23 قرار دارد.
+  این قانون تضمین می‌کند باکس نتیجه فقط یک ستون متنی داشته باشد.
+*/
+html body #presentation #slide-23 .stacked-insights > .decision-banner {
+  grid-template-columns: minmax(0, 1fr) !important;
+  justify-items: stretch !important;
+}
+
+/*
+  جلوگیری از جدا شدن علائم نگارشی و قسمت‌های جمله در باکس‌های مشابه.
+*/
+html body #presentation .slide .decision-banner,
+html body #presentation .slide .note-strip,
+html body #presentation .slide .one-line-claim,
+html body #presentation .slide .partial-observation-banner,
+html body #presentation .slide .policy-lookup,
+html body #presentation .slide .gap-banner,
+html body #presentation .slide .difference-banner,
+html body #presentation .slide .analogy-head {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+/* === END NOTEBOOK PATCH: INLINE BANNER TEXT FLOW === */
+
+/* === BEGIN NOTEBOOK PATCH: SLIDE 13 CLEANUP === */
+
+/*
+  After removing Best Policy, keep the Operational Rule
+  compact and centered instead of stretching across the slide.
+*/
+html body #presentation #slide-30 .closing-synthesis {
+  display: flex !important;
+  grid-template-columns: none !important;
+
+  width: min(760px, 100%) !important;
+  max-width: 760px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  justify-self: center !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+
+  gap: 0 !important;
+}
+
+
+/*
+  Outer Operational Rule box
+*/
+html body #presentation #slide-30 .closing-policy-rule {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  margin: 0 auto !important;
+  padding: 16px 18px !important;
+  box-sizing: border-box !important;
+
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+
+  justify-items: center !important;
+  align-items: center !important;
+  align-content: center !important;
+
+  gap: 12px !important;
+}
+
+
+/*
+  Operational Rule heading
+*/
+html body #presentation #slide-30 .closing-policy-rule > span {
+  display: block !important;
+  width: 100% !important;
+
+  margin: 0 auto !important;
+
+  text-align: center !important;
+  text-align-last: center !important;
+
+  justify-self: center !important;
+}
+
+
+/*
+  Container of the two inner cards
+*/
+html body #presentation #slide-30 .closing-rule-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+  width: min(570px, 100%) !important;
+  max-width: 570px !important;
+
+  margin: 0 auto !important;
+
+  justify-content: center !important;
+  justify-items: stretch !important;
+  align-items: stretch !important;
+
+  gap: 12px !important;
+}
+
+
+/*
+  Both inner cards
+*/
+html body #presentation #slide-30 .closing-rule-grid article {
+  min-width: 0 !important;
+  min-height: 92px !important;
+
+  padding: 13px 15px !important;
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  text-align: center !important;
+}
+
+
+/*
+  Center both the white headings and the yellow descriptions.
+*/
+html body #presentation #slide-30 .closing-rule-grid article strong,
+html body #presentation #slide-30 .closing-rule-grid article p,
+html body #presentation #slide-30 .closing-rule-grid .type-card-title,
+html body #presentation #slide-30 .closing-rule-grid .type-body-copy {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  text-align: center !important;
+  text-align-last: center !important;
+
+  justify-self: center !important;
+  align-self: center !important;
+
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+
+/*
+  Precise spacing for the yellow lines.
+*/
+html body #presentation #slide-30 .closing-rule-grid article p,
+html body #presentation #slide-30 .closing-rule-grid .type-body-copy {
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+}
+
+
+/*
+  Mobile layout
+*/
+@media
+  (max-width: 760px),
+  (max-width: 900px) and
+  (max-height: 500px) and
+  (orientation: landscape) {
+
+  html body #presentation #slide-30 .closing-synthesis {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  html body #presentation #slide-30 .closing-policy-rule {
+    padding: 14px !important;
+  }
+
+  html body #presentation #slide-30 .closing-rule-grid {
+    width: 100% !important;
+    max-width: none !important;
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* === END NOTEBOOK PATCH: SLIDE 13 CLEANUP === */
