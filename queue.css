@@ -5726,3 +5726,1549 @@ html body #presentation .theme-method .figure-card {
   font-size: 10px !important;
   letter-spacing: .10em !important;
 }
+
+/* ========================================================================
+   V29 — new opening sequence: course bridge, DEQ, and delayed matching
+   ======================================================================== */
+#slide-3 .slide-content,
+#slide-4 .slide-content,
+#slide-5 .slide-content,
+#slide-6 .slide-content,
+#slide-7 .slide-content,
+#slide-8 .slide-content {
+  display: block;
+}
+
+.course-bridge-layout,
+.deq-hero-layout,
+.deq-mechanics-layout,
+.mapping-layout,
+.differences-layout,
+.ridehail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+}
+
+.bridge-banner,
+.difference-banner {
+  border-radius: 18px;
+  padding: 16px 22px;
+  background: rgba(255,255,255,.68);
+  border: 1px solid rgba(25,40,62,.08);
+  box-shadow: 0 8px 24px rgba(17,28,45,.06);
+}
+
+.course-bridge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px;
+}
+
+.course-card,
+.mapping-note,
+.difference-card,
+.ridehail-card,
+.step-card,
+.summary-box {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(23,37,58,.08);
+  border-radius: 22px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, .06);
+  padding: 18px 20px;
+}
+
+.course-card .type-card-title,
+.mapping-note .type-card-title,
+.difference-card .type-card-title,
+.ridehail-card .type-card-title,
+.step-card .type-card-title,
+.summary-box .type-card-title {
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.accent-card-lite {
+  background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,244,238,.96));
+  border-color: rgba(255,127,80,.18);
+}
+
+.bridge-bottom-strip,
+.ridehail-objective,
+.deq-hero-caption {
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(23,37,58,.08);
+  border-radius: 18px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 24px rgba(15,23,42,.05);
+}
+
+.deq-hero-card {
+  padding: 14px !important;
+}
+
+.deq-hero-card img {
+  width: 100%;
+  max-height: 50vh;
+  object-fit: contain;
+}
+
+.mechanics-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 16px;
+}
+
+.step-index {
+  display: inline-block;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--accent, #ec7a4d);
+  margin-bottom: 8px;
+}
+
+.mechanics-summary-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+}
+
+.emphasis-box {
+  background: linear-gradient(180deg, rgba(11,45,77,.96), rgba(10,36,62,.96));
+  color: #f6f4ef;
+}
+
+.emphasis-box .type-card-title,
+.emphasis-box .type-body-copy { color: #f6f4ef !important; }
+
+.mapping-layout {
+  gap: 16px;
+}
+
+.mapping-table-card {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(23,37,58,.08);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(15,23,42,.06);
+}
+
+.mapping-row {
+  display: grid;
+  grid-template-columns: 0.9fr 1.25fr;
+  gap: 16px;
+  padding: 12px 18px;
+  align-items: start;
+  border-top: 1px solid rgba(23,37,58,.08);
+}
+
+.mapping-row:first-child { border-top: none; }
+.mapping-header {
+  background: rgba(11,45,77,.94);
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.mapping-notes-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+}
+
+.difference-grid-custom {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+}
+
+.ridehail-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.ridehail-figure-card {
+  padding: 12px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ridehail-figure-card img {
+  width: 100%;
+  max-height: 52vh;
+  object-fit: contain;
+}
+
+.ridehail-side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ridehail-formulas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.mini-formula {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(23,37,58,.08);
+  border-radius: 18px;
+  padding: 16px 18px;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(15,23,42,.05);
+}
+
+#slide-8 .slide-content {
+  padding-top: 6px;
+}
+
+#slide-2 .roadmap-grid article p {
+  text-align: left !important;
+}
+
+@media (max-width: 1280px) {
+  .course-bridge-grid,
+  .mechanics-steps-grid,
+  .difference-grid-custom {
+    gap: 14px;
+  }
+  .step-card,
+  .difference-card,
+  .course-card {
+    padding: 16px 16px;
+  }
+}
+
+/* ========================================================================
+   V30 — narrative restructure: DEQ → applications → ride-hailing → RL
+   ======================================================================== */
+#slide-3 .slide-content,
+#slide-4 .slide-content,
+#slide-5 .slide-content,
+#slide-6 .slide-content,
+#slide-7 .slide-content,
+#slide-8 .slide-content,
+#slide-9 .slide-content,
+#slide-10 .slide-content,
+#slide-11 .slide-content,
+#slide-11b .slide-content,
+#slide-fixed-interval .slide-content,
+#slide-fixed-limitation .slide-content,
+#slide-rl-bridge .slide-content {
+  padding-top: 4px !important;
+}
+
+.course-model-layout,
+.deq-generic-layout,
+.deq-mechanics-layout-v30,
+.compare-mm-layout,
+.deq-difference-layout,
+.applications-layout-v30,
+.ridehailing-deq-layout-v30,
+.delayed-matching-layout-v30,
+.metrics-layout-v30,
+.u-shape-layout-v30,
+.fixed-interval-v30,
+.nonstationary-v30,
+.why-rl-v30 {
+  width: min(1320px, 100%);
+  margin: 0 auto;
+}
+
+.course-model-layout,
+.deq-mechanics-layout-v30,
+.deq-difference-layout,
+.applications-layout-v30,
+.metrics-layout-v30,
+.nonstationary-v30,
+.why-rl-v30 {
+  display: grid;
+  gap: 14px;
+}
+
+.mm-flow-card,
+.compare-table-card,
+.state-update-card,
+.deq-definition-card,
+.metrics-note,
+.fixed-equation,
+.nonstationary-message,
+.rl-conclusion,
+.course-model-layout article,
+.mechanics-step-row article,
+.compare-note-card,
+.difference-grid-v30 article,
+.application-grid article,
+.ridehail-map-cards article,
+.delayed-cards article,
+.metrics-cards article,
+.fixed-cards article,
+.stationary-contrast article,
+.rl-logic-chain article {
+  border-radius: 18px;
+  border: 1px solid rgba(16,32,44,.12);
+  background: rgba(255,255,255,.74);
+  box-shadow: 0 10px 28px rgba(7,17,28,.06);
+}
+
+.mm-flow-card { padding: 18px 20px; }
+.mm-flow-title { text-align:center; color: var(--accent); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; }
+.mm-flow-diagram { display:grid; grid-template-columns: 1fr auto 1.1fr auto 1fr auto 1fr; align-items:stretch; gap:10px; }
+.flow-node { min-height:72px; border-radius:16px; border:1px solid rgba(16,32,44,.13); background:rgba(255,255,255,.86); display:grid; place-items:center; text-align:center; font-weight:800; line-height:1.15; padding:10px; }
+.flow-node span { color: var(--accent); font-size: 18px; }
+.flow-arrow { color: var(--accent); font-size: 28px; font-weight: 900; display:grid; place-items:center; }
+.mm-equation { margin-top: 12px; padding: 8px 12px; border-radius: 14px; background: rgba(6,21,34,.05); text-align:center; }
+.course-card-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+.course-card-grid article { padding: 16px 18px; min-height: 128px; display:grid; align-content:center; }
+
+.deq-generic-layout { display:grid; grid-template-columns:minmax(0,1fr); gap:12px; }
+.deq-generic-figure { padding: 10px !important; background: rgba(255,255,255,.78) !important; }
+.deq-generic-figure img { width:100%; max-height: 53vh; object-fit: contain; }
+.deq-definition-card { width:min(980px, 100%); margin:0 auto; padding:13px 18px; text-align:center; }
+.deq-definition-card h3 { margin: 3px 0 5px !important; }
+
+.mechanics-step-row { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.mechanics-step-row article { padding:15px 16px; min-height:142px; display:grid; align-content:center; text-align:center; }
+.mechanics-step-row article span,
+.rl-logic-chain article span { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing:.12em; }
+.mechanics-step-row article h3,
+.rl-logic-chain article h3 { margin: 7px 0 8px; font-size: 18px; }
+.mechanics-step-row article p,
+.rl-logic-chain article p { margin:0; line-height:1.42; }
+.state-update-card { padding: 14px 18px; text-align:center; }
+.update-equation { margin-top:5px; }
+.update-equation.small { font-size: 92%; }
+
+.compare-mm-layout { display:grid; grid-template-columns: minmax(0, 1fr) 310px; gap:16px; align-items:stretch; }
+.compare-table-card { overflow:hidden; }
+.compare-row { display:grid; grid-template-columns: .9fr 1.15fr; gap:14px; padding:10px 16px; border-top:1px solid rgba(16,32,44,.09); align-items:center; }
+.compare-row:first-child { border-top:0; }
+.compare-head { background: var(--deep-blue); color:white; font-weight:800; }
+.compare-note-card { padding:18px; display:grid; align-content:center; text-align:center; }
+
+.deq-difference-layout { gap:13px; }
+.difference-grid-v30 { display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap:14px; }
+.difference-grid-v30 article { min-height: 152px; padding:15px 16px; display:grid; align-content:center; text-align:center; }
+.difference-grid-v30 article h3 { margin:6px 0 8px; }
+.difference-banner { text-align:center; padding:12px 16px !important; }
+
+.application-grid { display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:14px; }
+.application-grid article { min-height:126px; padding:16px 18px; display:grid; align-content:center; text-align:center; }
+.application-grid article span { color: var(--accent); font-weight: 800; font-size: 18px; }
+.application-grid article p { margin:8px 0 0; line-height:1.42; }
+.application-grid .accent-app { background: linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,244,238,.95)); border-color: rgba(255,112,67,.18); }
+.application-bridge { text-align:center; padding:12px 16px !important; }
+
+.ridehailing-deq-layout-v30,
+.delayed-matching-layout-v30,
+.u-shape-layout-v30,
+.fixed-interval-v30 { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr); gap:16px; align-items:center; }
+.ridehail-infographic,
+.delayed-figure,
+.u-figure,
+.fixed-contour-figure { padding:10px !important; background: rgba(255,255,255,.80) !important; }
+.ridehail-infographic img,
+.delayed-figure img,
+.u-figure img,
+.fixed-contour-figure img { width:100%; max-height:52vh; object-fit:contain; }
+.ridehail-map-cards,
+.delayed-cards,
+.fixed-cards { display:grid; gap:12px; }
+.ridehail-map-cards article,
+.delayed-cards article,
+.fixed-cards article { padding:16px 18px; min-height:0; display:grid; align-content:center; text-align:center; }
+.delayed-question { text-align:center; padding:13px 16px !important; }
+
+.metrics-cards { display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:14px; }
+.metrics-cards article { min-height:190px; padding:16px 18px; display:grid; align-content:center; text-align:center; }
+.metric-symbol { margin-top:10px; padding:10px 12px; border-radius:14px; background:rgba(6,21,34,.05); font-size: 16px; }
+.metrics-note { padding:13px 16px; text-align:center; }
+
+.u-formulas { display:grid; gap:11px; }
+.u-formulas .formula-card { min-height:76px !important; display:grid; place-items:center; padding:14px 16px !important; }
+.u-message { text-align:center; padding:13px 16px !important; }
+
+.fixed-cards .fixed-equation { padding:14px 16px; text-align:center; }
+
+.stationary-contrast { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.stationary-contrast article { padding:18px 20px; min-height:155px; display:grid; align-content:center; text-align:center; }
+.nonstationary-reasons { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.nonstationary-reasons div { border-radius:16px; border:1px solid rgba(16,32,44,.12); background:rgba(255,255,255,.72); padding:15px 14px; text-align:center; font-weight:800; box-shadow:0 10px 24px rgba(7,17,28,.05); }
+.nonstationary-message { padding:13px 16px; text-align:center; }
+
+.rl-logic-chain { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.rl-logic-chain article { padding:16px 18px; min-height:150px; display:grid; align-content:center; text-align:center; }
+.rl-conclusion { padding:14px 18px; text-align:center; }
+
+/* Keep new generic educational slides visually calm */
+#slide-3 .type-card-label,
+#slide-4 .type-card-label,
+#slide-5 .type-card-label,
+#slide-6 .type-card-label,
+#slide-7 .type-card-label,
+#slide-8 .type-card-label,
+#slide-9 .type-card-label,
+#slide-10 .type-card-label,
+#slide-11 .type-card-label {
+  font-size: 10px !important;
+  letter-spacing: .11em !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  .deq-generic-figure img { max-height: 49vh; }
+  .ridehail-infographic img,.delayed-figure img,.u-figure img,.fixed-contour-figure img { max-height: 49vh; }
+  .mechanics-step-row article,.difference-grid-v30 article,.metrics-cards article,.rl-logic-chain article { min-height:auto; padding:13px 14px; }
+  .application-grid article { min-height:112px; padding:13px 14px; }
+  .compare-row { padding:8px 14px; }
+}
+
+/* ========================================================================
+   V31 — merge former slides 4 and 5 into one combined DEQ introduction slide
+   ======================================================================== */
+#slide-4 .deq-combined-slide-content {
+  display: block;
+  padding-top: 2px;
+}
+
+#slide-4 .deq-combined-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+#slide-4 .deq-top-definition-card {
+  background: rgba(255,255,255,.80);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(15,23,42,.05);
+  padding: 14px 18px;
+}
+
+#slide-4 .deq-top-definition-card .type-card-title {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+#slide-4 .deq-top-definition-card .type-body-copy {
+  margin: 0;
+}
+
+#slide-4 .deq-combined-figure {
+  padding: 10px !important;
+}
+
+#slide-4 .deq-combined-figure img {
+  width: 100%;
+  max-height: 29vh;
+  object-fit: contain;
+}
+
+#slide-4 .deq-steps-compact {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#slide-4 .deq-steps-compact article {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(15,23,42,.05);
+  padding: 12px 14px;
+}
+
+#slide-4 .deq-steps-compact article span {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--accent, #e77c4f);
+}
+
+#slide-4 .deq-steps-compact article h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.18;
+  color: var(--ink-900, #13263a);
+}
+
+#slide-4 .deq-steps-compact article p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink-700, #425466);
+  text-align: justify;
+}
+
+#slide-4 .deq-state-update-compact {
+  padding: 14px 18px !important;
+}
+
+#slide-4 .deq-state-update-compact .update-equation {
+  font-size: 23px;
+}
+
+#slide-4 .deq-state-update-compact .update-equation.small {
+  font-size: 20px;
+}
+
+/* ========================================================================
+   V32 — merge correspondence and differences into a single comparison table
+   ======================================================================== */
+#slide-6 .deq-comparison-slide-content {
+  display: block;
+  padding-top: 2px;
+}
+
+#slide-6 .deq-comparison-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+#slide-6 .comparison-intro {
+  margin-bottom: 0;
+}
+
+#slide-6 .deq-comparison-table-card {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(15,23,42,.06);
+}
+
+#slide-6 .deq-compare-row {
+  display: grid;
+  grid-template-columns: 1.08fr 1.02fr 1.28fr;
+  gap: 16px;
+  padding: 12px 18px;
+  align-items: center;
+  border-top: 1px solid rgba(24,39,60,.08);
+}
+
+#slide-6 .deq-compare-row:first-child {
+  border-top: none;
+}
+
+#slide-6 .deq-compare-head {
+  background: rgba(11,45,77,.95);
+  color: #f7fafc;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+#slide-6 .deq-compare-row > div {
+  font-size: 17px;
+  line-height: 1.42;
+  color: var(--ink-900,#13263a);
+  text-align: left;
+}
+
+#slide-6 .deq-compare-row > div:first-child {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+#slide-6 .comparison-footnote-card {
+  padding: 14px 18px;
+}
+
+#slide-6 .comparison-footnote-card p {
+  margin: 4px 0 0;
+}
+
+
+/* ========================================================================
+   V33 — split combined DEQ slide back into two clean slides
+   ======================================================================== */
+#slide-4 .deq-definition-only-content,
+#slide-5 .slide-content {
+  display: block;
+}
+
+#slide-4 .deq-definition-only-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+
+#slide-4 .deq-definition-card-v33 {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 22px;
+  box-shadow: 0 10px 24px rgba(15,23,42,.05);
+  padding: 16px 20px;
+}
+
+#slide-4 .deq-definition-card-v33 .type-card-title {
+  margin: 4px 0 6px;
+}
+
+#slide-4 .deq-definition-card-v33 .type-body-copy {
+  margin: 0;
+  max-width: 1180px;
+}
+
+#slide-4 .deq-definition-figure-v33 {
+  flex: 1;
+  min-height: 0;
+  padding: 12px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#slide-4 .deq-definition-figure-v33 img {
+  width: 100%;
+  height: 100%;
+  max-height: 50vh;
+  object-fit: contain;
+}
+
+#slide-5 .deq-mechanics-layout-v33 {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+  justify-content: center;
+}
+
+#slide-5 .mechanics-step-row-v33 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 16px;
+}
+
+#slide-5 .mechanics-step-row-v33 article {
+  background: rgba(255,255,255,.80);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 22px;
+  box-shadow: 0 10px 24px rgba(15,23,42,.05);
+  padding: 18px 18px;
+}
+
+#slide-5 .mechanics-step-row-v33 article span {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--accent, #e77c4f);
+}
+
+#slide-5 .mechanics-step-row-v33 article h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-serif);
+  font-size: 23px;
+  line-height: 1.18;
+  color: var(--ink-900, #13263a);
+}
+
+#slide-5 .mechanics-step-row-v33 article p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink-700, #425466);
+  text-align: justify;
+}
+
+#slide-5 .state-update-card-v33 {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 22px;
+  box-shadow: 0 10px 24px rgba(15,23,42,.05);
+  padding: 18px 22px !important;
+}
+
+#slide-5 .state-update-card-v33 .type-card-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+#slide-5 .state-update-card-v33 .update-equation {
+  font-size: 26px;
+}
+
+#slide-5 .state-update-card-v33 .update-equation.small {
+  font-size: 22px;
+  margin-top: 4px;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-5 .mechanics-step-row-v33 article {
+    padding: 15px 16px;
+  }
+  #slide-5 .mechanics-step-row-v33 article h3 {
+    font-size: 21px;
+  }
+  #slide-5 .state-update-card-v33 .update-equation {
+    font-size: 23px;
+  }
+  #slide-5 .state-update-card-v33 .update-equation.small {
+    font-size: 20px;
+  }
+}
+
+/* ========================================================================
+   V34 — compact the comparison table so both ideas fit on one slide
+   ======================================================================== */
+#slide-6 .deq-comparison-layout {
+  gap: 9px;
+}
+
+#slide-6 .comparison-intro {
+  padding: 10px 14px;
+  font-size: 15px;
+  line-height: 1.34;
+}
+
+#slide-6 .deq-comparison-table-card {
+  border-radius: 18px;
+}
+
+#slide-6 .deq-compare-row {
+  grid-template-columns: 0.96fr 0.95fr 1.21fr;
+  gap: 14px;
+  padding: 8px 14px;
+}
+
+#slide-6 .deq-compare-head {
+  font-size: 18px;
+}
+
+#slide-6 .deq-compare-row > div {
+  font-size: 14.5px;
+  line-height: 1.28;
+}
+
+#slide-6 .comparison-footnote-card {
+  padding: 10px 14px;
+  border-radius: 16px;
+}
+
+#slide-6 .comparison-footnote-card .type-card-label {
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+#slide-6 .comparison-footnote-card p {
+  margin-top: 3px;
+  font-size: 14.5px;
+  line-height: 1.32;
+}
+
+/* ========================================================================
+   V35 — split slide 6, fix slide 7, replace slide 8 with full figure,
+          and reduce slide 4 image size
+   ======================================================================== */
+#slide-4 .deq-definition-only-layout {
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+#slide-4 .deq-definition-card-v33 {
+  padding: 14px 18px;
+}
+
+#slide-4 .deq-definition-figure-v33 {
+  padding: 10px;
+}
+
+#slide-4 .deq-definition-figure-v33 img {
+  width: 100%;
+  max-height: 38vh;
+  object-fit: contain;
+}
+
+/* Slide 6: correspondence */
+#slide-6 .deq-correspondence-content {
+  display: block;
+}
+
+#slide-6 .deq-correspondence-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+#slide-6 .deq-correspondence-table-card {
+  background: rgba(255,255,255,.84);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(15,23,42,.06);
+}
+
+#slide-6 .deq-corr-row {
+  display: grid;
+  grid-template-columns: 0.92fr 1fr 1.2fr;
+  gap: 14px;
+  padding: 10px 14px;
+  align-items: center;
+  border-top: 1px solid rgba(24,39,60,.08);
+}
+
+#slide-6 .deq-corr-row:first-child { border-top:none; }
+
+#slide-6 .deq-corr-head {
+  background: rgba(11,45,77,.95);
+  color: #f7fafc;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+#slide-6 .deq-corr-row > div {
+  font-size: 15px;
+  line-height: 1.32;
+  color: var(--ink-900,#13263a);
+}
+
+#slide-6 .deq-corr-row > div:first-child {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+#slide-6 .comparison-footnote-card {
+  padding: 12px 16px;
+}
+
+/* Slide 7: differences */
+#slide-7 .deq-differences-content {
+  display: block;
+}
+
+#slide-7 .deq-diff-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+#slide-7 .deq-diff-card {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 22px;
+  box-shadow: 0 10px 24px rgba(15,23,42,.05);
+  padding: 18px 18px 16px;
+}
+
+#slide-7 .deq-diff-card .type-card-title {
+  margin-top: 4px;
+  margin-bottom: 6px;
+  font-size: 25px;
+}
+
+#slide-7 .deq-diff-card .type-body-copy {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+#slide-7 .deq-diff-banner {
+  margin-top: 14px;
+}
+
+/* Slide 8: full figure */
+#slide-8 .bridge-figure-content {
+  display: block;
+}
+
+#slide-8 .bridge-figure-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+#slide-8 .bridge-mini-note {
+  padding: 10px 14px;
+  font-size: 15px;
+  line-height: 1.34;
+}
+
+#slide-8 .bridge-full-figure-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+#slide-8 .bridge-full-figure-card img {
+  width: 100%;
+  max-height: 57vh;
+  object-fit: contain;
+}
+
+
+/* ========================================================================
+   V37 — requested visual fixes for slides 4, 5, 6, 8, and 9
+   ======================================================================== */
+
+/* Slide 4: make the generic DEQ figure smaller so it fully fits */
+#slide-4 .deq-definition-only-layout {
+  gap: 8px !important;
+  justify-content: flex-start !important;
+}
+
+#slide-4 .deq-definition-card-v33 {
+  padding: 12px 16px !important;
+}
+
+#slide-4 .deq-definition-card-v33 .type-card-title {
+  margin-top: 3px !important;
+  margin-bottom: 5px !important;
+}
+
+#slide-4 .deq-definition-card-v33 .type-body-copy {
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+
+#slide-4 .deq-definition-figure-v33 {
+  padding: 8px !important;
+}
+
+#slide-4 .deq-definition-figure-v33 img {
+  width: 100% !important;
+  max-height: 30vh !important;
+  object-fit: contain !important;
+}
+
+/* Slide 5: smaller text inside the bottom state-evolution box */
+#slide-5 .state-update-card-v33 {
+  padding: 12px 16px !important;
+}
+
+#slide-5 .state-update-card-v33 .type-card-label {
+  font-size: 11px !important;
+}
+
+#slide-5 .state-update-card-v33 .update-equation {
+  font-size: 18px !important;
+  line-height: 1.18 !important;
+}
+
+#slide-5 .state-update-card-v33 .update-equation.small {
+  font-size: 15px !important;
+  line-height: 1.18 !important;
+}
+
+/* Slide 6: white header text on navy table header */
+#slide-6 .deq-corr-head,
+#slide-6 .deq-corr-head > div,
+#slide-6 .deq-corr-head mjx-container {
+  color: #ffffff !important;
+}
+
+/* Slide 8: applications slide restored */
+#slide-8 .deq-applications-content {
+  display: block !important;
+}
+
+#slide-8 .applications-layout-v37 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+
+#slide-8 .applications-grid-v37 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+#slide-8 .applications-grid-v37 article {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 20px;
+  box-shadow: 0 9px 22px rgba(15,23,42,.055);
+  padding: 16px 18px;
+  min-height: 132px;
+}
+
+#slide-8 .applications-grid-v37 .type-card-title {
+  margin-top: 5px;
+  margin-bottom: 7px;
+  font-size: 23px;
+  line-height: 1.16;
+}
+
+#slide-8 .applications-grid-v37 .type-body-copy {
+  font-size: 15.5px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+#slide-8 .application-bridge-v37 {
+  margin-top: 0 !important;
+  padding: 13px 18px !important;
+}
+
+/* Slide 9: use the provided visual bridge image and tidy the layout */
+#slide-9 .ridehail-bridge-content-v37 {
+  display: block !important;
+}
+
+#slide-9 .ridehail-bridge-layout-v37 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+#slide-9 .ridehail-bridge-figure-v37 {
+  padding: 8px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#slide-9 .ridehail-bridge-figure-v37 img {
+  width: 100% !important;
+  max-height: 38vh !important;
+  object-fit: contain !important;
+}
+
+#slide-9 .ridehail-bridge-cards-v37 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#slide-9 .ridehail-bridge-cards-v37 article {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(15,23,42,.052);
+  padding: 14px 16px;
+}
+
+#slide-9 .ridehail-bridge-cards-v37 .type-card-title {
+  margin-top: 4px;
+  margin-bottom: 6px;
+  font-size: 21px;
+  line-height: 1.15;
+}
+
+#slide-9 .ridehail-bridge-cards-v37 .type-body-copy {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.38;
+}
+
+/* ========================================================================
+   V38 — improve slides 11–12 and color the boxes on slides 13–15
+   ======================================================================== */
+
+/* Slide 11 — evaluation metrics */
+#slide-11 .metrics-redesign-content {
+  display: block;
+  padding-top: 4px;
+}
+
+#slide-11 .metrics-redesign-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+#slide-11 .metrics-top-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+#slide-11 .metric-panel {
+  min-height: 210px;
+  padding: 20px 20px 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(24,39,60,.09);
+  box-shadow: 0 12px 28px rgba(15,23,42,.06);
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+#slide-11 .metric-panel-matching {
+  background: linear-gradient(180deg, rgba(232,242,255,.98), rgba(247,251,255,.96));
+  border-color: rgba(70,122,188,.22);
+}
+
+#slide-11 .metric-panel-pickup {
+  background: linear-gradient(180deg, rgba(232,248,241,.98), rgba(248,253,250,.96));
+  border-color: rgba(55,150,104,.20);
+}
+
+#slide-11 .metric-panel-total {
+  background: linear-gradient(180deg, rgba(255,239,230,.98), rgba(255,250,246,.96));
+  border-color: rgba(231,124,79,.24);
+}
+
+#slide-11 .metric-panel .type-card-title {
+  margin: 6px 0 8px;
+  font-size: 25px;
+}
+
+#slide-11 .metric-panel .metric-symbol {
+  margin: 4px 0 10px;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--deep-blue);
+}
+
+#slide-11 .metric-panel .metric-symbol-wide {
+  font-size: 21px;
+}
+
+#slide-11 .metric-panel .type-body-copy {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+#slide-11 .metrics-bottom-band {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+#slide-11 .metrics-bottom-copy,
+#slide-11 .metrics-weight-note {
+  border-radius: 19px;
+  padding: 15px 18px;
+  border: 1px solid rgba(24,39,60,.09);
+  box-shadow: 0 9px 22px rgba(15,23,42,.05);
+}
+
+#slide-11 .metrics-bottom-copy {
+  background: rgba(255,255,255,.82);
+}
+
+#slide-11 .metrics-bottom-copy .type-card-title {
+  margin: 4px 0 6px;
+  font-size: 20px;
+}
+
+#slide-11 .metrics-bottom-copy p {
+  margin: 0;
+  font-size: 15px;
+}
+
+#slide-11 .metrics-weight-note {
+  background: linear-gradient(180deg, rgba(15,49,78,.96), rgba(9,37,63,.98));
+  color: #f4f7f9;
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+#slide-11 .metrics-weight-note span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: #ffb08e;
+}
+
+#slide-11 .metrics-weight-note strong {
+  margin: 7px 0 5px;
+  font-size: 21px;
+  color: #fff;
+}
+
+#slide-11 .metrics-weight-note p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.38;
+  color: rgba(244,247,249,.86);
+}
+
+/* Slide 12 — U-shaped trade-off */
+#slide-11b .ushape-redesign-content {
+  display: block;
+  padding-top: 4px;
+}
+
+#slide-11b .ushape-redesign-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(360px, .75fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+#slide-11b .ushape-main-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+#slide-11b .ushape-main-figure img {
+  width: 100%;
+  max-height: 53vh;
+  object-fit: contain;
+}
+
+#slide-11b .ushape-side-column {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+}
+
+#slide-11b .ushape-step,
+#slide-11b .ushape-total-card {
+  border-radius: 18px;
+  padding: 13px 16px;
+  border: 1px solid rgba(24,39,60,.09);
+  box-shadow: 0 9px 22px rgba(15,23,42,.05);
+  text-align: center;
+}
+
+#slide-11b .ushape-step-red {
+  background: linear-gradient(180deg, rgba(255,235,232,.98), rgba(255,249,248,.96));
+  border-color: rgba(209,84,67,.22);
+}
+
+#slide-11b .ushape-step-green {
+  background: linear-gradient(180deg, rgba(232,248,241,.98), rgba(248,253,250,.96));
+  border-color: rgba(55,150,104,.20);
+}
+
+#slide-11b .ushape-total-card {
+  background: linear-gradient(180deg, rgba(234,240,252,.98), rgba(248,250,255,.96));
+  border-color: rgba(66,100,170,.20);
+}
+
+#slide-11b .ushape-equation {
+  margin: 2px 0 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#slide-11b .ushape-step p,
+#slide-11b .ushape-total-card p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.38;
+}
+
+/* Slide 13 — fixed interval benchmark colors */
+#slide-fixed-interval .fixed-cards article:first-child {
+  background: linear-gradient(180deg, rgba(231,242,255,.98), rgba(248,251,255,.96));
+  border-color: rgba(64,117,181,.22);
+}
+
+#slide-fixed-interval .fixed-cards article:nth-child(2) {
+  background: linear-gradient(180deg, rgba(255,240,225,.98), rgba(255,250,244,.96));
+  border-color: rgba(224,137,61,.24);
+}
+
+#slide-fixed-interval .fixed-equation {
+  border-radius: 17px;
+  background: linear-gradient(180deg, rgba(235,234,252,.98), rgba(249,249,255,.96));
+  border: 1px solid rgba(106,88,174,.18);
+  box-shadow: 0 9px 22px rgba(15,23,42,.05);
+}
+
+/* Slide 14 — non-stationary limitation colors */
+#slide-fixed-limitation .stationary-contrast article:first-child {
+  background: linear-gradient(180deg, rgba(231,242,255,.98), rgba(248,251,255,.96));
+  border-color: rgba(64,117,181,.22);
+}
+
+#slide-fixed-limitation .stationary-contrast article:nth-child(2) {
+  background: linear-gradient(180deg, rgba(255,234,226,.98), rgba(255,249,246,.96));
+  border-color: rgba(229,112,76,.24);
+}
+
+#slide-fixed-limitation .nonstationary-reasons div:nth-child(1) {
+  background: rgba(232,241,255,.94);
+  border-color: rgba(61,110,181,.18);
+}
+
+#slide-fixed-limitation .nonstationary-reasons div:nth-child(2) {
+  background: rgba(233,249,241,.94);
+  border-color: rgba(53,145,99,.18);
+}
+
+#slide-fixed-limitation .nonstationary-reasons div:nth-child(3) {
+  background: rgba(255,242,224,.94);
+  border-color: rgba(219,140,61,.20);
+}
+
+#slide-fixed-limitation .nonstationary-reasons div:nth-child(4) {
+  background: rgba(241,235,252,.94);
+  border-color: rgba(117,91,173,.18);
+}
+
+#slide-fixed-limitation .nonstationary-message {
+  background: linear-gradient(90deg, rgba(15,49,78,.96), rgba(29,67,96,.96));
+  color: #fff;
+  border-color: rgba(15,49,78,.18);
+}
+
+/* Slide 15 — why RL colors */
+#slide-rl-bridge .rl-logic-chain article:nth-child(1) {
+  background: linear-gradient(180deg, rgba(231,242,255,.98), rgba(248,251,255,.96));
+  border-color: rgba(64,117,181,.22);
+}
+
+#slide-rl-bridge .rl-logic-chain article:nth-child(2) {
+  background: linear-gradient(180deg, rgba(255,239,226,.98), rgba(255,250,245,.96));
+  border-color: rgba(226,128,65,.22);
+}
+
+#slide-rl-bridge .rl-logic-chain article:nth-child(3) {
+  background: linear-gradient(180deg, rgba(235,249,241,.98), rgba(249,253,251,.96));
+  border-color: rgba(55,150,104,.20);
+}
+
+#slide-rl-bridge .rl-logic-chain article:nth-child(4) {
+  background: linear-gradient(180deg, rgba(240,235,252,.98), rgba(250,248,255,.96));
+  border-color: rgba(115,91,173,.20);
+}
+
+#slide-rl-bridge .rl-conclusion {
+  background: linear-gradient(90deg, rgba(15,49,78,.97), rgba(24,67,95,.97));
+  color: #fff;
+  border-color: rgba(15,49,78,.18);
+}
+
+#slide-rl-bridge .rl-conclusion strong {
+  color: #ffd0bc;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-11 .metric-panel {
+    min-height: 188px;
+    padding: 16px 17px;
+  }
+
+  #slide-11 .metric-panel .type-card-title {
+    font-size: 23px;
+  }
+
+  #slide-11b .ushape-main-figure img {
+    max-height: 49vh;
+  }
+}
+
+/* ========================================================================
+   V39 — slide 4 smaller figure, slide 5 smaller lower box text,
+          fix slide 6 header contrast, keep slide 8 as applications,
+          replace slide 9 image and improve layout
+   ======================================================================== */
+
+/* Slide 4 */
+#slide-4 .deq-definition-only-layout {
+  gap: 8px;
+}
+#slide-4 .deq-definition-figure-v33 {
+  padding: 8px 12px 4px;
+}
+#slide-4 .deq-definition-figure-v33 img {
+  max-height: 34vh;
+  width: auto;
+  max-width: 92%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Slide 5 */
+#slide-5 .state-update-card-v33 {
+  padding: 12px 18px;
+}
+#slide-5 .state-update-card-v33 .type-card-label {
+  font-size: 12px;
+}
+#slide-5 .state-update-card-v33 .update-equation {
+  font-size: 26px;
+}
+#slide-5 .state-update-card-v33 .update-equation.small {
+  font-size: 19px;
+}
+
+/* Slide 6 */
+#slide-6 .deq-corr-head,
+#slide-6 .deq-corr-head > div {
+  color: #ffffff !important;
+}
+
+/* Slide 9 */
+#slide-9 .ridehail-bridge-content-v37 {
+  display: block;
+}
+#slide-9 .ridehail-bridge-layout-v37 {
+  display: grid;
+  grid-template-columns: 1.52fr 0.88fr;
+  gap: 18px;
+  align-items: center;
+  height: 100%;
+}
+#slide-9 .ridehail-bridge-figure-v37 {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+#slide-9 .ridehail-bridge-figure-v37 img {
+  width: 100%;
+  max-height: 56vh;
+  object-fit: contain;
+  display: block;
+}
+#slide-9 .ridehail-bridge-cards-v37 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#slide-9 .ridehail-bridge-cards-v37 article {
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(24,39,60,.08);
+  border-radius: 20px;
+  padding: 16px 16px 14px;
+  box-shadow: 0 10px 24px rgba(15,23,42,.05);
+}
+#slide-9 .ridehail-bridge-cards-v37 .type-card-title {
+  font-size: 24px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+#slide-9 .ridehail-bridge-cards-v37 .type-body-copy {
+  font-size: 15px;
+  line-height: 1.42;
+  margin: 0;
+}
+
+/* Keep slide 8 clearly as application slide */
+#slide-8 .applications-grid-v37 article,
+#slide-8 .applications-grid-v37 article .type-card-title,
+#slide-8 .applications-grid-v37 article .type-body-copy {
+  color: var(--ink-900);
+}
+
+/* ========================================================================
+   V40 — requested correction: black text on slides 13–15,
+          and calmer font sizing on slides 11–12
+   ======================================================================== */
+
+/* Slides 11–12: reduce oversized fonts and make sizing more consistent */
+#slide-11 .metric-panel {
+  min-height: 190px !important;
+  padding: 16px 17px 15px !important;
+}
+
+#slide-11 .metric-panel .type-card-label,
+#slide-11 .metrics-bottom-copy .type-card-label,
+#slide-11 .metrics-weight-note span,
+#slide-11b .type-card-label {
+  font-size: 10.5px !important;
+  letter-spacing: .10em !important;
+}
+
+#slide-11 .metric-panel .type-card-title {
+  font-size: 21px !important;
+  line-height: 1.18 !important;
+  margin: 4px 0 6px !important;
+}
+
+#slide-11 .metric-panel .metric-symbol {
+  font-size: 21px !important;
+  margin: 2px 0 7px !important;
+}
+
+#slide-11 .metric-panel .metric-symbol-wide {
+  font-size: 17px !important;
+}
+
+#slide-11 .metric-panel .type-body-copy {
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+}
+
+#slide-11 .metrics-bottom-copy .type-card-title {
+  font-size: 18px !important;
+  line-height: 1.22 !important;
+}
+
+#slide-11 .metrics-bottom-copy p,
+#slide-11 .metrics-weight-note p {
+  font-size: 13.5px !important;
+  line-height: 1.34 !important;
+}
+
+#slide-11 .metrics-weight-note strong {
+  font-size: 18px !important;
+}
+
+#slide-11b .ushape-side-column {
+  gap: 10px !important;
+}
+
+#slide-11b .ushape-step,
+#slide-11b .ushape-total-card {
+  padding: 11px 14px !important;
+}
+
+#slide-11b .ushape-equation {
+  font-size: 17px !important;
+  margin: 1px 0 4px !important;
+}
+
+#slide-11b .ushape-step p,
+#slide-11b .ushape-total-card p {
+  font-size: 13.5px !important;
+  line-height: 1.33 !important;
+}
+
+/* Slides 13–15: make all box text black for readability */
+#slide-fixed-interval .fixed-cards article,
+#slide-fixed-interval .fixed-cards article *,
+#slide-fixed-interval .fixed-equation,
+#slide-fixed-interval .fixed-equation *,
+#slide-fixed-limitation .stationary-contrast article,
+#slide-fixed-limitation .stationary-contrast article *,
+#slide-fixed-limitation .nonstationary-reasons div,
+#slide-fixed-limitation .nonstationary-reasons div *,
+#slide-fixed-limitation .nonstationary-message,
+#slide-fixed-limitation .nonstationary-message *,
+#slide-rl-bridge .rl-logic-chain article,
+#slide-rl-bridge .rl-logic-chain article *,
+#slide-rl-bridge .rl-conclusion,
+#slide-rl-bridge .rl-conclusion * {
+  color: #000 !important;
+}
+
+/* Convert the two previously dark banners to light boxes so black text remains readable */
+#slide-fixed-limitation .nonstationary-message {
+  background: linear-gradient(180deg, rgba(255,248,236,.98), rgba(255,252,246,.96)) !important;
+  border: 1px solid rgba(219,140,61,.22) !important;
+  box-shadow: 0 9px 22px rgba(15,23,42,.05) !important;
+}
+
+#slide-rl-bridge .rl-conclusion {
+  background: linear-gradient(180deg, rgba(255,248,236,.98), rgba(255,252,246,.96)) !important;
+  border: 1px solid rgba(219,140,61,.22) !important;
+  box-shadow: 0 9px 22px rgba(15,23,42,.05) !important;
+}
