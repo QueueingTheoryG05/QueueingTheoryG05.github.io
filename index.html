@@ -38,9 +38,10 @@
       transform-origin: top left;
     }
     .browser-zoom-stage:fullscreen {
-      width: 100% !important;
-      height: 100% !important;
-      transform: none !important;
+    width: var(--inverse-presentation-zoom) !important;
+    height: var(--inverse-presentation-zoom) !important;
+    transform: scale(var(--presentation-zoom)) !important;
+    transform-origin: top left !important;
     }
   </style>
   <script>
