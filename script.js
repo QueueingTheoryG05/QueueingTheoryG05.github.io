@@ -159,27 +159,38 @@
     }
   }
 
-  function goTo(index, options = {}) {
-    current = clamp(
-      index,
-      0,
-      slides.length - 1
-    );
+  /* PROJECT1_TRANSITION_START */
 
+  let project1Transitioning = false;
+  let project1QueuedNavigation = null;
+
+
+  function activateProject1Slide(
+    index,
+    options = {}
+  ) {
     slides.forEach(
-      (slide, slideIndex) => {
+      (
+        slide,
+        slideIndex
+      ) => {
         const active =
-          slideIndex === current;
+          slideIndex === index;
+
 
         slide.classList.toggle(
-          'is-active',
+          "is-active",
           active
         );
 
+
         slide.setAttribute(
-          'aria-hidden',
-          String(!active)
+          "aria-hidden",
+          active
+            ? "false"
+            : "true"
         );
+
 
         if (active) {
           slide.scrollTop = 0;
@@ -187,10 +198,274 @@
       }
     );
 
-    updateInterface(options);
+
+    current = index;
+
+
+    updateInterface(
+      options
+    );
   }
 
-  const next = () =>
+
+  async function project1FallbackTransition(
+    index,
+    direction,
+    options = {}
+  ) {
+    const oldSlide =
+      slides[current];
+
+
+    const distance =
+      direction > 0
+        ? -18
+        : 18;
+
+
+    document.documentElement
+      .classList.add(
+        "project1-fallback-running"
+      );
+
+
+    try {
+      if (
+        oldSlide
+        &&
+        oldSlide.classList.contains(
+          "is-active"
+        )
+      ) {
+        await oldSlide.animate(
+          [
+            {
+              opacity: 1,
+
+              transform:
+                "translateY(0) scale(1)",
+
+              filter:
+                "blur(0)"
+            },
+
+            {
+              opacity: 0,
+
+              transform:
+                `translateY(${distance}px) scale(.988)`,
+
+              filter:
+                "blur(3px)"
+            }
+          ],
+          {
+            duration: 380,
+
+            easing:
+              "cubic-bezier(.35,0,.65,1)",
+
+            fill:
+              "forwards"
+          }
+        ).finished.catch(
+          () => {}
+        );
+      }
+
+
+      activateProject1Slide(
+        index,
+        options
+      );
+
+
+      const newSlide =
+        slides[current];
+
+
+      if (newSlide) {
+        await newSlide.animate(
+          [
+            {
+              opacity: 0,
+
+              transform:
+                `translateY(${-distance}px) scale(1.012)`,
+
+              filter:
+                "blur(3px)"
+            },
+
+            {
+              opacity: 1,
+
+              transform:
+                "translateY(0) scale(1)",
+
+              filter:
+                "blur(0)"
+            }
+          ],
+          {
+            duration: 680,
+
+            easing:
+              "cubic-bezier(.18,.72,.18,1)",
+
+            fill:
+              "both"
+          }
+        ).finished.catch(
+          () => {}
+        );
+      }
+    } finally {
+      document.documentElement
+        .classList.remove(
+          "project1-fallback-running"
+        );
+    }
+  }
+
+
+  async function goTo(
+    index,
+    options = {}
+  ) {
+    const target =
+      clamp(
+        index,
+        0,
+        slides.length - 1
+      );
+
+
+    const targetAlreadyActive =
+      slides[target]
+        ?.classList
+        .contains(
+          "is-active"
+        );
+
+
+    /*
+      اجرای اولیه و Hash تکراری نباید انیمیشن بیهوده بسازد.
+    */
+
+    if (
+      target === current
+      &&
+      !project1Transitioning
+      &&
+      targetAlreadyActive
+    ) {
+      updateInterface(
+        options
+      );
+
+      return;
+    }
+
+
+    /*
+      عین پروژهٔ اول:
+      هنگام انتقال، آخرین درخواست در صف نگهداری می‌شود.
+    */
+
+    if (project1Transitioning) {
+      project1QueuedNavigation = {
+        target,
+        options
+      };
+
+      return;
+    }
+
+
+    project1Transitioning =
+      true;
+
+
+    const direction =
+      target > current
+        ? 1
+        : -1;
+
+
+    try {
+      const reducedMotion =
+        window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+      if (
+        typeof document.startViewTransition
+          === "function"
+        &&
+        !reducedMotion
+      ) {
+        const transition =
+          document.startViewTransition(
+            () => {
+              activateProject1Slide(
+                target,
+                options
+              );
+            }
+          );
+
+
+        await transition.finished.catch(
+          () => {}
+        );
+      } else {
+        await project1FallbackTransition(
+          target,
+          direction,
+          options
+        );
+      }
+    } finally {
+      project1Transitioning =
+        false;
+
+
+      const queued =
+        project1QueuedNavigation;
+
+
+      project1QueuedNavigation =
+        null;
+
+
+      if (
+        queued
+        &&
+        Number.isInteger(
+          queued.target
+        )
+        &&
+        queued.target !== current
+      ) {
+        window.setTimeout(
+          () => {
+            goTo(
+              queued.target,
+              queued.options
+            );
+          },
+          0
+        );
+      }
+    }
+  }
+
+  /* PROJECT1_TRANSITION_END */
+
+
+const next = () =>
     goTo(current + 1, {
       replaceHash: false
     });
@@ -924,6 +1199,14 @@
     });
 
   createImageLightbox();
+  
   createOverview();
-  goTo(current);
+
+  activateProject1Slide(
+    current,
+    {
+      replaceHash: true
+    }
+  );
+
 })();

@@ -13004,114 +13004,6 @@ html body #presentation .theme-method .figure-card {
   letter-spacing: .10em !important;
 }
 
-/* === BEGIN NOTEBOOK PATCH: RL PRIMER CARD CLARITY === */
-
-/* Slide 3 — clearer State / Action / Reward cards. */
-#slide-rl-primer .assumption-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 16px !important;
-  align-items: stretch !important;
-}
-
-#slide-rl-primer .assumption-grid article {
-  position: relative !important;
-  overflow: hidden !important;
-  min-height: 0 !important;
-  height: 100% !important;
-  padding: 18px 22px 18px 25px !important;
-  display: grid !important;
-  grid-template-rows: auto auto 1fr !important;
-  align-content: start !important;
-  justify-items: start !important;
-  border: 1px solid rgba(255,255,255,.20) !important;
-  border-radius: 18px !important;
-  background:
-    radial-gradient(
-      circle at 92% 0%,
-      rgba(255,183,38,.13),
-      transparent 34%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(39,73,92,.98),
-      rgba(18,44,60,.98)
-    ) !important;
-  box-shadow:
-    0 16px 34px rgba(0,0,0,.24),
-    inset 0 1px 0 rgba(255,255,255,.08) !important;
-}
-
-#slide-rl-primer .assumption-grid article::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 auto 0 0 !important;
-  width: 4px !important;
-  background:
-    linear-gradient(
-      180deg,
-      var(--accent-2),
-      var(--accent)
-    ) !important;
-}
-
-#slide-rl-primer .assumption-grid article > .type-card-label {
-  width: fit-content !important;
-  padding: 5px 10px !important;
-  border: 1px solid rgba(255,183,38,.34) !important;
-  border-radius: 999px !important;
-  background: rgba(255,183,38,.10) !important;
-  color: var(--accent-2) !important;
-  font-size: 11px !important;
-  line-height: 1 !important;
-  font-weight: 700 !important;
-  letter-spacing: .11em !important;
-  text-transform: uppercase !important;
-  text-align: left !important;
-}
-
-#slide-rl-primer .assumption-grid article > h3 {
-  margin: 11px 0 7px !important;
-  color: #f4f8fa !important;
-  font-size: 21px !important;
-  line-height: 1.16 !important;
-  font-weight: 700 !important;
-  text-align: left !important;
-}
-
-#slide-rl-primer .assumption-grid article > p {
-  margin: 0 !important;
-  color: rgba(239,245,246,.86) !important;
-  font-size: 16px !important;
-  line-height: 1.46 !important;
-  text-align: left !important;
-  text-align-last: left !important;
-}
-
-@media
-  (max-width: 760px),
-  (max-width: 900px) and
-  (max-height: 500px) and
-  (orientation: landscape) {
-
-  #slide-rl-primer .assumption-grid {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
-  }
-
-  #slide-rl-primer .assumption-grid article {
-    padding: 16px 17px 16px 21px !important;
-  }
-
-  #slide-rl-primer .assumption-grid article > h3 {
-    font-size: 19px !important;
-  }
-
-  #slide-rl-primer .assumption-grid article > p {
-    font-size: 15px !important;
-  }
-}
-
-/* === END NOTEBOOK PATCH: RL PRIMER CARD CLARITY === */
 
 /* === BEGIN NOTEBOOK PATCH: INLINE BANNER TEXT FLOW === */
 
@@ -13340,3 +13232,2308 @@ html body #presentation #slide-30 .closing-rule-grid .type-body-copy {
 }
 
 /* === END NOTEBOOK PATCH: SLIDE 13 CLEANUP === */
+/* AUTO ORANGE LABEL RESIZE START */
+
+/*
+  اندازه قبلی بیشتر برچسب‌ها حدود 11px بود.
+
+  Roadmap numbers: 24px
+  Short labels:    17px
+  Medium labels:   16px
+  Long labels:     15px
+*/
+
+html body #presentation .slide
+.type-card-label.orange-label-roadmap {
+    font-size: 24px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em !important;
+}
+
+html body #presentation .slide
+.type-card-label.orange-label-short {
+    font-size: 17px !important;
+    line-height: 1.18 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.035em !important;
+}
+
+html body #presentation .slide
+.type-card-label.orange-label-medium {
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.035em !important;
+}
+
+html body #presentation .slide
+.type-card-label.orange-label-long {
+    font-size: 15px !important;
+    line-height: 1.22 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.025em !important;
+}
+
+/* فاصله مناسب میان برچسب، عنوان و متن زیر آن */
+html body #presentation .slide article >
+.type-card-label[class*="orange-label-"] {
+    display: inline-block !important;
+    margin-bottom: 7px !important;
+}
+
+/* اندازه‌های کنترل‌شده برای موبایل */
+@media (max-width: 760px) {
+    html body #presentation .slide
+    .type-card-label.orange-label-roadmap {
+        font-size: 20px !important;
+    }
+
+    html body #presentation .slide
+    .type-card-label.orange-label-short {
+        font-size: 15px !important;
+    }
+
+    html body #presentation .slide
+    .type-card-label.orange-label-medium {
+        font-size: 14px !important;
+    }
+
+    html body #presentation .slide
+    .type-card-label.orange-label-long {
+        font-size: 13px !important;
+    }
+}
+
+/* AUTO ORANGE LABEL RESIZE END */
+
+/* AUTO ORANGE LABEL FOLLOW-UP START */
+
+/* ========================================================
+   1) تمام مواردی که قبلاً بزرگ شده بودند:
+      دقیقاً 2px کوچک‌تر از تنظیم قبلی
+   ======================================================== */
+
+/* قبلاً 24px بود */
+html body #presentation .slide
+.type-card-label.orange-label-roadmap {
+    font-size: 22px !important;
+}
+
+/* قبلاً 17px بود */
+html body #presentation .slide
+.type-card-label.orange-label-short {
+    font-size: 15px !important;
+}
+
+/* قبلاً 16px بود */
+html body #presentation .slide
+.type-card-label.orange-label-medium {
+    font-size: 14px !important;
+}
+
+/* قبلاً 15px بود */
+html body #presentation .slide
+.type-card-label.orange-label-long {
+    font-size: 13px !important;
+}
+
+
+/* ========================================================
+   2) اعداد صفحه 5
+      01، 02، 03 و 04
+   ======================================================== */
+
+html body #presentation #slide-5
+.mechanics-step-row-v33 article > span {
+    font-size: 15px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.07em !important;
+}
+
+
+/* ========================================================
+   3) اعداد صفحه 15
+      01، 02، 03 و 04
+   ======================================================== */
+
+html body #presentation #slide-rl-bridge
+.rl-logic-chain article > span {
+    font-size: 15px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.07em !important;
+}
+
+
+/* ========================================================
+   4) صفحه 18
+      State / Action / Environment / Reward وسط صفحه
+      بازگشت به سایز اولیه
+   ======================================================== */
+
+html body #presentation #slide-rl-primer
+.mdp-loop .type-card-label {
+    font-size: var(--type-card-label) !important;
+}
+
+
+/* ========================================================
+   تنظیمات موبایل
+   ======================================================== */
+
+@media
+(max-width: 760px),
+(max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+
+    /* قبلاً 20px بود */
+    html body #presentation .slide
+    .type-card-label.orange-label-roadmap {
+        font-size: 18px !important;
+    }
+
+    /* قبلاً 15px بود */
+    html body #presentation .slide
+    .type-card-label.orange-label-short {
+        font-size: 13px !important;
+    }
+
+    /* قبلاً 14px بود */
+    html body #presentation .slide
+    .type-card-label.orange-label-medium {
+        font-size: 12px !important;
+    }
+
+    /* قبلاً 13px بود */
+    html body #presentation .slide
+    .type-card-label.orange-label-long {
+        font-size: 11px !important;
+    }
+
+    /* اعداد صفحه 5 */
+    html body #presentation #slide-5
+    .mechanics-step-row-v33 article > span {
+        font-size: 13px !important;
+    }
+
+    /* اعداد صفحه 15 */
+    html body #presentation #slide-rl-bridge
+    .rl-logic-chain article > span {
+        font-size: 13px !important;
+    }
+
+    /* برچسب‌های وسط صفحه 18 */
+    html body #presentation #slide-rl-primer
+    .mdp-loop .type-card-label {
+        font-size: var(--type-card-label) !important;
+    }
+}
+
+/* AUTO ORANGE LABEL FOLLOW-UP END */
+
+
+/* FINAL SLIDE 3 M SERVERS FIX START */
+
+/*
+  فقط عبارت m servers را در یک خط نگه می‌دارد.
+  هیچ تغییری در عرض، ارتفاع، پس‌زمینه، حاشیه یا رنگ باکس نمی‌دهد.
+*/
+html body #presentation #slide-3
+.flow-node.servers > .server-count-line {
+    display: block !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/*
+  μ همان استایل نارنجی اصلی .flow-node span را حفظ می‌کند.
+*/
+html body #presentation #slide-3
+.flow-node.servers > span {
+    white-space: nowrap !important;
+}
+
+/* FINAL SLIDE 3 M SERVERS FIX END */
+/* READABLE SLIDES 18-20 V2 START */
+
+/* =========================================================
+   تنظیمات مشترک سه صفحه
+   بدون تغییر پس‌زمینه یا تم اصلی presentation
+   ========================================================= */
+
+html body #presentation #slide-rl-primer,
+html body #presentation #slide-15,
+html body #presentation #slide-16 {
+    --rl-card-bg-top: rgba(255, 255, 255, 0.105);
+    --rl-card-bg-bottom: rgba(255, 255, 255, 0.065);
+
+    --rl-card-border: rgba(125, 205, 255, 0.22);
+    --rl-card-border-strong: rgba(125, 205, 255, 0.34);
+
+    --rl-title-color: #f8fbfc;
+    --rl-body-color: rgba(244, 249, 250, 0.90);
+    --rl-muted-color: rgba(232, 241, 244, 0.76);
+
+    --rl-blue-accent: rgba(75, 184, 255, 0.92);
+    --rl-warm-accent: rgba(245, 185, 66, 0.98);
+
+    --rl-soft-shadow:
+        0 12px 27px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+
+/* عرض کلی محتوا */
+
+html body #presentation #slide-rl-primer .mdp-layout,
+html body #presentation #slide-15 .mdp-layout {
+    width: min(1130px, 100%) !important;
+    margin-inline: auto !important;
+    gap: 14px !important;
+    align-content: center !important;
+}
+
+html body #presentation #slide-16 .slide-content {
+    width: min(1100px, 100%) !important;
+    margin-inline: auto !important;
+    display: grid !important;
+    align-content: center !important;
+    gap: 14px !important;
+}
+
+
+/* =========================================================
+   صفحه ۱۸
+   Reinforcement Learning Basics
+   ========================================================= */
+
+/* حلقه اصلی به چهار ستون واضح تبدیل می‌شود */
+
+html body #presentation #slide-rl-primer .mdp-loop {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    align-items: stretch !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+
+/* فلش‌های HTML مخفی می‌شوند؛ فلش تمیز با CSS ساخته می‌شود */
+
+html body #presentation #slide-rl-primer .mdp-loop > i {
+    display: none !important;
+}
+
+
+html body #presentation #slide-rl-primer .mdp-loop > div {
+    position: relative !important;
+    overflow: visible !important;
+
+    min-width: 0 !important;
+    min-height: 88px !important;
+
+    padding: 14px 16px !important;
+
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+    place-items: center !important;
+    align-content: center !important;
+    gap: 9px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--rl-card-bg-top),
+            var(--rl-card-bg-bottom)
+        ) !important;
+
+    border: 1px solid var(--rl-card-border) !important;
+    border-radius: 16px !important;
+
+    box-shadow: var(--rl-soft-shadow) !important;
+}
+
+
+html body #presentation #slide-rl-primer
+.mdp-loop > div:not(:last-of-type)::after {
+    content: "→" !important;
+
+    position: absolute !important;
+    z-index: 5 !important;
+
+    top: 50% !important;
+    right: -18px !important;
+
+    transform: translate(50%, -50%) !important;
+
+    width: 26px !important;
+    height: 26px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 18px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+}
+
+
+html body #presentation #slide-rl-primer
+.mdp-loop > div > .type-card-label {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 11px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.095em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+}
+
+
+html body #presentation #slide-rl-primer
+.mdp-loop > div > .type-data-value {
+    margin: 0 !important;
+
+    color: var(--rl-title-color) !important;
+
+    font-size: 21px !important;
+    line-height: 1.12 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+}
+
+
+/* سه کارت توضیحی */
+
+html body #presentation #slide-rl-primer .assumption-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    align-items: stretch !important;
+
+    margin: 0 !important;
+}
+
+
+html body #presentation #slide-rl-primer
+.assumption-grid > article {
+    position: relative !important;
+    overflow: hidden !important;
+
+    min-width: 0 !important;
+    min-height: 158px !important;
+    height: auto !important;
+
+    padding: 18px 20px 18px 23px !important;
+
+    display: grid !important;
+    grid-template-rows: auto auto 1fr !important;
+    align-content: start !important;
+    justify-items: start !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--rl-card-bg-top),
+            var(--rl-card-bg-bottom)
+        ) !important;
+
+    border: 1px solid var(--rl-card-border) !important;
+    border-radius: 17px !important;
+
+    box-shadow: var(--rl-soft-shadow) !important;
+}
+
+
+html body #presentation #slide-rl-primer
+.assumption-grid > article::before {
+    content: "" !important;
+
+    position: absolute !important;
+    inset: 0 auto 0 0 !important;
+
+    width: 4px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--rl-blue-accent),
+            rgba(75, 184, 255, 0.32)
+        ) !important;
+}
+
+
+/*
+  برچسب‌های State / Action / Reward پایین صفحه
+  کوچک و نزدیک به اندازه اولیه باقی می‌مانند
+*/
+
+html body #presentation #slide-rl-primer
+.assumption-grid > article > .type-card-label {
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 10px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.105em !important;
+    text-transform: uppercase !important;
+    text-align: left !important;
+}
+
+
+html body #presentation #slide-rl-primer
+.assumption-grid > article > h3 {
+    margin: 11px 0 8px !important;
+
+    color: var(--rl-title-color) !important;
+
+    font-size: 19px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.012em !important;
+    text-align: left !important;
+}
+
+
+html body #presentation #slide-rl-primer
+.assumption-grid > article > p {
+    margin: 0 !important;
+
+    color: var(--rl-body-color) !important;
+
+    font-size: 15.5px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+
+    text-align: left !important;
+    text-align-last: left !important;
+}
+
+
+/* جمع‌بندی پایین صفحه */
+
+html body #presentation #slide-rl-primer .note-strip {
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 13px 18px !important;
+
+    background: rgba(75, 184, 255, 0.075) !important;
+
+    border: 1px solid rgba(75, 184, 255, 0.23) !important;
+    border-left: 4px solid var(--rl-blue-accent) !important;
+    border-radius: 13px !important;
+
+    color: var(--rl-body-color) !important;
+
+    font-size: 14.5px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+
+    box-shadow: 0 9px 21px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+html body #presentation #slide-rl-primer
+.note-strip strong {
+    color: var(--rl-warm-accent) !important;
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   صفحه ۱۹
+   State Aggregation / POMDP
+   ========================================================= */
+
+html body #presentation #slide-15 .mdp-loop {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+
+html body #presentation #slide-15 .mdp-loop > i {
+    display: none !important;
+}
+
+
+html body #presentation #slide-15 .mdp-loop > div {
+    position: relative !important;
+    overflow: visible !important;
+
+    min-width: 0 !important;
+    min-height: 76px !important;
+
+    padding: 12px 14px !important;
+
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+    place-items: center !important;
+    align-content: center !important;
+    gap: 7px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--rl-card-bg-top),
+            var(--rl-card-bg-bottom)
+        ) !important;
+
+    border: 1px solid var(--rl-card-border) !important;
+    border-radius: 15px !important;
+
+    box-shadow: var(--rl-soft-shadow) !important;
+}
+
+
+html body #presentation #slide-15
+.mdp-loop > div:not(:last-of-type)::after {
+    content: "→" !important;
+
+    position: absolute !important;
+    z-index: 5 !important;
+
+    top: 50% !important;
+    right: -16px !important;
+
+    transform: translate(50%, -50%) !important;
+
+    width: 24px !important;
+    height: 24px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 17px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+}
+
+
+html body #presentation #slide-15
+.mdp-loop > div > .type-card-label {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 10.5px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.09em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+}
+
+
+html body #presentation #slide-15
+.mdp-loop > div > .type-data-value {
+    margin: 0 !important;
+
+    color: var(--rl-title-color) !important;
+
+    font-size: 22px !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+}
+
+
+/* فرمول و توضیح در دو ناحیه واضح */
+
+html body #presentation #slide-15 .observation-card {
+    min-width: 0 !important;
+    min-height: 205px !important;
+
+    margin: 0 !important;
+    padding: 17px 20px 19px !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(335px, 0.88fr)
+        minmax(0, 1.12fr) !important;
+
+    grid-template-rows: auto 1fr !important;
+
+    grid-template-areas:
+        "label label"
+        "formula explanation" !important;
+
+    column-gap: 22px !important;
+    row-gap: 12px !important;
+
+    align-items: stretch !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--rl-card-bg-top),
+            var(--rl-card-bg-bottom)
+        ) !important;
+
+    border: 1px solid var(--rl-card-border-strong) !important;
+    border-radius: 17px !important;
+
+    box-shadow: var(--rl-soft-shadow) !important;
+}
+
+
+html body #presentation #slide-15
+.observation-card > .type-card-label {
+    grid-area: label !important;
+
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 10.5px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.105em !important;
+    text-transform: uppercase !important;
+    text-align: left !important;
+}
+
+
+html body #presentation #slide-15
+.observation-card > mjx-container {
+    grid-area: formula !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+    padding: 17px 14px !important;
+
+    display: grid !important;
+    place-items: center !important;
+    align-self: stretch !important;
+
+    background: rgba(5, 17, 27, 0.34) !important;
+
+    border: 1px solid rgba(125, 205, 255, 0.18) !important;
+    border-radius: 13px !important;
+
+    color: var(--rl-title-color) !important;
+
+    font-size: 104% !important;
+    text-align: center !important;
+}
+
+
+html body #presentation #slide-15
+.observation-card > p {
+    grid-area: explanation !important;
+
+    margin: 0 !important;
+    padding: 5px 2px !important;
+
+    align-self: center !important;
+
+    color: var(--rl-body-color) !important;
+
+    font-size: 15.5px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+
+    text-align: left !important;
+    text-align-last: left !important;
+}
+
+
+/* پیام POMDP */
+
+html body #presentation #slide-15
+.partial-observation-banner {
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 13px 18px !important;
+
+    background: rgba(75, 184, 255, 0.075) !important;
+
+    border: 1px solid rgba(75, 184, 255, 0.23) !important;
+    border-left: 4px solid var(--rl-blue-accent) !important;
+    border-radius: 13px !important;
+
+    color: var(--rl-body-color) !important;
+
+    font-size: 14.5px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+
+    box-shadow: 0 9px 21px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+html body #presentation #slide-15
+.partial-observation-banner strong {
+    color: var(--rl-warm-accent) !important;
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   صفحه ۲۰
+   Policy Gradient Family
+   ========================================================= */
+
+html body #presentation #slide-16 .rl-method-grid {
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    gap: 14px !important;
+
+    counter-reset: rl-method !important;
+}
+
+
+html body #presentation #slide-16
+.rl-method-grid > article {
+    position: relative !important;
+    overflow: hidden !important;
+
+    min-width: 0 !important;
+    min-height: 145px !important;
+    height: auto !important;
+
+    padding: 18px 60px 18px 21px !important;
+
+    display: grid !important;
+    grid-template-rows: auto auto 1fr !important;
+    align-content: start !important;
+
+    counter-increment: rl-method !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--rl-card-bg-top),
+            var(--rl-card-bg-bottom)
+        ) !important;
+
+    border: 1px solid var(--rl-card-border) !important;
+    border-radius: 17px !important;
+
+    box-shadow: var(--rl-soft-shadow) !important;
+}
+
+
+/* شماره مسیر یادگیری */
+
+html body #presentation #slide-16
+.rl-method-grid > article::before {
+    content: "0" counter(rl-method) !important;
+
+    position: absolute !important;
+    top: 16px !important;
+    right: 17px !important;
+
+    width: 34px !important;
+    height: 34px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    background: rgba(75, 184, 255, 0.10) !important;
+
+    border: 1px solid rgba(75, 184, 255, 0.28) !important;
+    border-radius: 50% !important;
+
+    color: rgba(170, 222, 255, 0.94) !important;
+
+    font-size: 11px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+}
+
+
+html body #presentation #slide-16
+.rl-method-grid > article > .type-card-label {
+    display: block !important;
+    width: fit-content !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 10.5px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.095em !important;
+    text-transform: uppercase !important;
+    text-align: left !important;
+}
+
+
+html body #presentation #slide-16
+.rl-method-grid > article > h3 {
+    margin: 11px 0 8px !important;
+
+    color: var(--rl-title-color) !important;
+
+    font-size: 19px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.012em !important;
+    text-align: left !important;
+}
+
+
+html body #presentation #slide-16
+.rl-method-grid > article > p {
+    margin: 0 !important;
+
+    color: var(--rl-body-color) !important;
+
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+
+    text-align: left !important;
+    text-align-last: left !important;
+}
+
+
+/* ACER مرحله نهایی است؛ تأکید محدود و کنترل‌شده */
+
+html body #presentation #slide-16
+.rl-method-grid > article.accent-card {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(245, 185, 66, 0.115),
+            rgba(255, 255, 255, 0.065)
+        ) !important;
+
+    border: 1px solid rgba(245, 185, 66, 0.34) !important;
+    border-left: 4px solid var(--rl-warm-accent) !important;
+}
+
+
+html body #presentation #slide-16
+.rl-method-grid > article.accent-card::before {
+    background: rgba(245, 185, 66, 0.12) !important;
+    border-color: rgba(245, 185, 66, 0.32) !important;
+    color: var(--rl-warm-accent) !important;
+}
+
+
+/* فرمول پایین صفحه */
+
+html body #presentation #slide-16 .formula-strip {
+    position: relative !important;
+
+    width: min(760px, 100%) !important;
+
+    margin: 0 auto !important;
+    padding: 24px 18px 12px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    background: rgba(75, 184, 255, 0.07) !important;
+
+    border: 1px solid rgba(75, 184, 255, 0.22) !important;
+    border-radius: 14px !important;
+
+    color: var(--rl-title-color) !important;
+
+    box-shadow: 0 9px 21px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+html body #presentation #slide-16
+.formula-strip::before {
+    content: "BOOTSTRAPPED RETURN" !important;
+
+    position: absolute !important;
+    top: 8px !important;
+    left: 16px !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 9px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.105em !important;
+}
+
+
+html body #presentation #slide-16
+.formula-strip mjx-container {
+    margin: 0 !important;
+
+    color: var(--rl-title-color) !important;
+
+    font-size: 106% !important;
+}
+
+
+/* =========================================================
+   لپ‌تاپ‌هایی با ارتفاع کمتر
+   ========================================================= */
+
+@media (max-height: 820px) and (min-width: 761px) {
+
+    html body #presentation #slide-rl-primer .mdp-layout,
+    html body #presentation #slide-15 .mdp-layout,
+    html body #presentation #slide-16 .slide-content {
+        gap: 10px !important;
+    }
+
+    html body #presentation #slide-rl-primer
+    .mdp-loop > div {
+        min-height: 76px !important;
+        padding: 11px 13px !important;
+    }
+
+    html body #presentation #slide-rl-primer
+    .mdp-loop > div > .type-data-value {
+        font-size: 19px !important;
+    }
+
+    html body #presentation #slide-rl-primer
+    .assumption-grid > article {
+        min-height: 137px !important;
+        padding: 15px 17px 15px 20px !important;
+    }
+
+    html body #presentation #slide-rl-primer
+    .assumption-grid > article > h3,
+    html body #presentation #slide-16
+    .rl-method-grid > article > h3 {
+        font-size: 17.5px !important;
+    }
+
+    html body #presentation #slide-rl-primer
+    .assumption-grid > article > p,
+    html body #presentation #slide-15
+    .observation-card > p,
+    html body #presentation #slide-16
+    .rl-method-grid > article > p {
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+    }
+
+    html body #presentation #slide-15 .observation-card {
+        min-height: 176px !important;
+        padding: 14px 17px 16px !important;
+    }
+
+    html body #presentation #slide-16
+    .rl-method-grid > article {
+        min-height: 123px !important;
+        padding: 15px 54px 15px 18px !important;
+    }
+}
+
+
+/* =========================================================
+   موبایل و نمایش کوچک
+   ========================================================= */
+
+@media
+(max-width: 760px),
+(max-width: 900px) and
+(max-height: 500px) and
+(orientation: landscape) {
+
+    html body #presentation #slide-rl-primer .mdp-loop,
+    html body #presentation #slide-15 .mdp-loop {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 9px !important;
+    }
+
+    html body #presentation #slide-rl-primer
+    .mdp-loop > div::after,
+    html body #presentation #slide-15
+    .mdp-loop > div::after {
+        display: none !important;
+    }
+
+    html body #presentation #slide-rl-primer
+    .assumption-grid,
+    html body #presentation #slide-16
+    .rl-method-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    html body #presentation #slide-15 .observation-card {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto auto !important;
+
+        grid-template-areas:
+            "label"
+            "formula"
+            "explanation" !important;
+
+        gap: 11px !important;
+    }
+
+    html body #presentation #slide-rl-primer
+    .assumption-grid > article,
+    html body #presentation #slide-16
+    .rl-method-grid > article {
+        min-height: 0 !important;
+    }
+}
+
+/* READABLE SLIDES 18-20 V2 END */
+
+/* WHY_RL_STABLE_CARDS_START */
+/*
+  Stable card layout for:
+  Why Do We Need Reinforcement Learning?
+
+  هیچ اندازه‌گیری Runtime وجود ندارد.
+  بنابراین کارت‌ها در زمان Transition یا Resize نمی‌لرزند.
+*/
+
+#slide-rl-bridge {
+  --why-rl-card-height:
+    168px;
+
+  --why-rl-number-height:
+    16px;
+
+  --why-rl-title-height:
+    44px;
+
+  --why-rl-body-height:
+    66px;
+}
+
+
+/* ----------------------------------------------------------
+   شبکهٔ اصلی
+   ---------------------------------------------------------- */
+
+#slide-rl-bridge .rl-logic-chain {
+  display:
+    grid !important;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    ) !important;
+
+  align-items:
+    stretch !important;
+
+  justify-items:
+    stretch !important;
+
+  gap:
+    14px !important;
+
+  /*
+    جلوگیری از تغییر عرض‌های کسری در طول Transition
+  */
+  contain:
+    layout style;
+}
+
+
+/* ----------------------------------------------------------
+   کارت ثابت
+   ---------------------------------------------------------- */
+
+#slide-rl-bridge
+.rl-logic-chain
+> article {
+  box-sizing:
+    border-box !important;
+
+  position:
+    relative;
+
+  width:
+    100% !important;
+
+  min-width:
+    0 !important;
+
+  height:
+    var(--why-rl-card-height) !important;
+
+  min-height:
+    var(--why-rl-card-height) !important;
+
+  max-height:
+    var(--why-rl-card-height) !important;
+
+  margin:
+    0 !important;
+
+  padding:
+    14px 17px !important;
+
+  display:
+    grid !important;
+
+  grid-template-columns:
+    minmax(0, 1fr) !important;
+
+  grid-template-rows:
+    var(--why-rl-number-height)
+    var(--why-rl-title-height)
+    var(--why-rl-body-height) !important;
+
+  align-content:
+    start !important;
+
+  align-items:
+    stretch !important;
+
+  justify-content:
+    stretch !important;
+
+  justify-items:
+    stretch !important;
+
+  row-gap:
+    6px !important;
+
+  overflow:
+    hidden !important;
+
+  /*
+    کارت هنگام Transition روی یک لایهٔ پایدار قرار می‌گیرد.
+  */
+  backface-visibility:
+    hidden;
+
+  transform:
+    translateZ(0);
+
+  transform-origin:
+    center center;
+
+  contain:
+    layout paint style;
+}
+
+
+/* ----------------------------------------------------------
+   شماره
+   ---------------------------------------------------------- */
+
+#slide-rl-bridge
+.rl-logic-chain
+> article
+> span {
+  box-sizing:
+    border-box;
+
+  grid-row:
+    1;
+
+  width:
+    100%;
+
+  height:
+    var(--why-rl-number-height);
+
+  min-height:
+    var(--why-rl-number-height);
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  display:
+    flex !important;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  overflow:
+    hidden;
+
+  font-size:
+    11px !important;
+
+  line-height:
+    var(--why-rl-number-height) !important;
+
+  white-space:
+    nowrap;
+}
+
+
+/* ----------------------------------------------------------
+   عنوان
+   ---------------------------------------------------------- */
+
+#slide-rl-bridge
+.rl-logic-chain
+> article
+> h3 {
+  box-sizing:
+    border-box;
+
+  grid-row:
+    2;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  height:
+    var(--why-rl-title-height);
+
+  min-height:
+    var(--why-rl-title-height);
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  display:
+    flex !important;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  overflow:
+    hidden;
+
+  font-size:
+    18px !important;
+
+  font-weight:
+    700 !important;
+
+  line-height:
+    1.2 !important;
+
+  text-align:
+    center !important;
+
+  text-wrap:
+    balance;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
+}
+
+
+/* ----------------------------------------------------------
+   متن زیر عنوان — Justified
+   ---------------------------------------------------------- */
+
+#slide-rl-bridge
+.rl-logic-chain
+> article
+> p {
+  box-sizing:
+    border-box;
+
+  grid-row:
+    3;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  height:
+    var(--why-rl-body-height);
+
+  min-height:
+    var(--why-rl-body-height);
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  display:
+    block !important;
+
+  overflow:
+    hidden;
+
+  font-size:
+    14.5px !important;
+
+  font-weight:
+    400 !important;
+
+  line-height:
+    1.42 !important;
+
+  /*
+    تنظیم درخواستی:
+    خطوط کامل Justify و آخرین خط چپ‌چین.
+  */
+  text-align:
+    justify !important;
+
+  text-align-last:
+    left !important;
+
+  text-justify:
+    inter-word;
+
+  text-wrap:
+    pretty;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
+
+  direction:
+    ltr;
+}
+
+
+/* ----------------------------------------------------------
+   جلوگیری از Hover یا Transform ناخواسته
+   فقط برای همین چهار کارت
+   ---------------------------------------------------------- */
+
+#slide-rl-bridge
+.rl-logic-chain
+> article,
+
+#slide-rl-bridge
+.rl-logic-chain
+> article:hover,
+
+#slide-rl-bridge
+.rl-logic-chain
+> article:active {
+  translate:
+    0 0 !important;
+
+  scale:
+    1 !important;
+
+  filter:
+    none !important;
+}
+
+
+/* ----------------------------------------------------------
+   نمایشگرهای کوتاه دسکتاپ
+   ---------------------------------------------------------- */
+
+@media
+  (max-height: 820px)
+  and (min-width: 761px) {
+
+  #slide-rl-bridge {
+    --why-rl-card-height:
+      156px;
+
+    --why-rl-number-height:
+      15px;
+
+    --why-rl-title-height:
+      40px;
+
+    --why-rl-body-height:
+      61px;
+  }
+
+  #slide-rl-bridge
+  .rl-logic-chain
+  > article {
+    padding:
+      12px 15px !important;
+
+    row-gap:
+      5px !important;
+  }
+
+  #slide-rl-bridge
+  .rl-logic-chain
+  > article
+  > h3 {
+    font-size:
+      17px !important;
+  }
+
+  #slide-rl-bridge
+  .rl-logic-chain
+  > article
+  > p {
+    font-size:
+      13.5px !important;
+
+    line-height:
+      1.4 !important;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   تبلت
+   ---------------------------------------------------------- */
+
+@media
+  (max-width: 900px)
+  and (min-width: 561px) {
+
+  #slide-rl-bridge .rl-logic-chain {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      ) !important;
+
+    gap:
+      10px !important;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   موبایل
+   ---------------------------------------------------------- */
+
+@media (max-width: 560px) {
+  #slide-rl-bridge {
+    --why-rl-card-height:
+      146px;
+
+    --why-rl-number-height:
+      15px;
+
+    --why-rl-title-height:
+      37px;
+
+    --why-rl-body-height:
+      57px;
+  }
+
+  #slide-rl-bridge .rl-logic-chain {
+    grid-template-columns:
+      minmax(0, 1fr) !important;
+
+    gap:
+      9px !important;
+  }
+
+  #slide-rl-bridge
+  .rl-logic-chain
+  > article {
+    padding:
+      11px 14px !important;
+
+    row-gap:
+      5px !important;
+  }
+
+  #slide-rl-bridge
+  .rl-logic-chain
+  > article
+  > h3 {
+    font-size:
+      16px !important;
+  }
+
+  #slide-rl-bridge
+  .rl-logic-chain
+  > article
+  > p {
+    font-size:
+      13px !important;
+
+    line-height:
+      1.38 !important;
+  }
+}
+/* WHY_RL_STABLE_CARDS_END */
+
+/* SLIDES 18-20 ARROWS AND NUMBERS FIX START */
+
+
+/* =========================================================
+   صفحه‌های ۱۸ و ۱۹
+   فلش‌های رفت دقیقاً وسط فاصله میان کارت‌ها
+   ========================================================= */
+
+html body #presentation #slide-rl-primer .mdp-loop,
+html body #presentation #slide-15 .mdp-loop {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+html body #presentation #slide-rl-primer .mdp-loop > div,
+html body #presentation #slide-15 .mdp-loop > div {
+    overflow: visible !important;
+}
+
+
+/* فاصله کارت‌های صفحه ۱۸ برابر 20px است؛ مرکز فاصله 10px می‌شود */
+
+html body #presentation #slide-rl-primer
+.mdp-loop > div:not(:last-of-type)::after {
+    content: "→" !important;
+
+    position: absolute !important;
+    z-index: 8 !important;
+
+    top: 50% !important;
+    right: auto !important;
+    left: calc(100% + 10px) !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: 20px !important;
+    height: 26px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 19px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* فاصله کارت‌های صفحه ۱۹ برابر 18px است؛ مرکز فاصله 9px می‌شود */
+
+html body #presentation #slide-15
+.mdp-loop > div:not(:last-of-type)::after {
+    content: "→" !important;
+
+    position: absolute !important;
+    z-index: 8 !important;
+
+    top: 50% !important;
+    right: auto !important;
+    left: calc(100% + 9px) !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: 18px !important;
+    height: 24px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 18px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* =========================================================
+   بازگرداندن فلش برگشت ↺ در انتهای حلقه
+   ========================================================= */
+
+html body #presentation #slide-rl-primer
+.mdp-loop > i:last-child,
+html body #presentation #slide-15
+.mdp-loop > i:last-child {
+    position: absolute !important;
+    z-index: 9 !important;
+
+    top: 50% !important;
+    right: -34px !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    transform: translateY(-50%) !important;
+
+    width: 28px !important;
+    height: 28px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: rgba(245, 185, 66, 0.09) !important;
+    border: 1px solid rgba(245, 185, 66, 0.27) !important;
+    border-radius: 50% !important;
+
+    color: var(--rl-warm-accent) !important;
+
+    font-size: 19px !important;
+    line-height: 1 !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+
+    box-shadow: 0 5px 13px rgba(0, 0, 0, 0.15) !important;
+
+    pointer-events: none !important;
+}
+
+
+/* فلش برگشت صفحه ۱۹ کمی کوچک‌تر */
+
+html body #presentation #slide-15
+.mdp-loop > i:last-child {
+    right: -32px !important;
+
+    width: 26px !important;
+    height: 26px !important;
+
+    font-size: 18px !important;
+}
+
+
+/* =========================================================
+   صفحه ۲۰
+   انتقال شماره کارت‌ها از راست به چپ
+   ========================================================= */
+
+html body #presentation #slide-16
+.rl-method-grid > article {
+    padding:
+        18px
+        21px
+        18px
+        60px !important;
+}
+
+html body #presentation #slide-16
+.rl-method-grid > article::before {
+    top: 16px !important;
+    right: auto !important;
+    left: 17px !important;
+}
+
+
+/* =========================================================
+   نمایشگرهایی با ارتفاع کمتر
+   ========================================================= */
+
+@media (max-height: 820px) and (min-width: 761px) {
+
+    html body #presentation #slide-16
+    .rl-method-grid > article {
+        padding:
+            15px
+            18px
+            15px
+            54px !important;
+    }
+
+    html body #presentation #slide-16
+    .rl-method-grid > article::before {
+        top: 14px !important;
+        right: auto !important;
+        left: 15px !important;
+    }
+}
+
+
+/* =========================================================
+   موبایل و صفحه‌های کوچک
+   در چینش چندردیفه فلش‌های بین کارت‌ها مخفی می‌شوند
+   ========================================================= */
+
+@media
+(max-width: 760px),
+(max-width: 900px) and
+(max-height: 500px) and
+(orientation: landscape) {
+
+    html body #presentation #slide-rl-primer
+    .mdp-loop > div::after,
+    html body #presentation #slide-15
+    .mdp-loop > div::after,
+    html body #presentation #slide-rl-primer
+    .mdp-loop > i:last-child,
+    html body #presentation #slide-15
+    .mdp-loop > i:last-child {
+        display: none !important;
+    }
+
+    html body #presentation #slide-16
+    .rl-method-grid > article {
+        padding:
+            16px
+            18px
+            16px
+            54px !important;
+    }
+
+    html body #presentation #slide-16
+    .rl-method-grid > article::before {
+        top: 14px !important;
+        right: auto !important;
+        left: 14px !important;
+    }
+}
+
+
+/* SLIDES 18-20 ARROWS AND NUMBERS FIX END */
+
+/* GLOBAL_SMOOTH_GEOMETRIC_HOVER_START */
+/*
+  Smooth geometric hover
+
+  حرکت حفظ می‌شود، اما:
+  - native :hover هیچ Transform مستقلی اعمال نمی‌کند.
+  - حرکت فقط با کلاس is-smooth-hover انجام می‌شود.
+  - والد و فرزند هم‌زمان حرکت نمی‌کنند.
+  - Border width و اندازهٔ Layout عوض نمی‌شود.
+*/
+
+
+/* ----------------------------------------------------------
+   عناصر فعال و والدهای غیرفعال
+   ---------------------------------------------------------- */
+
+html body #presentation
+.slide
+:is(
+  .smooth-hover-card,
+  .smooth-hover-passive
+) {
+  box-sizing:
+    border-box !important;
+
+  position:
+    relative;
+
+  /*
+    Transform ثابت و اصلی عنصر حفظ می‌شود.
+    حرکت Hover با translate و scale مستقل انجام می‌شود.
+  */
+  transform:
+    var(
+      --smooth-hover-base-transform,
+      none
+    ) !important;
+
+  filter:
+    var(
+      --smooth-hover-base-filter,
+      none
+    ) !important;
+
+  backface-visibility:
+    hidden;
+
+  transform-style:
+    preserve-3d;
+
+  transform-origin:
+    center center;
+
+  /*
+    Border ضخامت ثابتی دارد؛
+    تغییر ضخامت Border می‌تواند Layout را بلرزاند.
+  */
+  border-width:
+    var(
+      --smooth-hover-border-top-width,
+      1px
+    )
+    var(
+      --smooth-hover-border-right-width,
+      1px
+    )
+    var(
+      --smooth-hover-border-bottom-width,
+      1px
+    )
+    var(
+      --smooth-hover-border-left-width,
+      1px
+    ) !important;
+}
+
+
+/* ----------------------------------------------------------
+   کارت قابل حرکت
+   ---------------------------------------------------------- */
+
+html body #presentation
+.slide
+.smooth-hover-card {
+  --smooth-hover-lift:
+    -4px;
+
+  --smooth-hover-scale:
+    1.005;
+
+  translate:
+    0 0 0 !important;
+
+  scale:
+    1 !important;
+
+  z-index:
+    0;
+
+  isolation:
+    isolate;
+
+  will-change:
+    translate,
+    scale;
+
+  transition-property:
+    translate,
+    scale,
+    box-shadow,
+    border-color,
+    background-color !important;
+
+  transition-duration:
+    250ms,
+    250ms,
+    220ms,
+    220ms,
+    220ms !important;
+
+  transition-timing-function:
+    cubic-bezier(.2, .8, .2, 1),
+    cubic-bezier(.2, .8, .2, 1),
+    ease,
+    ease,
+    ease !important;
+}
+
+
+/*
+  عناصر خیلی بزرگ Scale کمتری می‌گیرند تا متن و تصویر
+  هنگام Raster شدن تار یا لرزان نشود.
+*/
+
+html body #presentation
+.slide
+.smooth-hover-card[data-smooth-hover-size="large"] {
+  --smooth-hover-lift:
+    -3px;
+
+  --smooth-hover-scale:
+    1.0025;
+}
+
+
+html body #presentation
+.slide
+.smooth-hover-card[data-smooth-hover-size="small"] {
+  --smooth-hover-lift:
+    -3px;
+
+  --smooth-hover-scale:
+    1.004;
+}
+
+
+/* ----------------------------------------------------------
+   تمام Hoverهای قدیمی از نظر هندسی خنثی می‌شوند
+   اما حرکت نهایی پایین‌تر با کلاس JS اجرا می‌شود.
+   ---------------------------------------------------------- */
+
+html body #presentation
+.slide
+.smooth-hover-card:hover,
+
+html body #presentation
+.slide
+.smooth-hover-card:active,
+
+html body #presentation
+.slide
+.smooth-hover-passive,
+
+html body #presentation
+.slide
+.smooth-hover-passive:hover,
+
+html body #presentation
+.slide
+.smooth-hover-passive:active {
+  transform:
+    var(
+      --smooth-hover-base-transform,
+      none
+    ) !important;
+
+  translate:
+    0 0 0 !important;
+
+  scale:
+    1 !important;
+
+  filter:
+    var(
+      --smooth-hover-base-filter,
+      none
+    ) !important;
+}
+
+
+/*
+  والدهای دارای کارت داخلی نباید خودشان نیز Hover شوند.
+  Shadow و Border آن‌ها هم ثابت می‌ماند.
+*/
+
+html body #presentation
+.slide
+.smooth-hover-passive,
+
+html body #presentation
+.slide
+.smooth-hover-passive:hover {
+  box-shadow:
+    var(
+      --smooth-hover-base-shadow,
+      none
+    ) !important;
+
+  border-color:
+    var(
+      --smooth-hover-base-border-color,
+      currentColor
+    ) !important;
+
+  will-change:
+    auto !important;
+}
+
+
+/* ----------------------------------------------------------
+   حالت حرکت واقعی
+   ---------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+
+  html body #presentation
+  .slide
+  .smooth-hover-card.is-smooth-hover {
+    translate:
+      0
+      var(--smooth-hover-lift)
+      0 !important;
+
+    scale:
+      var(--smooth-hover-scale) !important;
+
+    transform:
+      var(
+        --smooth-hover-base-transform,
+        none
+      ) !important;
+
+    filter:
+      var(
+        --smooth-hover-base-filter,
+        none
+      ) !important;
+
+    z-index:
+      8;
+
+    /*
+      Shadow خنثی است و هالهٔ نور رنگی ندارد.
+    */
+    box-shadow:
+      0 19px 38px
+      rgba(7, 17, 28, .15),
+      0 4px 12px
+      rgba(7, 17, 28, .07) !important;
+  }
+
+
+  html body #presentation
+  .theme-method
+  .smooth-hover-card.is-smooth-hover,
+
+  html body #presentation
+  .theme-closing
+  .smooth-hover-card.is-smooth-hover {
+    box-shadow:
+      0 20px 42px
+      rgba(0, 0, 0, .28),
+      0 5px 14px
+      rgba(0, 0, 0, .14) !important;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   حذف نور و Filter سیستم Hover قدیمی
+   ---------------------------------------------------------- */
+
+html body #presentation
+.slide
+.morph-card::after,
+
+html body #presentation
+.slide
+.u-morph-hover::after {
+  content:
+    none !important;
+
+  display:
+    none !important;
+
+  opacity:
+    0 !important;
+
+  visibility:
+    hidden !important;
+
+  background:
+    none !important;
+
+  box-shadow:
+    none !important;
+
+  filter:
+    none !important;
+}
+
+
+/*
+  قانون قدیمی morph-card نباید دوباره Scale یا Translate اعمال کند.
+  کلاس is-smooth-hover تنها منبع حرکت است.
+*/
+
+html body #presentation
+.slide
+.morph-card,
+
+html body #presentation
+.slide
+.morph-card:hover,
+
+html body #presentation
+.slide
+.morph-card:active,
+
+html body #presentation
+.slide
+.u-morph-hover,
+
+html body #presentation
+.slide
+.u-morph-hover:hover,
+
+html body #presentation
+.slide
+.u-morph-hover:active {
+  transform:
+    var(
+      --smooth-hover-base-transform,
+      none
+    ) !important;
+
+  filter:
+    var(
+      --smooth-hover-base-filter,
+      none
+    ) !important;
+}
+
+
+/* حالت حرکت باید بعد از قانون بالا دوباره اعمال شود */
+
+@media (hover: hover) and (pointer: fine) {
+
+  html body #presentation
+  .slide
+  .morph-card.smooth-hover-card.is-smooth-hover,
+
+  html body #presentation
+  .slide
+  .u-morph-hover.smooth-hover-card.is-smooth-hover {
+    translate:
+      0
+      var(--smooth-hover-lift)
+      0 !important;
+
+    scale:
+      var(--smooth-hover-scale) !important;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   والدهای Grid/Flex از حرکت فرزند تأثیر هندسی نمی‌گیرند
+   ---------------------------------------------------------- */
+
+html body #presentation
+.slide
+:is(
+  .roadmap-grid,
+  .stacked-insights,
+  .method-columns,
+  .contribution-grid,
+  .definition-stack,
+  .notation-grid,
+  .constraint-cards,
+  .constraint-grid,
+  .audit-grid,
+  .algorithm-flow,
+  .experiment-summary,
+  .result-metrics,
+  .assessment-grid,
+  .takeaway-stack,
+  .assignment-cards,
+  .rl-method-grid,
+  .adaptation-grid,
+  .limitation-grid,
+  .future-flow,
+  .closing-grid,
+  .assumption-grid,
+  .difference-grid,
+  .rl-logic-chain,
+  .queue-system-flow,
+  .transition-columns,
+  .policy-rules
+) {
+  backface-visibility:
+    hidden;
+
+  transform-style:
+    preserve-3d;
+}
+
+
+/* ----------------------------------------------------------
+   Reduced Motion
+   ---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html body #presentation
+  .slide
+  .smooth-hover-card {
+    translate:
+      0 0 0 !important;
+
+    scale:
+      1 !important;
+
+    transition-property:
+      box-shadow,
+      border-color,
+      background-color !important;
+
+    transition-duration:
+      100ms !important;
+  }
+}
+/* GLOBAL_SMOOTH_GEOMETRIC_HOVER_END */

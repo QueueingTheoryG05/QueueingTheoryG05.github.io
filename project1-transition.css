@@ -1,0 +1,287 @@
+
+/*
+  Project 1 Transition Pattern
+
+  This intentionally reproduces the transition architecture
+  used in PC-G09/PC-G09.github.io:
+
+  - one active slide surface
+  - one title anchor
+  - one eyebrow anchor
+  - one lead anchor
+  - one main visual anchor
+  - at most one highlighted card anchor
+*/
+
+
+/* ==========================================================
+   خنثی‌کردن سیستم‌های Morph قبلی
+   ========================================================== */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+  mix-blend-mode: normal !important;
+}
+
+
+.slide [data-ppt-morph-name],
+.slide [data-morph-coverage],
+.slide [class*="u-morph-slot-"],
+.slide .u-morph-title,
+.slide .u-morph-eyebrow,
+.slide .u-morph-lead,
+.slide .u-morph-visual,
+.slide .u-morph-hover {
+  view-transition-name: none !important;
+}
+
+
+.presentation-pointer-glow {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+
+.morph-card::after,
+.u-morph-hover::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  filter: none !important;
+}
+
+
+/*
+  Hover نورانی یا حرکت وابسته به کرسر نباید وارد
+  انتقال پروژهٔ اول شود.
+*/
+
+.u-morph-hover,
+.u-morph-hover:hover {
+  translate: 0 0 !important;
+  scale: 1 !important;
+  filter: none !important;
+}
+
+
+/* ==========================================================
+   نام‌های مشترک دقیق پروژهٔ اول
+   ========================================================== */
+
+.slide.is-active {
+  view-transition-name:
+    slide-surface !important;
+}
+
+
+.slide.is-active .morph-title {
+  view-transition-name:
+    morph-title !important;
+}
+
+
+.slide.is-active .morph-eyebrow {
+  view-transition-name:
+    morph-eyebrow !important;
+}
+
+
+.slide.is-active .morph-lead {
+  view-transition-name:
+    morph-lead !important;
+}
+
+
+.slide.is-active .morph-visual {
+  view-transition-name:
+    morph-visual !important;
+}
+
+
+.slide.is-active .morph-card {
+  view-transition-name:
+    morph-card !important;
+}
+
+
+/* ==========================================================
+   سرعت نهایی نسخهٔ اول
+   ========================================================== */
+
+::view-transition-group(slide-surface) {
+  animation-duration: 1.12s;
+
+  animation-timing-function:
+    cubic-bezier(
+      .18,
+      .72,
+      .18,
+      1
+    );
+}
+
+
+::view-transition-group(morph-title),
+::view-transition-group(morph-eyebrow),
+::view-transition-group(morph-lead),
+::view-transition-group(morph-visual),
+::view-transition-group(morph-card) {
+  animation-duration: 1.06s;
+
+  animation-timing-function:
+    cubic-bezier(
+      .18,
+      .72,
+      .18,
+      1
+    );
+}
+
+
+/* ==========================================================
+   سطح کامل اسلاید
+   ========================================================== */
+
+::view-transition-old(slide-surface) {
+  animation:
+    project1-surface-out
+    .88s
+    both;
+}
+
+
+::view-transition-new(slide-surface) {
+  animation:
+    project1-surface-in
+    1.08s
+    both;
+}
+
+
+@keyframes project1-surface-out {
+  to {
+    opacity: .38;
+
+    filter:
+      blur(7px);
+
+    transform:
+      scale(.978);
+  }
+}
+
+
+@keyframes project1-surface-in {
+  from {
+    opacity: .40;
+
+    filter:
+      blur(7px);
+
+    transform:
+      scale(1.018);
+  }
+}
+
+
+/* ==========================================================
+   محتوای ثابت متناظر
+   ========================================================== */
+
+::view-transition-old(morph-title),
+::view-transition-old(morph-visual),
+::view-transition-old(morph-card),
+::view-transition-old(morph-lead),
+::view-transition-old(morph-eyebrow) {
+  animation:
+    project1-content-out
+    .72s
+    both;
+}
+
+
+::view-transition-new(morph-title),
+::view-transition-new(morph-visual),
+::view-transition-new(morph-card),
+::view-transition-new(morph-lead),
+::view-transition-new(morph-eyebrow) {
+  animation:
+    project1-content-in
+    .96s
+    .10s
+    both;
+}
+
+
+@keyframes project1-content-out {
+  to {
+    opacity: 0;
+
+    transform:
+      translateY(-18px)
+      scale(.975);
+
+    filter:
+      blur(5px);
+  }
+}
+
+
+@keyframes project1-content-in {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(.98);
+
+    filter:
+      blur(5px);
+  }
+}
+
+
+/* ==========================================================
+   حالت مرورگر فاقد View Transition
+   JavaScript همین حرکت را با Web Animations اجرا می‌کند.
+   ========================================================== */
+
+html.project1-fallback-running {
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   دسترس‌پذیری
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(slide-surface),
+  ::view-transition-new(slide-surface),
+
+  ::view-transition-old(morph-title),
+  ::view-transition-old(morph-visual),
+  ::view-transition-old(morph-card),
+  ::view-transition-old(morph-lead),
+  ::view-transition-old(morph-eyebrow),
+
+  ::view-transition-new(morph-title),
+  ::view-transition-new(morph-visual),
+  ::view-transition-new(morph-card),
+  ::view-transition-new(morph-lead),
+  ::view-transition-new(morph-eyebrow) {
+    animation-duration:
+      .01ms !important;
+
+    animation-delay:
+      0ms !important;
+  }
+}
