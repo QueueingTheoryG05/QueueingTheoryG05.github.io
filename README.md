@@ -9,7 +9,7 @@ No Node.js, npm, build step, or internet connection is required.
 1. Extract the ZIP file.
 2. Open `index.html` in Chrome, Edge, Firefox, or Safari.
 
-For a local web-server URL:
+For a local web-server URL instead of opening the file directly:
 
 ```bash
 cd ride_hailing_queue_presentation
@@ -27,24 +27,26 @@ Then open `http://localhost:8000`.
 - `F`: fullscreen
 - Click any paper figure to open the complete image viewer
 - Swipe horizontally on mobile to navigate
-
-## Interaction
-
-- Desktop uses a chapter-aware glowing pointer whose colour changes with the presentation section.
-- Cards and figure frames use subtle hover movement, border-colour changes, and a cursor-position highlight.
-- Pointer and hover motion are disabled automatically on touch devices and reduced-motion systems.
+- Vertical scrolling remains available on mobile when a slide is taller than the screen
 
 ## Contents
 
-- `index.html` — responsive outer viewer
-- `presentation.html` — presentation content
-- `queue.css` — queueing layouts, typography, and hover styling
-- `presentation-cursor.css` / `presentation-cursor.js` — adaptive coloured presentation pointer
-- `morph-hover.js` — cursor-position hover highlighting for cards
+- `index.html` — main entry point
+- `presentation.html` — duplicate presentation entry for compatibility
+- `queue.css` — queueing presentation layouts and final visual overrides
 - `reference-base.css` / `reference-mobile.css` — visual foundation from the reference presentation
-- `script.js` — navigation, progress, URL state, fullscreen, image viewer, and swipe controls
-- `assets/` — figures extracted from the paper
+- `script.js` — navigation, progress, URL state, fullscreen, and swipe controls
+- `assets/` — figures cropped from the paper
 - `vendor/mathjax/` — local MathJax renderer for LaTeX equations
 - `paper.pdf` — source paper opened by the Paper button
 
-The desktop presentation automatically fits the full laptop viewport at browser zoom 100%, while preserving a stable layout scale. All visible presentation typography uses Times New Roman.
+The desktop presentation automatically fits the full laptop viewport at browser zoom 100%, while preserving one stable layout scale. All visible presentation typography uses Times New Roman. Mathematical notation is rendered from LaTeX through the included local MathJax file.
+
+
+Navigation includes keyboard controls, fullscreen mode, and a slide Overview panel.
+
+## V6 display controls
+
+- The desktop canvas is fixed at 1440×810 and automatically fitted to each laptop viewport at the default 100% presentation scale.
+- Use the visible − / 100% / + controls for presentation zoom.
+- Use Overview or Fullscreen from the footer; keyboard shortcuts O and F remain available.

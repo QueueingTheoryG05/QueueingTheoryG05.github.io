@@ -4476,3 +4476,1253 @@ html body #presentation #slide-1 .display-title {
 html body #presentation #slide-31 .display-title {
   line-height: 1.02 !important;
 }
+
+/* ========================================================================
+   V16 — first section split into more slides for cleaner layout
+   ======================================================================== */
+
+#slide-6 .analogy-map-layout,
+#slide-7 .difference-grid-layout,
+#slide-11b .nonstationary-layout {
+  display: grid;
+  gap: 14px;
+}
+
+#slide-6 .analogy-head,
+#slide-7 .difference-banner {
+  margin: 0;
+}
+
+#slide-6 .analogy-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+#slide-6 .map-col {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(16,32,44,.12);
+  background: rgba(255,255,255,.75);
+  box-shadow: 0 8px 24px rgba(7,17,28,.05);
+}
+
+#slide-6 .map-col > h3 {
+  margin: 0 0 2px;
+  text-align: center;
+}
+
+#slide-6 .map-item {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(6,21,34,.045);
+}
+
+#slide-6 .map-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+#slide-6 .map-arrows {
+  display: grid;
+  grid-template-rows: 52px repeat(4, minmax(0, 1fr));
+  place-items: center;
+  color: var(--accent);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#slide-7 .difference-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#slide-7 .difference-grid article,
+#slide-11b .stacked-insights article {
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(16,32,44,.12);
+  background: rgba(255,255,255,.74);
+  box-shadow: 0 8px 24px rgba(7,17,28,.05);
+}
+
+#slide-8 .queue-objective-layout article,
+#slide-9 .assumption-grid article {
+  min-height: 0 !important;
+}
+
+#slide-10 .transition-columns .formula-card {
+  min-height: 0 !important;
+}
+
+#slide-11b .nonstationary-layout {
+  grid-template-columns: minmax(0, 1.18fr) minmax(350px, .9fr);
+  align-items: center;
+}
+
+#slide-11b .stacked-insights {
+  display: grid;
+  gap: 12px;
+}
+
+#slide-11b .stacked-insights .accent-card {
+  background: rgba(255,112,67,.10);
+}
+
+#slide-12b .method-columns article {
+  min-height: 0 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-6 .map-col,
+  #slide-7 .difference-grid article,
+  #slide-11b .stacked-insights article {
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 760px), (max-width: 1100px) and (max-height: 680px) {
+  #slide-6 .analogy-map,
+  #slide-11b .nonstationary-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  #slide-6 .map-arrows {
+    grid-template-rows: none !important;
+    grid-template-columns: repeat(4, 1fr);
+    min-height: 32px;
+  }
+
+  #slide-7 .difference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ========================================================================
+   V17 — visual polish and safer spacing for the redesigned queueing section
+   ======================================================================== */
+
+#slide-3 .slide-heading,
+#slide-4 .slide-heading,
+#slide-5 .slide-heading,
+#slide-6 .slide-heading,
+#slide-7 .slide-heading,
+#slide-8 .slide-heading,
+#slide-9 .slide-heading,
+#slide-10 .slide-heading,
+#slide-11 .slide-heading,
+#slide-11b .slide-heading,
+#slide-12 .slide-heading,
+#slide-12b .slide-heading {
+  margin-bottom: 14px !important;
+}
+
+#slide-3 .type-slide-title,
+#slide-4 .type-slide-title,
+#slide-5 .type-slide-title,
+#slide-6 .type-slide-title,
+#slide-7 .type-slide-title,
+#slide-8 .type-slide-title,
+#slide-9 .type-slide-title,
+#slide-10 .type-slide-title,
+#slide-11 .type-slide-title,
+#slide-11b .type-slide-title,
+#slide-12 .type-slide-title,
+#slide-12b .type-slide-title {
+  font-size: 30px !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.02em !important;
+}
+
+#slide-3 .slide-content,
+#slide-4 .slide-content,
+#slide-5 .slide-content,
+#slide-6 .slide-content,
+#slide-7 .slide-content,
+#slide-8 .slide-content,
+#slide-9 .slide-content,
+#slide-10 .slide-content,
+#slide-11 .slide-content,
+#slide-11b .slide-content,
+#slide-12 .slide-content,
+#slide-12b .slide-content {
+  align-items: center !important;
+}
+
+/* Card polish: academic, warm, close to the reference site. */
+#slide-3 article,
+#slide-4 .formula-card,
+#slide-4 .tradeoff-formulas,
+#slide-5 .queue-system-flow article,
+#slide-6 .map-col,
+#slide-6 .map-item,
+#slide-7 .difference-grid article,
+#slide-8 .queue-objective-layout article,
+#slide-9 .assumption-grid article,
+#slide-10 .transition-columns .formula-card,
+#slide-11 article,
+#slide-11b article,
+#slide-12 article,
+#slide-12b .method-columns article {
+  border-radius: 18px !important;
+  border: 1px solid rgba(16, 32, 44, .12) !important;
+  box-shadow: 0 14px 34px rgba(7, 17, 28, .075) !important;
+}
+
+#slide-3 .decision-banner,
+#slide-7 .difference-banner,
+#slide-8 .one-line-claim,
+#slide-9 .note-strip,
+#slide-11 .decision-banner,
+#slide-11b .decision-banner,
+#slide-12b .gap-banner {
+  border-radius: 16px !important;
+  box-shadow: 0 12px 28px rgba(7, 17, 28, .09) !important;
+}
+
+/* Slide 3: keep figure generous and make the right cards visually equal. */
+#slide-3 .split-figure-layout {
+  height: min(54vh, 470px) !important;
+  grid-template-columns: minmax(0, 1.45fr) minmax(330px, .82fr) !important;
+  gap: 18px !important;
+}
+
+#slide-3 .stacked-insights {
+  grid-auto-rows: 1fr !important;
+  gap: 11px !important;
+}
+
+#slide-3 .stacked-insights article,
+#slide-3 .decision-banner {
+  min-height: 0 !important;
+  padding: 15px 17px !important;
+}
+
+/* Slide 4: use a visual balance similar to the original trade-off slide. */
+#slide-4 .tradeoff-layout {
+  height: min(55vh, 480px) !important;
+  grid-template-columns: minmax(300px, .8fr) minmax(0, 1.55fr) !important;
+  gap: 20px !important;
+}
+
+#slide-4 .tradeoff-formulas {
+  gap: 10px !important;
+  align-content: center !important;
+}
+
+#slide-4 .formula-card {
+  padding: 12px 16px !important;
+}
+
+/* Slide 5: restore clean horizontal queue flow without overfilling. */
+#slide-5 .queue-system-flow {
+  gap: 10px !important;
+  grid-template-columns: minmax(0,1fr) 26px minmax(0,1.16fr) 26px minmax(0,1.16fr) 26px minmax(0,1fr) !important;
+  align-items: stretch !important;
+}
+
+#slide-5 .queue-system-flow article {
+  min-height: 205px !important;
+  padding: 16px 15px !important;
+}
+
+#slide-5 .queue-system-flow > i {
+  align-self: center !important;
+  justify-self: center !important;
+  font-size: 24px !important;
+}
+
+#slide-5 .queue-characteristics {
+  margin-top: 13px !important;
+  gap: 7px !important;
+}
+
+#slide-5 .queue-characteristics span {
+  padding: 7px 10px !important;
+}
+
+/* Slide 6: analogy map uses rows as visual correspondences. */
+#slide-6 .analogy-map-layout {
+  gap: 12px !important;
+}
+
+#slide-6 .analogy-head {
+  text-align: center !important;
+  padding: 12px 16px !important;
+}
+
+#slide-6 .analogy-map {
+  grid-template-columns: minmax(0,1fr) 38px minmax(0,1fr) !important;
+  gap: 10px !important;
+}
+
+#slide-6 .map-col {
+  padding: 14px !important;
+  gap: 8px !important;
+}
+
+#slide-6 .map-item {
+  padding: 10px 12px !important;
+  min-height: 72px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+#slide-6 .map-item p {
+  margin: 0 !important;
+}
+
+#slide-6 .map-arrows {
+  grid-template-rows: 40px repeat(4, minmax(0, 1fr)) !important;
+  font-size: 21px !important;
+}
+
+/* Slide 7: six differences, still spacious but not tall. */
+#slide-7 .difference-grid-layout {
+  gap: 10px !important;
+}
+
+#slide-7 .difference-banner {
+  text-align: center !important;
+  padding: 12px 15px !important;
+}
+
+#slide-7 .difference-grid {
+  grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  gap: 10px !important;
+}
+
+#slide-7 .difference-grid article {
+  min-height: 126px !important;
+  padding: 13px 14px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+/* Slide 8: four clear formulation cards, not stretched. */
+#slide-8 .queue-objective-layout {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+}
+
+#slide-8 .queue-objective-layout article {
+  min-height: 185px !important;
+  padding: 17px 16px !important;
+  display: grid !important;
+  align-content: center !important;
+  background: rgba(255,255,255,.72) !important;
+}
+
+#slide-8 .one-line-claim {
+  width: min(1080px, 100%) !important;
+  margin: 14px auto 0 !important;
+  text-align: center !important;
+}
+
+/* Slide 9: assumptions fit as a compact 3-by-2 grid. */
+#slide-9 .assumption-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+#slide-9 .assumption-grid article {
+  min-height: 126px !important;
+  padding: 13px 14px !important;
+}
+
+#slide-9 .note-strip {
+  margin-top: 12px !important;
+  padding: 12px 15px !important;
+  text-align: center !important;
+}
+
+/* Slide 10: transition equations stay readable without giant empty space. */
+#slide-10 .transition-layout-refined {
+  display: grid !important;
+  gap: 12px !important;
+}
+
+#slide-10 .transition-claim {
+  padding: 10px 16px !important;
+  text-align: center !important;
+}
+
+#slide-10 .transition-columns {
+  gap: 14px !important;
+}
+
+#slide-10 .transition-columns .formula-card {
+  padding: 17px 20px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+/* Slide 11 and 11b: keep side panels equal and calm. */
+#slide-11 .split-figure-layout,
+#slide-11b .nonstationary-layout,
+#slide-12 .split-figure-layout {
+  height: min(54vh, 470px) !important;
+  grid-template-columns: minmax(0, 1.42fr) minmax(340px, .86fr) !important;
+  gap: 18px !important;
+}
+
+#slide-11 .stacked-insights,
+#slide-11b .stacked-insights,
+#slide-12 .stacked-insights {
+  gap: 11px !important;
+  align-content: center !important;
+}
+
+#slide-11 .stacked-insights article,
+#slide-11b .stacked-insights article,
+#slide-12 .stacked-insights article {
+  min-height: 0 !important;
+  padding: 14px 16px !important;
+}
+
+#slide-11 .decision-banner,
+#slide-11b .decision-banner {
+  padding: 12px 16px !important;
+}
+
+/* Slide 12b: bridge slide with light, centered cards. */
+#slide-12b .method-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+#slide-12b .method-columns article {
+  min-height: 170px !important;
+  padding: 18px 20px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+#slide-12b .gap-banner {
+  margin-top: 14px !important;
+  padding: 16px 20px !important;
+  display: grid !important;
+  gap: 7px !important;
+  background: var(--deep-blue) !important;
+  color: white !important;
+}
+
+#slide-12b .gap-banner strong {
+  color: var(--accent-2) !important;
+  font-size: var(--type-card-title) !important;
+}
+
+#slide-12b .gap-banner span {
+  font-size: var(--type-body-copy) !important;
+  line-height: 1.46 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-3 .type-slide-title,
+  #slide-4 .type-slide-title,
+  #slide-5 .type-slide-title,
+  #slide-6 .type-slide-title,
+  #slide-7 .type-slide-title,
+  #slide-8 .type-slide-title,
+  #slide-9 .type-slide-title,
+  #slide-10 .type-slide-title,
+  #slide-11 .type-slide-title,
+  #slide-11b .type-slide-title,
+  #slide-12 .type-slide-title,
+  #slide-12b .type-slide-title {
+    font-size: 28px !important;
+  }
+
+  #slide-7 .difference-grid article,
+  #slide-9 .assumption-grid article {
+    min-height: 112px !important;
+    padding: 11px 12px !important;
+  }
+
+  #slide-8 .queue-objective-layout article {
+    min-height: 158px !important;
+    padding: 14px 13px !important;
+  }
+
+  #slide-5 .queue-system-flow article {
+    min-height: 176px !important;
+  }
+
+  #slide-6 .map-item {
+    min-height: 60px !important;
+  }
+}
+
+
+/* ========================================================================
+   V18 — visual polish: remove harsh highlight blocks, refine cards & type
+   ======================================================================== */
+
+/* A calmer semantic scale: same categories, better hierarchy */
+:root {
+  --type-slide-title: 30px;
+  --type-eyebrow: 9px;
+  --type-card-title: 17px;
+  --type-card-label: 9.5px;
+  --type-body-copy: 14.5px;
+  --type-banner: 14.5px;
+  --type-data-value: 20px;
+  --type-table-head: 11px;
+  --type-table-body: 13.5px;
+  --type-caption: 9px;
+}
+
+html body #presentation .slide .type-slide-title {
+  font-size: var(--type-slide-title) !important;
+  line-height: 1.08 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.018em !important;
+}
+
+html body #presentation .slide .type-eyebrow {
+  font-size: var(--type-eyebrow) !important;
+  font-weight: 700 !important;
+  letter-spacing: .11em !important;
+  color: rgba(255,112,67,.92) !important;
+}
+
+html body #presentation .slide .type-card-title,
+html body #presentation .slide h3.type-card-title {
+  font-size: var(--type-card-title) !important;
+  line-height: 1.18 !important;
+  font-weight: 650 !important;
+}
+
+html body #presentation .slide .type-body-copy,
+html body #presentation .slide p.type-body-copy {
+  font-size: var(--type-body-copy) !important;
+  line-height: 1.43 !important;
+  font-weight: 400 !important;
+}
+
+html body #presentation .slide .type-card-label,
+html body #presentation .slide article > span.type-card-label,
+html body #presentation .slide .stacked-insights article > span,
+html body #presentation .slide .policy-rules article > span {
+  font-size: var(--type-card-label) !important;
+  line-height: 1.2 !important;
+  letter-spacing: .07em !important;
+  color: rgba(255,112,67,.92) !important;
+}
+
+/* General card language: quiet surface, small shadow, no loud fills */
+html body #presentation .slide article,
+html body #presentation .slide .objective-box,
+html body #presentation .slide .action-matrix-card,
+html body #presentation .slide .observation-card,
+html body #presentation .slide .formula-card,
+html body #presentation .slide .map-item,
+html body #presentation .slide .result-table-wrap,
+html body #presentation .slide .state-summary-card,
+html body #presentation .slide .epoch-strip,
+html body #presentation .slide .epoch-box {
+  border-color: rgba(16,32,44,.105) !important;
+  box-shadow: 0 10px 24px rgba(7,17,28,.055) !important;
+}
+
+/* Replace harsh banner / highlight look with academic side-note cards */
+html body #presentation .slide .decision-banner,
+html body #presentation .slide .note-strip,
+html body #presentation .slide .one-line-claim,
+html body #presentation .slide .partial-observation-banner,
+html body #presentation .slide .policy-lookup,
+html body #presentation .slide .architecture-warning,
+html body #presentation .slide .gap-banner,
+html body #presentation .slide .difference-banner,
+html body #presentation .slide .analogy-head {
+  background: rgba(255,255,255,.78) !important;
+  color: var(--ink) !important;
+  border: 1px solid rgba(16,32,44,.12) !important;
+  border-left: 4px solid rgba(255,112,67,.72) !important;
+  box-shadow: 0 10px 26px rgba(7,17,28,.06) !important;
+  border-radius: 15px !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+}
+
+html body #presentation .slide .decision-banner strong,
+html body #presentation .slide .note-strip strong,
+html body #presentation .slide .one-line-claim strong,
+html body #presentation .slide .partial-observation-banner strong,
+html body #presentation .slide .policy-lookup strong,
+html body #presentation .slide .gap-banner strong,
+html body #presentation .slide .difference-banner strong,
+html body #presentation .slide .analogy-head strong {
+  color: var(--deep-blue) !important;
+  font-weight: 700 !important;
+}
+
+/* Dark-theme slides keep the same idea, but on a translucent quiet card */
+html body #presentation .theme-method .decision-banner,
+html body #presentation .theme-method .note-strip,
+html body #presentation .theme-method .one-line-claim,
+html body #presentation .theme-method .partial-observation-banner,
+html body #presentation .theme-method .architecture-warning,
+html body #presentation .theme-method .gap-banner,
+html body #presentation .theme-method .difference-banner,
+html body #presentation .theme-method .analogy-head {
+  background: rgba(255,255,255,.075) !important;
+  color: #eef4f5 !important;
+  border-color: rgba(255,255,255,.13) !important;
+  border-left-color: rgba(245,185,66,.85) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12) !important;
+}
+
+html body #presentation .theme-method .decision-banner strong,
+html body #presentation .theme-method .note-strip strong,
+html body #presentation .theme-method .one-line-claim strong,
+html body #presentation .theme-method .partial-observation-banner strong,
+html body #presentation .theme-method .architecture-warning strong,
+html body #presentation .theme-method .gap-banner strong {
+  color: var(--accent-2) !important;
+}
+
+/* Accent cards should feel selected, not highlighted with a wash of orange */
+html body #presentation .slide .accent-card {
+  background: rgba(255,255,255,.78) !important;
+  border-color: rgba(255,112,67,.28) !important;
+  border-left: 4px solid rgba(255,112,67,.78) !important;
+}
+
+html body #presentation .theme-method .accent-card {
+  background: rgba(255,255,255,.085) !important;
+  border-color: rgba(245,185,66,.28) !important;
+  border-left: 4px solid rgba(245,185,66,.78) !important;
+}
+
+/* First queueing section: lighter visuals and better rhythm */
+#slide-3 .stacked-insights article,
+#slide-4 .tradeoff-formulas .formula-card,
+#slide-5 .queue-system-flow article,
+#slide-6 .map-col,
+#slide-6 .map-item,
+#slide-7 .difference-grid article,
+#slide-8 .queue-objective-layout article,
+#slide-9 .assumption-grid article,
+#slide-10 .transition-columns .formula-card,
+#slide-11 .stacked-insights article,
+#slide-11b .stacked-insights article,
+#slide-12 .stacked-insights article,
+#slide-12b .method-columns article {
+  background: rgba(255,255,255,.74) !important;
+  border-radius: 16px !important;
+}
+
+#slide-3 .stacked-insights article,
+#slide-11 .stacked-insights article,
+#slide-11b .stacked-insights article,
+#slide-12 .stacked-insights article {
+  padding: 14px 16px !important;
+}
+
+/* Make formula cards quieter and more academic */
+html body #presentation .slide .formula-card {
+  background: rgba(255,255,255,.78) !important;
+  color: var(--ink) !important;
+}
+
+html body #presentation .slide .total-formula,
+html body #presentation .slide .tradeoff-formulas .total-formula {
+  background: rgba(255,255,255,.8) !important;
+  color: var(--ink) !important;
+  border-left: 4px solid rgba(255,112,67,.78) !important;
+}
+
+/* On dark method slides, keep formula cards readable without the heavy color block */
+html body #presentation .theme-method .formula-card {
+  background: rgba(255,255,255,.08) !important;
+  color: #eef4f5 !important;
+  border-color: rgba(255,255,255,.14) !important;
+}
+
+/* Card hover: subtle morph, matching the reference-site feel but not jumpy */
+html body #presentation .slide article,
+html body #presentation .slide .formula-card,
+html body #presentation .slide .figure-card,
+html body #presentation .slide .map-item,
+html body #presentation .slide .objective-box,
+html body #presentation .slide .action-matrix-card,
+html body #presentation .slide .observation-card,
+html body #presentation .slide .result-table-wrap,
+html body #presentation .slide .big-result-card {
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease !important;
+}
+
+html body #presentation .slide article:hover,
+html body #presentation .slide .formula-card:hover,
+html body #presentation .slide .figure-card:hover,
+html body #presentation .slide .map-item:hover,
+html body #presentation .slide .objective-box:hover,
+html body #presentation .slide .action-matrix-card:hover,
+html body #presentation .slide .observation-card:hover,
+html body #presentation .slide .result-table-wrap:hover,
+html body #presentation .slide .big-result-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(255,112,67,.35) !important;
+  box-shadow: 0 16px 34px rgba(7,17,28,.09) !important;
+}
+
+/* Avoid awkward justified stretching in short cards: keep body neat and readable */
+html body #presentation .slide article p.type-body-copy,
+html body #presentation .slide .stacked-insights p.type-body-copy,
+html body #presentation .slide .method-columns p.type-body-copy,
+html body #presentation .slide .assumption-grid p.type-body-copy,
+html body #presentation .slide .difference-grid p.type-body-copy,
+html body #presentation .slide .map-item p.type-body-copy,
+html body #presentation .slide .queue-objective-layout p.type-body-copy {
+  text-align: left !important;
+  text-align-last: left !important;
+}
+
+/* Keep only longer narrative paragraphs justified */
+html body #presentation .slide .closing-grid p.type-body-copy,
+html body #presentation .slide .policy-rules p.type-body-copy,
+html body #presentation .slide .limitation-grid p.type-body-copy {
+  text-align: justify !important;
+  text-align-last: left !important;
+}
+
+/* Refine source/caption treatment */
+html body #presentation .slide .source-note,
+html body #presentation .slide .type-caption {
+  color: rgba(16,32,44,.55) !important;
+  letter-spacing: .045em !important;
+}
+
+/* Better figure card balance */
+html body #presentation .slide .figure-card {
+  background: rgba(255,255,255,.82) !important;
+  padding: 9px !important;
+  border-radius: 18px !important;
+}
+
+html body #presentation .theme-method .figure-card {
+  background: rgba(255,255,255,.94) !important;
+}
+
+/* Slightly reduce crowded section titles on the new queueing slides */
+@media (min-width: 761px) {
+  #slide-3 .type-slide-title,
+  #slide-4 .type-slide-title,
+  #slide-5 .type-slide-title,
+  #slide-6 .type-slide-title,
+  #slide-7 .type-slide-title,
+  #slide-8 .type-slide-title,
+  #slide-9 .type-slide-title,
+  #slide-10 .type-slide-title,
+  #slide-11 .type-slide-title,
+  #slide-11b .type-slide-title,
+  #slide-12 .type-slide-title,
+  #slide-12b .type-slide-title {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  :root {
+    --type-slide-title: 28px;
+    --type-card-title: 16px;
+    --type-body-copy: 13.7px;
+    --type-banner: 13.7px;
+  }
+
+  html body #presentation .slide .type-slide-title {
+    font-size: var(--type-slide-title) !important;
+  }
+
+  #slide-6 .map-item,
+  #slide-7 .difference-grid article,
+  #slide-8 .queue-objective-layout article,
+  #slide-9 .assumption-grid article {
+    padding: 11px 12px !important;
+  }
+}
+
+/* ========================================================================
+   V20 — redesign slides 13 and 14 for cleaner academic visual layout
+   ======================================================================== */
+#slide-12 .simulator-redesign {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(430px, .92fr) !important;
+  gap: 22px !important;
+  align-items: center !important;
+}
+
+#slide-12 .simulator-figure-panel {
+  align-self: center !important;
+  padding: 18px !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.86) !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  box-shadow: 0 14px 34px rgba(7,17,28,.08) !important;
+}
+
+#slide-12 .simulator-figure-panel img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 440px !important;
+  object-fit: contain !important;
+}
+
+#slide-12 .simulator-flow-panel {
+  display: grid !important;
+  gap: 14px !important;
+  align-content: center !important;
+}
+
+#slide-12 .sim-flow-step {
+  display: grid !important;
+  grid-template-columns: 58px minmax(0,1fr) !important;
+  gap: 16px !important;
+  align-items: start !important;
+  padding: 18px 20px !important;
+  border-radius: 18px !important;
+  background: rgba(255,255,255,.74) !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  box-shadow: 0 10px 26px rgba(7,17,28,.055) !important;
+}
+
+#slide-12 .sim-flow-step .step-index {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 14px !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  background: var(--deep-blue) !important;
+  letter-spacing: .04em !important;
+}
+
+#slide-12 .sim-flow-step h3,
+#slide-14 .literature-card h3,
+#slide-12b .literature-card h3 {
+  margin: 0 0 7px !important;
+  color: var(--ink) !important;
+  text-align: left !important;
+}
+
+#slide-12 .sim-flow-step p,
+#slide-14 .literature-card p,
+#slide-12b .literature-card p {
+  margin: 0 !important;
+  color: rgba(25, 43, 58, .78) !important;
+  text-align: justify !important;
+  text-align-last: left !important;
+}
+
+#slide-12 .sim-flow-step p + p,
+#slide-14 .literature-card p + p,
+#slide-12b .literature-card p + p {
+  margin-top: 8px !important;
+}
+
+#slide-12b .literature-redesign,
+#slide-14 .literature-redesign {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) 240px minmax(0,1fr) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+}
+
+#slide-12b .literature-card,
+#slide-14 .literature-card {
+  display: grid !important;
+  align-content: center !important;
+  padding: 28px 30px !important;
+  border-radius: 22px !important;
+  background: rgba(255,255,255,.76) !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  box-shadow: 0 14px 34px rgba(7,17,28,.07) !important;
+}
+
+#slide-12b .literature-card > span,
+#slide-14 .literature-card > span {
+  margin-bottom: 12px !important;
+  color: var(--accent) !important;
+  text-align: left !important;
+}
+
+#slide-12b .bridge-column,
+#slide-14 .bridge-column {
+  display: grid !important;
+  grid-template-rows: 1fr auto 1fr !important;
+  align-items: center !important;
+  justify-items: center !important;
+  min-height: 420px !important;
+}
+
+#slide-12b .bridge-line,
+#slide-14 .bridge-line {
+  width: 1px !important;
+  height: 100% !important;
+  background: linear-gradient(180deg, transparent, rgba(18,39,53,.22), transparent) !important;
+}
+
+#slide-12b .bridge-core,
+#slide-14 .bridge-core {
+  width: 100% !important;
+  padding: 24px 18px !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  box-shadow: 0 16px 40px rgba(7,17,28,.08) !important;
+  text-align: center !important;
+}
+
+#slide-12b .bridge-core span,
+#slide-14 .bridge-core span {
+  display: block !important;
+  margin-bottom: 10px !important;
+  color: var(--accent) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+}
+
+#slide-12b .bridge-core strong,
+#slide-14 .bridge-core strong {
+  color: var(--ink) !important;
+  font-size: 16px !important;
+  line-height: 1.42 !important;
+  font-weight: 600 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-12 .sim-flow-step {
+    padding: 15px 18px !important;
+    gap: 14px !important;
+  }
+  #slide-12 .simulator-figure-panel img {
+    max-height: 390px !important;
+  }
+  #slide-12b .bridge-column,
+  #slide-14 .bridge-column {
+    min-height: 360px !important;
+  }
+  #slide-12b .literature-card,
+  #slide-14 .literature-card {
+    padding: 22px 24px !important;
+  }
+}
+
+/* ========================================================================
+   V21 — requested spacing refinements for slides 8, 9, and actual slide 14
+   ======================================================================== */
+
+/* Slides 8–9: bring the lower summary strips up, but keep a clean gap from
+   the card grid above. */
+#slide-8 .queue-objective-layout {
+  gap: 11px !important;
+  margin-bottom: 7px !important;
+  align-items: start !important;
+}
+
+#slide-8 .queue-objective-layout article {
+  min-height: 160px !important;
+  padding: 15px 15px !important;
+  align-content: center !important;
+}
+
+#slide-8 .one-line-claim {
+  margin: 9px auto 0 !important;
+  padding: 12px 16px !important;
+  transform: translateY(-4px) !important;
+}
+
+#slide-9 .assumption-grid {
+  gap: 9px !important;
+  margin-bottom: 7px !important;
+}
+
+#slide-9 .assumption-grid article {
+  min-height: 112px !important;
+  padding: 12px 13px !important;
+}
+
+#slide-9 .note-strip {
+  margin-top: 9px !important;
+  padding: 11px 15px !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Actual slide 14 is the literature bridge slide (#slide-12b): make the two
+   side cards match the text height and remain equal to each other. */
+#slide-12b .literature-redesign {
+  grid-template-columns: minmax(0, 1fr) 210px minmax(0, 1fr) !important;
+  gap: 16px !important;
+  align-items: center !important;
+}
+
+#slide-12b .literature-card {
+  min-height: 245px !important;
+  height: 245px !important;
+  padding: 20px 22px !important;
+  align-content: center !important;
+}
+
+#slide-12b .bridge-column {
+  min-height: 245px !important;
+  height: 245px !important;
+  grid-template-rows: 1fr auto 1fr !important;
+}
+
+#slide-12b .bridge-core {
+  padding: 17px 14px !important;
+  border-radius: 18px !important;
+}
+
+#slide-12b .bridge-core strong {
+  font-size: 15px !important;
+  line-height: 1.34 !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-8 .queue-objective-layout article {
+    min-height: 148px !important;
+    padding: 13px 14px !important;
+  }
+
+  #slide-9 .assumption-grid article {
+    min-height: 104px !important;
+    padding: 10px 12px !important;
+  }
+
+  #slide-12b .literature-card,
+  #slide-12b .bridge-column {
+    height: 225px !important;
+    min-height: 225px !important;
+  }
+
+  #slide-12b .literature-card {
+    padding: 18px 20px !important;
+  }
+}
+
+/* ========================================================================
+   V22 — aesthetic cleanup: pointer, roadmap harmony, slides 4, 8, 9, and 14
+   ======================================================================== */
+
+/* Slide 4: put the concluding sentence in a real visual box */
+#slide-4 .tradeoff-formulas > p.type-body-copy {
+  margin: 4px 0 0 !important;
+  padding: 14px 18px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(18,39,53,.12) !important;
+  background: rgba(255,255,255,.78) !important;
+  box-shadow: 0 10px 24px rgba(7,17,28,.05) !important;
+  text-align: left !important;
+  line-height: 1.42 !important;
+}
+
+/* Roadmap wording and slide-title rhythm */
+#slide-2 .slide-heading,
+#slide-2 .slide-content {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#slide-2 .roadmap-grid.six-roadmap article h3 {
+  letter-spacing: -.02em !important;
+}
+
+/* Slides 8 and 9: raise the bottom horizontal box slightly, keep a clean gap */
+#slide-8 .one-line-claim {
+  max-width: 1320px !important;
+  margin: 4px auto 0 !important;
+  padding: 11px 16px !important;
+  transform: translateY(-12px) !important;
+}
+
+#slide-9 .note-strip {
+  max-width: 1360px !important;
+  margin: 5px auto 0 !important;
+  padding: 11px 16px !important;
+  transform: translateY(-12px) !important;
+}
+
+/* 14th slide in the deck (= slide-12b): center the composition and trim card sizes */
+#slide-12b .slide-shell {
+  height: 100%;
+  display: grid;
+  align-content: center;
+}
+
+#slide-12b .slide-heading {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto 18px !important;
+}
+
+#slide-12b .literature-redesign {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr) !important;
+  gap: 18px !important;
+  align-items: center !important;
+}
+
+#slide-12b .literature-card {
+  min-height: 228px !important;
+  height: auto !important;
+  padding: 18px 20px !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+#slide-12b .literature-card .type-card-title,
+#slide-12b .bridge-core strong {
+  font-size: 17px !important;
+  line-height: 1.42 !important;
+}
+
+#slide-12b .literature-card .type-body-copy {
+  line-height: 1.42 !important;
+}
+
+#slide-12b .bridge-column {
+  min-height: 228px !important;
+  height: 228px !important;
+}
+
+#slide-12b .bridge-core {
+  padding: 14px 14px !important;
+}
+
+/* Slightly calmer type proportions on slide 12b so all three panels feel unified */
+#slide-12b .type-card-label,
+#slide-12b .bridge-core span {
+  font-size: 11px !important;
+  letter-spacing: .10em !important;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  #slide-12b .literature-redesign {
+    gap: 16px !important;
+    grid-template-columns: minmax(0, 1fr) 220px minmax(0, 1fr) !important;
+  }
+
+  #slide-12b .literature-card,
+  #slide-12b .bridge-column {
+    min-height: 214px !important;
+    height: 214px !important;
+  }
+}
+
+/* ========================================================================
+   V23 — requested fine adjustments for slides 8, 9, and 14
+   ======================================================================== */
+
+/* Slides 8 and 9: move the bottom strip higher, with a small clean gap */
+#slide-8 .one-line-claim {
+  margin: -8px auto 0 !important;
+  transform: none !important;
+}
+
+#slide-9 .note-strip {
+  margin: -8px auto 0 !important;
+  transform: none !important;
+}
+
+/* Slide 14 in the user's numbering (= #slide-12b): keep the heading in its
+   original position, preserve the center line, and only center the boxes in
+   the remaining page area. */
+#slide-12b .slide-shell {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: stretch !important;
+}
+
+#slide-12b .slide-heading {
+  width: auto !important;
+  max-width: 1040px !important;
+  margin: 0 0 clamp(24px, 3.1vh, 42px) 0 !important;
+}
+
+#slide-12b .literature-redesign {
+  align-self: center !important;
+  margin: 0 auto !important;
+}
+
+/* ========================================================================
+   V24 — stronger upward move for the bottom strips on slides 8 and 9
+   ======================================================================== */
+#slide-8 .queue-objective-layout,
+#slide-9 .assumption-grid {
+  margin-bottom: 0 !important;
+}
+
+#slide-8 .one-line-claim {
+  margin: -24px auto 0 !important;
+  transform: none !important;
+}
+
+#slide-9 .note-strip {
+  margin: -24px auto 0 !important;
+  transform: none !important;
+}
+
+/* ========================================================================
+   V25 — bring the bottom summary boxes directly under the upper cards
+   on slides 8 and 9, without moving the upper cards downward
+   ======================================================================== */
+#slide-8 .one-line-claim {
+  margin: 0 auto !important;
+  transform: translateY(-86px) !important;
+}
+
+#slide-9 .note-strip {
+  margin: 0 auto !important;
+  transform: translateY(-58px) !important;
+}
+
+/* ========================================================================
+   V26 — slide 9 bottom box width aligned with the three upper boxes
+   ======================================================================== */
+#slide-9 .note-strip {
+  width: min(1080px, 100%) !important;
+}
+
+/* ========================================================================
+   V27 — slide 16 (HTML #slide-14): reduce the oversized left math box
+   ======================================================================== */
+#slide-14.assignment-layout {}
+#slide-14 .assignment-layout {
+  grid-template-columns: minmax(0, .84fr) minmax(0, 1.16fr) !important;
+  align-items: stretch;
+}
+
+#slide-14 .light-math-box {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 18px 20px !important;
+  align-content: center !important;
+}
+
+#slide-14 .light-math-box mjx-container {
+  font-size: 96% !important;
+}
+
+/* ========================================================================
+   V28 — slide 29: make orange box titles smaller
+   ======================================================================== */
+#slide-27 .policy-rules .type-card-label {
+  font-size: 10px !important;
+  letter-spacing: .10em !important;
+}

@@ -1,13 +1,13 @@
 /* Adaptive glowing presentation pointer, based on the reference presentation. */
 :root {
   --pointer-rgb: 255, 112, 67;
-  --pointer-core-size: 10px;
-  --pointer-core-size-hover: 14px;
-  --pointer-core-size-pressed: 8px;
-  --pointer-core-size-text: 8px;
-  --pointer-glow-size: 68px;
-  --pointer-glow-size-pressed: 54px;
-  --pointer-glow-size-text: 40px;
+  --pointer-core-size: 7px;
+  --pointer-core-size-hover: 10px;
+  --pointer-core-size-pressed: 6px;
+  --pointer-core-size-text: 6px;
+  --pointer-glow-size: 34px;
+  --pointer-glow-size-pressed: 28px;
+  --pointer-glow-size-text: 22px;
 }
 
 .presentation-pointer,
@@ -49,9 +49,9 @@
       rgba(var(--pointer-rgb),0) 100%
     );
     filter:
-      drop-shadow(0 0 2px rgba(var(--pointer-rgb),.82))
-      drop-shadow(0 0 6px rgba(var(--pointer-rgb),.42))
-      drop-shadow(0 0 10px rgba(var(--pointer-rgb),.14));
+      drop-shadow(0 0 1px rgba(var(--pointer-rgb),.72))
+      drop-shadow(0 0 4px rgba(var(--pointer-rgb),.28))
+      drop-shadow(0 0 7px rgba(var(--pointer-rgb),.10));
   }
 
   .presentation-pointer-glow {
@@ -60,9 +60,9 @@
     height: var(--pointer-glow-size);
     background: radial-gradient(
       circle,
-      rgba(var(--pointer-rgb),.065) 0%,
-      rgba(var(--pointer-rgb),.036) 24%,
-      rgba(var(--pointer-rgb),.014) 52%,
+      rgba(var(--pointer-rgb),.045) 0%,
+      rgba(var(--pointer-rgb),.026) 24%,
+      rgba(var(--pointer-rgb),.010) 52%,
       rgba(var(--pointer-rgb),0) 82%
     );
     filter: blur(10px);
@@ -71,15 +71,15 @@
 
   .presentation-pointer.is-visible,
   .presentation-pointer-glow.is-visible { opacity: 1; }
-  .presentation-pointer-glow.is-visible { opacity: .54; }
+  .presentation-pointer-glow.is-visible { opacity: .40; }
 
   .presentation-pointer.is-interactive {
     width: var(--pointer-core-size-hover);
     height: var(--pointer-core-size-hover);
     filter:
-      drop-shadow(0 0 3px rgba(var(--pointer-rgb),.95))
-      drop-shadow(0 0 8px rgba(var(--pointer-rgb),.50))
-      drop-shadow(0 0 13px rgba(var(--pointer-rgb),.18));
+      drop-shadow(0 0 2px rgba(var(--pointer-rgb),.90))
+      drop-shadow(0 0 5px rgba(var(--pointer-rgb),.34))
+      drop-shadow(0 0 9px rgba(var(--pointer-rgb),.12));
   }
 
   .presentation-pointer.is-pressed {
@@ -97,8 +97,8 @@
     width: var(--pointer-core-size-text);
     height: var(--pointer-core-size-text);
     filter:
-      drop-shadow(0 0 2px rgba(var(--pointer-rgb),.58))
-      drop-shadow(0 0 4px rgba(var(--pointer-rgb),.24));
+      drop-shadow(0 0 1px rgba(var(--pointer-rgb),.48))
+      drop-shadow(0 0 3px rgba(var(--pointer-rgb),.16));
   }
 
   .presentation-pointer-glow.is-over-text {
