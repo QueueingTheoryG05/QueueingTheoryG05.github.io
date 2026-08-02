@@ -2,107 +2,283 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+
   <meta name="theme-color" content="#061522" />
-  <meta name="description" content="Queueing Theory presentation based on Optimizing Matching Time Intervals for Ride-Hailing Services Using Reinforcement Learning." />
+
+  <meta
+    name="description"
+    content="Queueing Theory presentation based on Optimizing Matching Time Intervals for Ride-Hailing Services Using Reinforcement Learning."
+  />
+
   <title>Ride-Hailing Matching Intervals | Queueing Theory</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <link
+    rel="icon"
+    href="favicon.svg"
+    type="image/svg+xml"
+  />
+
   <style>
     :root {
       --presentation-zoom: 1.5;
       --inverse-presentation-zoom: 66.6666666667%;
     }
+
+    /*
+      On mobile screens, disable the desktop zoom.
+      presentation.html will use its own responsive mobile layout.
+    */
     @media (max-width: 760px) {
       :root {
         --presentation-zoom: 1;
         --inverse-presentation-zoom: 100%;
       }
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body {
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
       width: 100%;
       height: 100%;
       margin: 0;
       overflow: hidden;
       background: #061522;
     }
+
     .browser-zoom-stage {
       position: fixed;
       inset: 0;
+
       width: var(--inverse-presentation-zoom);
       height: var(--inverse-presentation-zoom);
-      border: 0;
+
       display: block;
+      border: 0;
       background: #061522;
+
       transform: scale(var(--presentation-zoom));
       transform-origin: top left;
     }
-    .browser-zoom-stage:fullscreen {
-    width: var(--inverse-presentation-zoom) !important;
-    height: var(--inverse-presentation-zoom) !important;
-    transform: scale(var(--presentation-zoom)) !important;
-    transform-origin: top left !important;
-    }
   </style>
+
+  <!-- ADAPTIVE_DESKTOP_ZOOM_START -->
   <script>
     (() => {
       "use strict";
+
+      /*
+        Reference screen:
+        MacBook Air 15-inch at its common effective desktop size.
+
+        On this screen, the desired presentation zoom is 150%.
+      */
       const REFERENCE_SCREEN_WIDTH = 1710;
       const REFERENCE_SCREEN_HEIGHT = 1107;
       const REFERENCE_ZOOM = 1.5;
+
+      /*
+        Safety limits:
+        - Never reduce desktop zoom below 100%.
+        - Never increase desktop zoom above 165%.
+      */
       const MIN_DESKTOP_ZOOM = 1.0;
       const MAX_DESKTOP_ZOOM = 1.65;
+
       const mobileQuery = window.matchMedia(
         "(max-width: 760px), " +
-        "(max-width: 900px) and (max-height: 500px) and (orientation: landscape)"
+        "(max-width: 900px) and " +
+        "(max-height: 500px) and " +
+        "(orientation: landscape)"
       );
-      const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+      const clamp = (value, min, max) => {
+        return Math.min(max, Math.max(min, value));
+      };
+
       const updatePresentationZoom = () => {
         const root = document.documentElement;
+
+        /*
+          Mobile devices use their native 1:1 viewport.
+        */
         if (mobileQuery.matches) {
-          root.style.setProperty("--presentation-zoom", "1");
-          root.style.setProperty("--inverse-presentation-zoom", "100%");
+          root.style.setProperty(
+            "--presentation-zoom",
+            "1"
+          );
+
+          root.style.setProperty(
+            "--inverse-presentation-zoom",
+            "100%"
+          );
+
           root.dataset.presentationZoom = "1.000";
           return;
         }
-        const screenWidth = Number(window.screen?.width) || window.innerWidth;
-        const screenHeight = Number(window.screen?.height) || window.innerHeight;
-        const widthRatio = screenWidth / REFERENCE_SCREEN_WIDTH;
-        const heightRatio = screenHeight / REFERENCE_SCREEN_HEIGHT;
-        const deviceRatio = Math.min(widthRatio, heightRatio);
-        const windowWidthRatio = Math.min(1, window.innerWidth / screenWidth);
-        const calculatedZoom = REFERENCE_ZOOM * deviceRatio * windowWidthRatio;
-        const zoom = clamp(calculatedZoom, MIN_DESKTOP_ZOOM, MAX_DESKTOP_ZOOM);
+
+        /*
+          Effective screen dimensions in CSS pixels.
+        */
+        const screenWidth =
+          Number(window.screen?.width) ||
+          window.innerWidth;
+
+        const screenHeight =
+          Number(window.screen?.height) ||
+          window.innerHeight;
+
+        const widthRatio =
+          screenWidth / REFERENCE_SCREEN_WIDTH;
+
+        const heightRatio =
+          screenHeight / REFERENCE_SCREEN_HEIGHT;
+
+        /*
+          Use the smaller ratio to prevent content overflow.
+        */
+        const deviceRatio = Math.min(
+          widthRatio,
+          heightRatio
+        );
+
+        /*
+          Reduce zoom when the browser window is not maximized.
+        */
+        const windowWidthRatio = Math.min(
+          1,
+          window.innerWidth / screenWidth
+        );
+
+        const calculatedZoom =
+          REFERENCE_ZOOM *
+          deviceRatio *
+          windowWidthRatio;
+
+        const zoom = clamp(
+          calculatedZoom,
+          MIN_DESKTOP_ZOOM,
+          MAX_DESKTOP_ZOOM
+        );
+
         const inversePercentage = 100 / zoom;
-        root.style.setProperty("--presentation-zoom", zoom.toFixed(4));
-        root.style.setProperty("--inverse-presentation-zoom", `${inversePercentage.toFixed(6)}%`);
-        root.dataset.presentationZoom = zoom.toFixed(3);
+
+        root.style.setProperty(
+          "--presentation-zoom",
+          zoom.toFixed(4)
+        );
+
+        root.style.setProperty(
+          "--inverse-presentation-zoom",
+          `${inversePercentage.toFixed(6)}%`
+        );
+
+        /*
+          Useful for checking the calculated zoom
+          in browser developer tools.
+        */
+        root.dataset.presentationZoom =
+          zoom.toFixed(3);
       };
+
       let resizeTimer = 0;
+
       const scheduleUpdate = () => {
         window.clearTimeout(resizeTimer);
-        resizeTimer = window.setTimeout(updatePresentationZoom, 40);
+
+        resizeTimer = window.setTimeout(
+          updatePresentationZoom,
+          40
+        );
       };
+
       updatePresentationZoom();
-      window.addEventListener("resize", scheduleUpdate, { passive: true });
-      window.addEventListener("orientationchange", scheduleUpdate, { passive: true });
-      mobileQuery.addEventListener?.("change", updatePresentationZoom);
-      window.visualViewport?.addEventListener("resize", scheduleUpdate, { passive: true });
+
+      window.addEventListener(
+        "resize",
+        scheduleUpdate,
+        { passive: true }
+      );
+
+      window.addEventListener(
+        "orientationchange",
+        scheduleUpdate,
+        { passive: true }
+      );
+
+      mobileQuery.addEventListener?.(
+        "change",
+        updatePresentationZoom
+      );
+
+      window.visualViewport?.addEventListener(
+        "resize",
+        scheduleUpdate,
+        { passive: true }
+      );
     })();
   </script>
+  <!-- ADAPTIVE_DESKTOP_ZOOM_END -->
 </head>
+
 <body>
-  <iframe id="presentation-frame" class="browser-zoom-stage" src="presentation.html" title="Ride-Hailing Queueing Theory Presentation" allow="fullscreen" allowfullscreen></iframe>
+  <iframe
+    id="presentation-frame"
+    class="browser-zoom-stage"
+    src="presentation.html"
+    title="Ride-Hailing Queueing Theory Presentation"
+    allow="fullscreen"
+    allowfullscreen
+  ></iframe>
+
   <script>
     (() => {
-      const frame = document.getElementById('presentation-frame');
+      "use strict";
+
+      const frame = document.getElementById(
+        "presentation-frame"
+      );
+
       const focusPresentation = () => {
-        try { frame.contentWindow.focus(); } catch (_) {}
+        try {
+          frame.contentWindow.focus();
+        } catch (_) {
+          /*
+            The presentation remains usable even if
+            the browser prevents iframe focus.
+          */
+        }
       };
-      frame.addEventListener('load', focusPresentation);
-      window.addEventListener('load', focusPresentation);
-      window.addEventListener('pointerdown', focusPresentation, { passive: true });
-      window.addEventListener('keydown', focusPresentation);
+
+      frame.addEventListener(
+        "load",
+        focusPresentation
+      );
+
+      window.addEventListener(
+        "load",
+        focusPresentation
+      );
+
+      window.addEventListener(
+        "pointerdown",
+        focusPresentation,
+        { passive: true }
+      );
+
+      window.addEventListener(
+        "keydown",
+        focusPresentation
+      );
     })();
   </script>
 </body>
