@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-  <a href="https://QueueingTheoryG05.github.io/QueueingTheoryG05/">Open Live Presentation</a>
+  <a href="https://QueueingTheoryG05.github.io">Open Live Presentation</a>
   ·
-  <a href="https://github.com/QueueingTheoryG05/QueueingTheoryG05">Repository</a>
+  <a href="https://github.com/QueueingTheoryG05/QueueingTheoryG05.github.io">Repository</a>
   ·
   <a href="paper.pdf">Source Paper</a>
 </p>
@@ -211,4 +211,4 @@ The deployed presentation is available from:
 
 ## Repository
 
-[QueueingTheoryG05](https://github.com/QueueingTheoryG05/QueueingTheoryG05)
+[QueueingTheoryG05](https://github.com/QueueingTheoryG05/QueueingTheoryG05.github.io)
